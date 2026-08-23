@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://pjhj0ldgibp5"]
+
+[ext_resource type="Script" uid="uid://ctamlq20c6sku" path="res://core/base_classes/state_machine.gd" id="1_1q0w6"]
+[ext_resource type="Script" uid="uid://d26vbpy2myg0v" path="res://core/scenes/game/game.gd" id="1_7k0gx"]
+[ext_resource type="Script" uid="uid://d2ruiyyrt0r5q" path="res://core/scenes/game/states/load.gd" id="2_1xc84"]
+[ext_resource type="Script" uid="uid://ctdg23uhiy4fb" path="res://core/scenes/game/states/title.gd" id="3_oonc4"]
+[ext_resource type="Script" uid="uid://dx1q3ntdubiq6" path="res://core/scenes/game/states/world.gd" id="4_7k0gx"]
+[ext_resource type="Script" uid="uid://e0csahhcfbpe" path="res://core/scenes/game/controllers/scene.gd" id="5_oonc4"]
+[ext_resource type="Script" uid="uid://dkba3p6dc3ecr" path="res://core/scenes/game/controllers/object.gd" id="6_7k0gx"]
+
+[node name="Game" type="Node" unique_id=5866308]
+script = ExtResource("1_7k0gx")
+
+[node name="StateMachine" type="Node" parent="." unique_id=340866698 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_1q0w6")
+initial_state = NodePath("Load")
+
+[node name="Load" type="Node" parent="StateMachine" unique_id=1517882249 node_paths=PackedStringArray("object_controller")]
+script = ExtResource("2_1xc84")
+object_controller = NodePath("../../ObjectController")
+
+[node name="Title" type="Node" parent="StateMachine" unique_id=489264898]
+script = ExtResource("3_oonc4")
+
+[node name="World" type="Node" parent="StateMachine" unique_id=1341420553]
+script = ExtResource("4_7k0gx")
+
+[node name="SceneController" type="Node" parent="." unique_id=1875290976]
+script = ExtResource("5_oonc4")
+
+[node name="ObjectController" type="Node" parent="." unique_id=2027497199]
+script = ExtResource("6_7k0gx")

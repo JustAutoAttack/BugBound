@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d0l6k3tro1dfl"]
+
+[ext_resource type="Script" uid="uid://ckit8ox2css37" path="res://core/scenes/world/world.gd" id="1_luigy"]
+
+[node name="World" type="Node3D" unique_id=802993614]
+process_mode = 1
+script = ExtResource("1_luigy")

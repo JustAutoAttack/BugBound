@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://0miuwkpaeqv7"]
+
+[ext_resource type="Script" uid="uid://ctamlq20c6sku" path="res://core/base_classes/state_machine.gd" id="1_5ufum"]
+[ext_resource type="Script" uid="uid://my0kv4mmxc8d" path="res://core/scenes/main/main.gd" id="1_vtdca"]
+[ext_resource type="Script" uid="uid://doo7fufroym25" path="res://core/scenes/main/states/boot.gd" id="2_ow0gy"]
+[ext_resource type="Script" uid="uid://cn2vkqabfe4q1" path="res://core/scenes/main/states/game.gd" id="3_iv0ya"]
+[ext_resource type="Script" uid="uid://cjk543e45bx0r" path="res://core/scenes/main/controllers/scene.gd" id="4_n45wx"]
+[ext_resource type="Script" uid="uid://djf5bb0s28jb0" path="res://core/scenes/main/controllers/audio.gd" id="5_vtdca"]
+[ext_resource type="Script" uid="uid://c1joxf18m8snj" path="res://core/scenes/main/controllers/ui.gd" id="6_2xmq6"]
+[ext_resource type="Script" uid="uid://cv4ue58xockry" path="res://common/resource/song.gd" id="7_2xmq6"]
+[ext_resource type="Script" uid="uid://khlxadex5s7h" path="res://core/scenes/main/controllers/save.gd" id="7_fdmjm"]
+[ext_resource type="PackedScene" uid="uid://jpxpxf4l6suf" path="res://ui/huds/hud.tscn" id="9_8be3c"]
+[ext_resource type="PackedScene" uid="uid://bsti8ee0kwtvw" path="res://ui/menus/main/main_menu.tscn" id="10_355eq"]
+[ext_resource type="PackedScene" uid="uid://bfblwjacma8mq" path="res://ui/menus/pause/pause_menu.tscn" id="11_u236l"]
+[ext_resource type="PackedScene" uid="uid://bnpfymdlc58vc" path="res://ui/loading/screen/loading_screen.tscn" id="12_355eq"]
+
+[node name="Main" type="Node" unique_id=2073899557]
+process_mode = 3
+script = ExtResource("1_vtdca")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1241525272 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_5ufum")
+initial_state = NodePath("Boot")
+
+[node name="Boot" type="Node" parent="StateMachine" unique_id=91252427]
+script = ExtResource("2_ow0gy")
+
+[node name="Game" type="Node" parent="StateMachine" unique_id=1823245292]
+script = ExtResource("3_iv0ya")
+
+[node name="SceneController" type="Node" parent="." unique_id=1853642624]
+script = ExtResource("4_n45wx")
+
+[node name="AudioController" type="Node" parent="." unique_id=1678526951]
+script = ExtResource("5_vtdca")
+title_playlist = Array[ExtResource("7_2xmq6")]([null])
+
+[node name="Music" type="Node" parent="AudioController" unique_id=1997885640]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="AudioController/Music" unique_id=868738799]
+unique_name_in_owner = true
+
+[node name="SFX" type="Node" parent="AudioController" unique_id=1887685209]
+
+[node name="SFXPriority" type="AudioStreamPlayer" parent="AudioController/SFX" unique_id=891310730]
+unique_name_in_owner = true
+
+[node name="GeneralSFX" type="Node" parent="AudioController/SFX" unique_id=806997916]
+unique_name_in_owner = true
+
+[node name="UIController" type="Node" parent="." unique_id=1372212351]
+script = ExtResource("6_2xmq6")
+
+[node name="HUDLayer" type="CanvasLayer" parent="UIController" unique_id=1426844716]
+
+[node name="HUD" parent="UIController/HUDLayer" unique_id=36452832 instance=ExtResource("9_8be3c")]
+unique_name_in_owner = true
+
+[node name="MenusLayer" type="CanvasLayer" parent="UIController" unique_id=1728320323]
+unique_name_in_owner = true
+layer = 2
+
+[node name="MainMenu" parent="UIController/MenusLayer" unique_id=104022223 instance=ExtResource("10_355eq")]
+
+[node name="PauseMenu" parent="UIController/MenusLayer" unique_id=593446309 instance=ExtResource("11_u236l")]
+type = 1
+
+[node name="LoadingLayer" type="CanvasLayer" parent="UIController" unique_id=206085363]
+layer = 3
+
+[node name="LoadingScreen" parent="UIController/LoadingLayer" unique_id=786616834 instance=ExtResource("12_355eq")]
+unique_name_in_owner = true
+
+[node name="SaveController" type="Node" parent="." unique_id=580187730]
+script = ExtResource("7_fdmjm")

@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bsti8ee0kwtvw"]
+
+[ext_resource type="Script" uid="uid://drlbaniesef70" path="res://ui/menus/main/main_menu.gd" id="1_db6jy"]
+
+[node name="MainMenu" type="Control" unique_id=104022223]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_db6jy")
+
+[node name="SafeArea" type="MarginContainer" parent="." unique_id=349705416]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="SafeArea" unique_id=2135467678]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="SafeArea/Control" unique_id=461353440]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SafeArea/Control/CenterContainer" unique_id=402289210]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="Play" type="Button" parent="SafeArea/Control/CenterContainer/VBoxContainer" unique_id=661463024]
+layout_mode = 2
+text = "Play"
+
+[node name="Settings" type="Button" parent="SafeArea/Control/CenterContainer/VBoxContainer" unique_id=1853288905]
+layout_mode = 2
+text = "Settings"
+
+[node name="Quit" type="Button" parent="SafeArea/Control/CenterContainer/VBoxContainer" unique_id=547967855]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="SafeArea/Control/CenterContainer/VBoxContainer/Play" to="." method="_on_play"]
+[connection signal="pressed" from="SafeArea/Control/CenterContainer/VBoxContainer/Settings" to="." method="_on_settings"]
+[connection signal="pressed" from="SafeArea/Control/CenterContainer/VBoxContainer/Quit" to="." method="_on_quit"]

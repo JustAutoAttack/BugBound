@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ciuoetijfif7c"]
+
+[ext_resource type="Script" uid="uid://mh5qcrrhfedm" path="res://core/scenes/title/title.gd" id="1_vcut5"]
+
+[node name="Title" type="Node3D" unique_id=556438760]
+process_mode = 1
+script = ExtResource("1_vcut5")
