@@ -5,6 +5,7 @@ extends Node3D
 @export var target_boom_length: float = 4.0
 @export var boom_transition_speed: float = 3.0
 @export var pitch_degrees_x: float = -30.0
+@export var mouse_sensitivity: float = 0.003
 
 @export_category("Edge Look Settings")
 @export var look_ahead_intensity: float = 1.5 
@@ -12,7 +13,6 @@ extends Node3D
 
 @export_category("Follow Settings")
 @export var follow_lag_speed: float = 10.0
-@export var camera_rotation_lag: float = 4.0
 
 @onready var yaw: Node3D = %Yaw
 @onready var pitch: Node3D = %Pitch
@@ -21,8 +21,11 @@ extends Node3D
 
 var _current_tween: Tween
 var _current_offset: Vector2 = Vector2.ZERO
+var _is_panning: bool = false
 
-# === Built-In Methods ===
+# ===
+# Built-In
+# ===
 
 func _ready() -> void:
 	top_level = true
@@ -31,57 +34,66 @@ func _ready() -> void:
 	pitch.rotation_degrees.x = pitch_degrees_x
 	_update_camera_distance()
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion and _is_panning:
+		yaw.rotation.y -= event.relative.x * mouse_sensitivity
+		pitch.rotation.x -= event.relative.y * mouse_sensitivity
+		# Clamp pitch to prevent flipping upside down
+		pitch.rotation.x = clamp(pitch.rotation.x, deg_to_rad(-89.0), deg_to_rad(89.0))
+
 func _process(delta: float) -> void:
+	_handle_pan_input()
 	_follow_target(delta)
 	_handle_camera_orientation(delta)
 
-# === Public Methods ===
+# ===
+# Public
+# ===
 
 func set_boom_length(new_length: float) -> void:
 	target_boom_length = new_length
 	_update_camera_distance()
 
-# === Private Methods ===
+# ===
+# Private
+# ===
+
+func _handle_pan_input() -> void:
+	var panning_now: bool = Input.is_action_pressed("camera_pan")
+	if panning_now != _is_panning:
+		_is_panning = panning_now
+		if _is_panning:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _follow_target(delta: float) -> void:
-	var target_node = get_parent()
+	var target_node: Node = get_parent()
 	if not target_node is Node3D:
 		return
 		
 	# Smoothly lag the camera rig's global position toward the player's position
 	global_position = global_position.lerp(
-		target_node.global_position, 
+		(target_node as Node3D).global_position, 
 		follow_lag_speed * delta
 	)
 
 func _handle_camera_orientation(delta: float) -> void:
-	var target_node = get_parent()
-	if not target_node is Node3D:
-		return
+	# When not actively panning, handle optional screen-edge look-ahead offsets
+	if not _is_panning:
+		var viewport: Viewport = get_viewport()
+		if viewport:
+			var mouse_pos: Vector2 = viewport.get_mouse_position()
+			var screen_size: Vector2 = viewport.get_visible_rect().size
+			if screen_size.x > 0.0 and screen_size.y > 0.0:
+				var target_offset: Vector2 = Vector2(
+					(mouse_pos.x / screen_size.x) * 2.0 - 1.0,
+					(mouse_pos.y / screen_size.y) * 2.0 - 1.0
+				)
+				_current_offset = _current_offset.lerp(target_offset, look_smoothing * delta)
 
-	# Calculate normalized cursor offset from the center of the screen
-	var viewport = get_viewport()
-	if viewport:
-		var mouse_pos = viewport.get_mouse_position()
-		var screen_size = viewport.get_visible_rect().size
-		if screen_size.x > 0 and screen_size.y > 0:
-			var target_offset = Vector2(
-				(mouse_pos.x / screen_size.x) * 2.0 - 1.0,
-				(mouse_pos.y / screen_size.y) * 2.0 - 1.0
-			)
-			_current_offset = _current_offset.lerp(target_offset, look_smoothing * delta)
-
-	# Smoothly rotate the camera yaw to follow the player's orientation
-	var target_yaw = target_node.global_rotation.y
-	yaw.global_rotation.y = lerp_angle(
-		yaw.global_rotation.y, 
-		target_yaw, 
-		camera_rotation_lag * delta
-	)
-
-	# Apply a subtle edge-screen look-ahead offset on top of the camera rotation
-	var look_offset_adjustment = _current_offset.x * (look_ahead_intensity * 0.3)
-	yaw.rotation.y -= look_offset_adjustment * delta
+		var look_offset_adjustment: float = _current_offset.x * (look_ahead_intensity * 0.3)
+		yaw.rotation.y -= look_offset_adjustment * delta
 
 func _update_camera_distance() -> void:
 	if _current_tween and _current_tween.is_running():
