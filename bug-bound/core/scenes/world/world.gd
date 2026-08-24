@@ -18,10 +18,20 @@ func _ready() -> void:
 	await get_tree().process_frame
 	await get_tree().process_frame
 
+	# Check if we are already fully connected, otherwise wait for the signal
 	if multiplayer.is_server():
 		_request_spawn_player(multiplayer.get_unique_id())
 	else:
-		_register_client_ready.rpc_id(1, multiplayer.get_unique_id())
+		var peer = multiplayer.multiplayer_peer
+		if peer and peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
+			_send_client_ready()
+		else:
+			# Wait for ENet to finish the handshake over Tailscale
+			if not multiplayer.connected_to_server.is_connected(_send_client_ready):
+				multiplayer.connected_to_server.connect(_send_client_ready, CONNECT_ONE_SHOT)
+
+func _send_client_ready() -> void:
+	_register_client_ready.rpc_id(1, multiplayer.get_unique_id())
 
 func _exit_tree() -> void:
 	_unsubscribe_events()
