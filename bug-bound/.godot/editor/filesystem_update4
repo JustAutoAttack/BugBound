@@ -22,3 +22,10 @@ res://core/scenes/player/player.gd
 res://core/scenes/main/main.tscn
 res://core/scenes/main/controllers/scene.gd
 res://core/scenes/game/game.tscn
+res://features/bugs/bug.tscn
+res://features/bugs/bug.gd
+res://common/enums.gd
+res://common/resource/bug.gd
+res://common/resource/bug_definition.gd
+res://common/resource/game_save.gd
+res://core/scenes/player/components/camera.gd

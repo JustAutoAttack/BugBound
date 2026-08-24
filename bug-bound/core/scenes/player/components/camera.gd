@@ -12,7 +12,7 @@ extends Node3D
 
 @export_category("Follow Settings")
 @export var follow_lag_speed: float = 10.0
-@export var camera_rotation_lag: float = 4.0 # How fast the camera rotates to match the player
+@export var camera_rotation_lag: float = 4.0
 
 @onready var yaw: Node3D = %Yaw
 @onready var pitch: Node3D = %Pitch
@@ -22,9 +22,7 @@ extends Node3D
 var _current_tween: Tween
 var _current_offset: Vector2 = Vector2.ZERO
 
-# ===
-# Built-In
-# ===
+# === Built-In Methods ===
 
 func _ready() -> void:
 	top_level = true
@@ -37,24 +35,20 @@ func _process(delta: float) -> void:
 	_follow_target(delta)
 	_handle_camera_orientation(delta)
 
-# ===
-# Public
-# ===
+# === Public Methods ===
 
 func set_boom_length(new_length: float) -> void:
 	target_boom_length = new_length
 	_update_camera_distance()
 
-# ===
-# Private
-# ===
+# === Private Methods ===
 
 func _follow_target(delta: float) -> void:
 	var target_node = get_parent()
 	if not target_node is Node3D:
 		return
 		
-	# Smoothly interpolate (lag) the camera rig's position toward the player's position
+	# Smoothly lag the camera rig's global position toward the player's position
 	global_position = global_position.lerp(
 		target_node.global_position, 
 		follow_lag_speed * delta
@@ -65,7 +59,7 @@ func _handle_camera_orientation(delta: float) -> void:
 	if not target_node is Node3D:
 		return
 
-	# 1. Calculate cursor offset from the center of the screen
+	# Calculate normalized cursor offset from the center of the screen
 	var viewport = get_viewport()
 	if viewport:
 		var mouse_pos = viewport.get_mouse_position()
@@ -77,7 +71,7 @@ func _handle_camera_orientation(delta: float) -> void:
 			)
 			_current_offset = _current_offset.lerp(target_offset, look_smoothing * delta)
 
-	# 2. Smoothly lag the camera's yaw rotation toward the player's facing direction
+	# Smoothly rotate the camera yaw to follow the player's orientation
 	var target_yaw = target_node.global_rotation.y
 	yaw.global_rotation.y = lerp_angle(
 		yaw.global_rotation.y, 
@@ -85,7 +79,7 @@ func _handle_camera_orientation(delta: float) -> void:
 		camera_rotation_lag * delta
 	)
 
-	# 3. Apply subtle cursor look-ahead offset on top of the lagged yaw
+	# Apply a subtle edge-screen look-ahead offset on top of the camera rotation
 	var look_offset_adjustment = _current_offset.x * (look_ahead_intensity * 0.3)
 	yaw.rotation.y -= look_offset_adjustment * delta
 
@@ -93,14 +87,11 @@ func _update_camera_distance() -> void:
 	if _current_tween and _current_tween.is_running():
 		_current_tween.kill()
 		
+	# Smoothly transition boom length changes using a tween
 	_current_tween = create_tween()
 	_current_tween.tween_property(
 		boom, 
 		"spring_length", 
 		target_boom_length,
 		1.0 / boom_transition_speed
-	).set_trans(
-		Tween.TRANS_CUBIC
-	).set_ease(
-		Tween.EASE_OUT
-	)
+	).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)

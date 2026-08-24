@@ -53,3 +53,18 @@ enum PauseMenuAction {
 # ===
 # Features
 # ===
+
+enum BugID {
+	TEST
+}
+
+enum BugType {
+	
+}
+
+enum BugCombatStat {
+	HEALTH,
+	ATTACK,
+	DEFENSE,
+	SPEED,
+}

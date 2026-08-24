@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ckit8ox2css37" path="res://core/scenes/world/world.gd" id="1_luigy"]
 [ext_resource type="Material" uid="uid://c4s6j65s8p23g" path="res://assets/materials/ground.material" id="2_t0edg"]
-[ext_resource type="Script" uid="uid://dcj62wm1wv7ag" path="res://core/scenes/world/instances_controller.gd" id="3_4smtg"]
+[ext_resource type="Script" uid="uid://dcj62wm1wv7ag" path="res://core/scenes/world/controllers/instances.gd" id="3_4smtg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_luigy"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
