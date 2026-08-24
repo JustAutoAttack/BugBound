@@ -4,6 +4,20 @@ extends Node
 
 var current_scene: Node
 
+# ===
+# Built-In
+# ===
+
+func _ready() -> void:
+	_subscribe_events()
+
+func _exit_tree() -> void:
+	_unsubscribe_events()
+
+# ===
+# Private
+# ===
+
 ## Removes current scene and adds a new one.
 func _replace_current(new: Node) -> void:
 	if current_scene:
@@ -12,12 +26,6 @@ func _replace_current(new: Node) -> void:
 	
 	current_scene = new
 	add_child(current_scene)
-
-func _ready() -> void:
-	_subscribe_events()
-
-func _exit_tree() -> void:
-	_unsubscribe_events()
 
 ## Override in child classes to register events.
 func _subscribe_events() -> void: pass
