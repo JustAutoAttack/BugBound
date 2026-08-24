@@ -33,3 +33,6 @@ res://core/scenes/player/bug_collection_zone.gd
 res://core/systems/network/autoloads/network_system.gd
 res://ui/menus/main/main_menu.gd
 res://core/scenes/game/states/title.gd
+res://core/scenes/game/states/world.gd
+res://core/scenes/world/controllers/instances.gd
+res://assets/materials/tree_dead.material

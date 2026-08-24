@@ -4,6 +4,14 @@
 [ext_resource type="Script" uid="uid://bvg2y65aqrpjk" path="res://core/scenes/player/components/camera.gd" id="2_ebstt"]
 [ext_resource type="Script" uid="uid://doc1hh1sdrs5n" path="res://core/scenes/player/bug_collection_zone.gd" id="3_78uwc"]
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_78uwc"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8rfna"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4cc64"]
@@ -20,6 +28,9 @@ radius = 6.0
 [node name="Player" type="CharacterBody3D" unique_id=1443216549]
 collision_layer = 2
 script = ExtResource("1_8rfna")
+
+[node name="NetSync" type="MultiplayerSynchronizer" parent="." unique_id=2107019686]
+replication_config = SubResource("SceneReplicationConfig_78uwc")
 
 [node name="PushBox" type="CollisionShape3D" parent="." unique_id=1985912287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

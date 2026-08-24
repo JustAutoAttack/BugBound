@@ -58,10 +58,10 @@ func _unsubscribe_events() -> void:
 	EventSystem.unsubscribe_all_for_owner(self)
 
 # ===
-# Command & Event Handlers
+# Handlers
 # ===
 
-func _handle_host_game(command: Commands.HostGame) -> void:
+func _handle_host_game(_command: Commands.HostGame) -> void:
 	var error: Error = NetworkSystem.host_game()
 	if error != OK:
 		return

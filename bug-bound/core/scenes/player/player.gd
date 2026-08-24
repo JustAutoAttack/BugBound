@@ -12,7 +12,27 @@ const ROTATION_SPEED: float = 12.0
 # Built-In 
 # ===
 
+func _ready() -> void:
+	# Enable the camera only if this player instance belongs to the local peer
+	if is_multiplayer_authority() and camera_controller and camera_controller.camera:
+		camera_controller.camera.current = true
+
+	# Process a frame to ensure everything is set up and nodes are fully initialized
+	await get_tree().process_frame
+	
+	# Broadcast that this player instance has successfully spawned
+	EventSystem.broadcast(
+		Notifications.PlayerSpawned.new(
+			self
+		)
+	)
+
 func _physics_process(delta: float) -> void:
+	# If this player node does not belong to the local peer, skip input and physics processing.
+	# The MultiplayerSynchronizer will automatically update its position from the network.
+	if not is_multiplayer_authority():
+		return
+
 	# Apply gravity if airborne
 	if not is_on_floor():
 		velocity += get_gravity() * delta

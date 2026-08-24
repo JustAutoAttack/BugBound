@@ -6,7 +6,7 @@ extends Node
 
 # ===
 # Built-In
-# ==
+# ===
 
 func _ready() -> void:
 	_subscribe_events()
@@ -31,21 +31,15 @@ func _unsubscribe_events() -> void:
 
 func _handle_spawn_player(command: Commands.SpawnPlayer) -> void:
 	var player: Player = AssetProvider.get_player_scene()
+	
+	# CRITICAL: Name the node by its peer ID so MultiplayerSpawner maps it correctly across peers
+	player.name = str(command.peer_id)
+	
 	players_container.add_child(player)
 	player.global_position = command.location
 	player.global_rotation = command.rotation
 	
 	await get_tree().process_frame
-	#
-	#Session.player_provider.set_player_instance(
-		#player
-	#)
-	#
-	EventSystem.broadcast(
-		Notifications.PlayerSpawned.new(
-			player
-		)
-	)
 
 #func _handle_spawn_bug(command: Commands.SpawnBug) -> void:
 	#var bug: Bug = AssetProvider.get_bug_scene()
@@ -54,7 +48,7 @@ func _handle_spawn_player(command: Commands.SpawnPlayer) -> void:
 	#bug.global_rotation = command.rotation
 	#
 	#await get_tree().process_frame
-#
+	#
 	#EventSystem.broadcast(
 		#Notifications.BugSpawned.new(
 			#bug

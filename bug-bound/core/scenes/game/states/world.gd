@@ -9,7 +9,7 @@ var _is_game_over: bool = false
 
 func enter(_prev_state_path: String, _data: Object) -> void:
 	LogSystem.log_message(
-		"Enter WORLD",
+		"Enter WORLD State",
 		LogEnums.LogLevel.DEBUG
 	)
 	ContextSystem.is_in_world = true
@@ -36,7 +36,7 @@ func enter(_prev_state_path: String, _data: Object) -> void:
 
 func exit() -> void:
 	LogSystem.log_message(
-		"Exit WORLD",
+		"Exit WORLD State",
 		LogEnums.LogLevel.DEBUG
 	)
 	get_tree().paused = false
@@ -59,20 +59,14 @@ func handle_input(event: InputEvent) -> void:
 	var is_game_over: bool = ContextSystem.ui_provider.is_menu_open(Enums.MenuType.GAME_OVER)
 	
 	if event.is_action_pressed("game_pause_resume"):
-		# If Game Over is active, ignore pause request
 		if is_game_over: return
 		
-		# Closing Menu
 		if ContextSystem.ui_context.open_menus.size() > 0:
-			
-			# Menu Closed SFX
 			EventSystem.dispatch_command(
 				Commands.PlaySFX.new(
 					Enums.SFXType.UI_MENU_CLOSED
 				)
 			)
-			
-			# Hide all menus
 			EventSystem.dispatch_command(
 				Commands.HideAllMenus.new()
 			)
@@ -82,7 +76,6 @@ func handle_input(event: InputEvent) -> void:
 			
 			return
 		
-		# Toggling Pause
 		_toggle_pause(not get_tree().paused)
 
 # ===
@@ -95,15 +88,6 @@ func _subscribe_events() -> void:
 
 func _unsubscribe_events() -> void:
 	EventSystem.unsubscribe_all_for_owner(self)
-
-# ===
-# Events
-# ===
-
-
-# ===
-# Private
-# ===
 
 func _emit_toggle_pause_menu(is_paused: bool) -> void:
 	EventSystem.dispatch_command(
@@ -145,7 +129,6 @@ func _handle_ui_pause_menu(event: Notifications.PauseMenuActioned) -> void:
 		Enums.PauseMenuAction.SETTINGS:
 			close_menu = true
 			
-			# Close Pause
 			EventSystem.dispatch_command(
 				Commands.ToggleMenu.new(
 					Enums.MenuType.PAUSE, 
@@ -153,7 +136,6 @@ func _handle_ui_pause_menu(event: Notifications.PauseMenuActioned) -> void:
 				)
 			)
 			
-			# Open Settings
 			EventSystem.dispatch_command(
 				Commands.ToggleMenu.new(
 					Enums.MenuType.SETTINGS, 
@@ -164,7 +146,6 @@ func _handle_ui_pause_menu(event: Notifications.PauseMenuActioned) -> void:
 		Enums.PauseMenuAction.EXIT:
 			close_menu = true
 
-			# Go to Title
 			_transition_to(
 				StateName.LOAD, 
 				GameLoadStateData.new(
@@ -177,7 +158,6 @@ func _handle_ui_pause_menu(event: Notifications.PauseMenuActioned) -> void:
 		Enums.PauseMenuAction.QUIT:
 			get_tree().quit()
 	
-	# Close
 	if close_menu:
 		EventSystem.dispatch_command(
 			Commands.ToggleMenu.new(
@@ -189,8 +169,6 @@ func _handle_ui_pause_menu(event: Notifications.PauseMenuActioned) -> void:
 func _handle_ui_settings_menu(event: Notifications.SettingsMenuActioned) -> void:
 	match event.action:
 		Enums.SettingsMenuAction.SAVE:
-			
-			# Close Settings
 			EventSystem.dispatch_command(
 				Commands.ToggleMenu.new(
 					Enums.MenuType.SETTINGS,
@@ -198,7 +176,6 @@ func _handle_ui_settings_menu(event: Notifications.SettingsMenuActioned) -> void
 				)
 			)
 			
-			# Open Pause
 			EventSystem.dispatch_command(
 				Commands.ToggleMenu.new(
 					Enums.MenuType.PAUSE,
@@ -208,7 +185,6 @@ func _handle_ui_settings_menu(event: Notifications.SettingsMenuActioned) -> void
 			
 			await get_tree().process_frame
 			
-			# Hide HUD
 			EventSystem.dispatch_command(
 				Commands.ToggleHUD.new(
 					false

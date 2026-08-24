@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ckit8ox2css37" path="res://core/scenes/world/world.gd" id="1_luigy"]
 [ext_resource type="Material" uid="uid://c4s6j65s8p23g" path="res://assets/materials/ground.material" id="2_t0edg"]
 [ext_resource type="Script" uid="uid://dcj62wm1wv7ag" path="res://core/scenes/world/controllers/instances.gd" id="3_4smtg"]
+[ext_resource type="Material" uid="uid://blss14h6y1gox" path="res://assets/materials/tree_dead.material" id="3_iev5t"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_luigy"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -31,12 +32,267 @@ shadow_enabled = true
 [node name="Terrain" type="Node3D" parent="." unique_id=1995648418]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Terrain" unique_id=1032345949]
+autosmooth = true
 use_collision = true
 collision_mask = 0
-size = Vector3(50, 1, 50)
+size = Vector3(50, 2, 50)
 material = ExtResource("2_t0edg")
 
 [node name="Props" type="Node3D" parent="." unique_id=60388070]
+
+[node name="Tree" type="CSGBox3D" parent="Props" unique_id=1413688770]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.298395, 2.5398843, 9.385617)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.69628906, 3.217041, 0.85253906)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Props/Tree" unique_id=1448304417]
+transform = Transform3D(1, 0, 0, 0, 0.65169114, 0.7584844, 0, -0.7584844, 0.65169114, 0, 2.2681806, -1.0085783)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.49194336, 2.4980469, 0.41308594)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Props/Tree/CSGBox3D2" unique_id=1319013303]
+transform = Transform3D(0.52718484, 0.07929322, -0.8460431, 0.17658949, 0.9636778, 0.20035428, 0.83119965, -0.25502622, 0.49403393, 0.0719254, 1.7496414, -0.11093283)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.31079102, 1.0850372, 0.25195313)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Props/Tree/CSGBox3D2/CSGBox3D6" unique_id=58347326]
+transform = Transform3D(0.9788718, 0.16939586, -0.11452028, -0.1385727, 0.96141696, 0.2376441, 0.1503577, -0.2167539, 0.9645779, 0.10875702, 0.9640155, -0.17961693)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.17553711, 0.91739655, 0.17578125)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Props/Tree" unique_id=641095565]
+transform = Transform3D(0.14375061, 0.8990591, -0.41355574, -0.040669728, 0.4229101, 0.9052585, 0.988778, -0.11331233, 0.09735813, 0.7140417, 1.79055, -0.018555164)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.36328125, 1.6317139, 0.27368164)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Props/Tree/CSGBox3D7" unique_id=607911362]
+transform = Transform3D(0.8775631, -0.3358628, 0.34216893, 0.452678, 0.8155768, -0.36044088, -0.15800644, 0.4712021, 0.86775756, -0.21667147, 1.1644106, 0.25723076)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.17553711, 1.0850372, 0.17578125)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Props/Tree" unique_id=2094818988]
+transform = Transform3D(-0.7363474, -0.51319337, 0.44093665, 0, 0.6516912, 0.75848454, -0.67660373, 0.55850804, -0.47987112, -0.44644213, 1.896055, 0.51893044)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.37304688, 1.8370361, 0.30297852)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Props/Tree/CSGBox3D3" unique_id=1408572215]
+transform = Transform3D(0.65404505, -0.62278426, -0.42937815, 0.58300596, 0.776683, -0.2384699, 0.48200577, -0.09436005, 0.87107223, -0.40997815, 1.4180775, -0.073387384)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.17553711, 1.3929749, 0.17578125)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Props/Tree/CSGBox3D3" unique_id=496967493]
+transform = Transform3D(0.32567006, 0.42392048, -0.84512186, 0.04481429, 0.8859259, 0.46165732, 0.94442105, -0.18822168, 0.26952183, 0.34814548, 1.4280376, -0.08194518)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.17553711, 1.3929749, 0.17578125)
+material = ExtResource("3_iev5t")
+
+[node name="Tree2" type="CSGBox3D" parent="Props" unique_id=1791226106]
+transform = Transform3D(0.60874015, 0, 0.79336965, 0, 1, 0, -0.79336965, 0, 0.60874015, 0.33259678, 2.4056122, 15.584186)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.69628906, 3.7838135, 0.85253906)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Props/Tree2" unique_id=58021703]
+transform = Transform3D(1, 0, 0, 0, 0.65169114, 0.7584844, 0, -0.7584844, 0.65169114, 0, 2.2681806, -1.0085783)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.49194336, 2.4980469, 0.41308594)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Props/Tree2/CSGBox3D2" unique_id=1942211694]
+transform = Transform3D(0.52718484, 0.07929322, -0.8460431, 0.17658949, 0.9636778, 0.20035428, 0.83119965, -0.25502622, 0.49403393, 0.0719254, 1.7496414, -0.11093283)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.31079102, 1.0850372, 0.25195313)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Props/Tree2/CSGBox3D2/CSGBox3D6" unique_id=1226544931]
+transform = Transform3D(0.9788718, 0.16939586, -0.11452028, -0.1385727, 0.96141696, 0.2376441, 0.1503577, -0.2167539, 0.9645779, 0.10875702, 0.9640155, -0.17961693)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.17553711, 0.91739655, 0.17578125)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Props/Tree2" unique_id=2004165026]
+transform = Transform3D(0.14375061, 0.8990591, -0.41355574, -0.040669728, 0.4229101, 0.9052585, 0.988778, -0.11331233, 0.09735813, 0.7140417, 1.79055, -0.018555164)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.36328125, 1.6317139, 0.27368164)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Props/Tree2/CSGBox3D7" unique_id=1516736513]
+transform = Transform3D(0.8775631, -0.3358628, 0.34216893, 0.452678, 0.8155768, -0.36044088, -0.15800644, 0.4712021, 0.86775756, -0.21667147, 1.1644106, 0.25723076)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.17553711, 1.0850372, 0.17578125)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Props/Tree2" unique_id=376742481]
+transform = Transform3D(-0.7363474, -0.51319337, 0.44093665, 0, 0.6516912, 0.75848454, -0.67660373, 0.55850804, -0.47987112, -0.44644213, 1.896055, 0.51893044)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.37304688, 1.8370361, 0.30297852)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Props/Tree2/CSGBox3D3" unique_id=254029957]
+transform = Transform3D(0.65404505, -0.62278426, -0.42937815, 0.58300596, 0.776683, -0.2384699, 0.48200577, -0.09436005, 0.87107223, -0.40997815, 1.4180775, -0.073387384)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.17553711, 1.3929749, 0.17578125)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Props/Tree2/CSGBox3D3" unique_id=1375561056]
+transform = Transform3D(0.32567006, 0.42392048, -0.84512186, 0.04481429, 0.8859259, 0.46165732, 0.94442105, -0.18822168, 0.26952183, 0.34814548, 1.4280376, -0.08194518)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.17553711, 1.3929749, 0.17578125)
+material = ExtResource("3_iev5t")
+
+[node name="Tree3" type="CSGBox3D" parent="Props" unique_id=581089797]
+transform = Transform3D(0.7576125, 0, -0.65270454, 0, 1, 0, 0.65270454, 0, 0.7576125, -8.3063135, 2.3549392, 15.584186)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.69628906, 3.217041, 0.85253906)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Props/Tree3" unique_id=188752008]
+transform = Transform3D(1, 0, 0, 0, 0.65169114, 0.7584844, 0, -0.7584844, 0.65169114, 0, 2.2681806, -1.0085783)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.49194336, 2.4980469, 0.41308594)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Props/Tree3/CSGBox3D2" unique_id=478171295]
+transform = Transform3D(0.52718484, 0.07929322, -0.8460431, 0.17658949, 0.9636778, 0.20035428, 0.83119965, -0.25502622, 0.49403393, 0.0719254, 1.7496414, -0.11093283)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.31079102, 1.0850372, 0.25195313)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Props/Tree3/CSGBox3D2/CSGBox3D6" unique_id=238216578]
+transform = Transform3D(0.9788718, 0.16939586, -0.11452028, -0.1385727, 0.96141696, 0.2376441, 0.1503577, -0.2167539, 0.9645779, 0.10875702, 0.9640155, -0.17961693)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.17553711, 0.91739655, 0.17578125)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Props/Tree3" unique_id=1846754282]
+transform = Transform3D(0.14375061, 0.8990591, -0.41355574, -0.040669728, 0.4229101, 0.9052585, 0.988778, -0.11331233, 0.09735813, 0.7140417, 1.79055, -0.018555164)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.36328125, 1.6317139, 0.27368164)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Props/Tree3/CSGBox3D7" unique_id=981280525]
+transform = Transform3D(0.8775631, -0.3358628, 0.34216893, 0.452678, 0.8155768, -0.36044088, -0.15800644, 0.4712021, 0.86775756, -0.21667147, 1.1644106, 0.25723076)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.17553711, 1.0850372, 0.17578125)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Props/Tree3" unique_id=742783108]
+transform = Transform3D(-0.7363474, -0.51319337, 0.44093665, 0, 0.6516912, 0.75848454, -0.67660373, 0.55850804, -0.47987112, -0.44644213, 1.896055, 0.51893044)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.37304688, 1.8370361, 0.30297852)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Props/Tree3/CSGBox3D3" unique_id=1341666376]
+transform = Transform3D(0.65404505, -0.62278426, -0.42937815, 0.58300596, 0.776683, -0.2384699, 0.48200577, -0.09436005, 0.87107223, -0.40997815, 1.4180775, -0.073387384)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.17553711, 1.3929749, 0.17578125)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Props/Tree3/CSGBox3D3" unique_id=1825860013]
+transform = Transform3D(0.32567006, 0.42392048, -0.84512186, 0.04481429, 0.8859259, 0.46165732, 0.94442105, -0.18822168, 0.26952183, 0.34814548, 1.4280376, -0.08194518)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.17553711, 1.3929749, 0.17578125)
+material = ExtResource("3_iev5t")
+
+[node name="Tree4" type="CSGBox3D" parent="Props" unique_id=952093774]
+transform = Transform3D(0.9209174, 0, 0.3897578, 0, 1, 0, -0.3897578, 0, 0.9209174, -4.867452, 1.9236691, 18.410656)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.69628906, 3.217041, 0.85253906)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Props/Tree4" unique_id=1296512031]
+transform = Transform3D(1, 0, 0, 0, 0.65169114, 0.7584844, 0, -0.7584844, 0.65169114, 0, 2.2681806, -1.0085783)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.49194336, 2.4980469, 0.41308594)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Props/Tree4/CSGBox3D2" unique_id=1913003154]
+transform = Transform3D(0.52718484, 0.07929322, -0.8460431, 0.17658949, 0.9636778, 0.20035428, 0.83119965, -0.25502622, 0.49403393, 0.0719254, 1.7496414, -0.11093283)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.31079102, 1.0850372, 0.25195313)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Props/Tree4/CSGBox3D2/CSGBox3D6" unique_id=1376072933]
+transform = Transform3D(0.9788718, 0.16939586, -0.11452028, -0.1385727, 0.96141696, 0.2376441, 0.1503577, -0.2167539, 0.9645779, 0.10875702, 0.9640155, -0.17961693)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.17553711, 0.91739655, 0.17578125)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Props/Tree4" unique_id=198707402]
+transform = Transform3D(0.14375061, 0.8990591, -0.41355574, -0.040669728, 0.4229101, 0.9052585, 0.988778, -0.11331233, 0.09735813, 0.7140417, 1.79055, -0.018555164)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.36328125, 1.6317139, 0.27368164)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Props/Tree4/CSGBox3D7" unique_id=2058088151]
+transform = Transform3D(0.8775631, -0.3358628, 0.34216893, 0.452678, 0.8155768, -0.36044088, -0.15800644, 0.4712021, 0.86775756, -0.21667147, 1.1644106, 0.25723076)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.17553711, 1.0850372, 0.17578125)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Props/Tree4" unique_id=1591914834]
+transform = Transform3D(-0.7363474, -0.51319337, 0.44093665, 0, 0.6516912, 0.75848454, -0.67660373, 0.55850804, -0.47987112, -0.44644213, 1.896055, 0.51893044)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.37304688, 1.8370361, 0.30297852)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Props/Tree4/CSGBox3D3" unique_id=819607671]
+transform = Transform3D(0.65404505, -0.62278426, -0.42937815, 0.58300596, 0.776683, -0.2384699, 0.48200577, -0.09436005, 0.87107223, -0.40997815, 1.4180775, -0.073387384)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.17553711, 1.3929749, 0.17578125)
+material = ExtResource("3_iev5t")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Props/Tree4/CSGBox3D3" unique_id=1975918516]
+transform = Transform3D(0.32567006, 0.42392048, -0.84512186, 0.04481429, 0.8859259, 0.46165732, 0.94442105, -0.18822168, 0.26952183, 0.34814548, 1.4280376, -0.08194518)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.17553711, 1.3929749, 0.17578125)
+material = ExtResource("3_iev5t")
+
+[node name="NetworkSync" type="Node" parent="." unique_id=1188210281]
 
 [node name="Spawns" type="Node" parent="." unique_id=853805293]
 
