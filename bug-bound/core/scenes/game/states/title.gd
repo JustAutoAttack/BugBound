@@ -68,12 +68,12 @@ func _handle_host_game(command: Commands.HostGame) -> void:
 	_transition_to_world()
 
 func _handle_join_game(command: Commands.JoinGame) -> void:
-	if command.join_code.is_empty():
+	if command.code.is_empty():
 		LogSystem.log_message("Join code / IP cannot be empty!", LogEnums.LogLevel.WARN)
 		return
 		
-	LogSystem.log_message("Attempting connection to host at: %s" % command.join_code, LogEnums.LogLevel.INFO)
-	var error: Error = NetworkSystem.join_game(command.join_code)
+	LogSystem.log_message("Attempting connection to host at: %s" % command.code, LogEnums.LogLevel.INFO)
+	var error: Error = NetworkSystem.join_game(command.code)
 	if error != OK:
 		return
 		
