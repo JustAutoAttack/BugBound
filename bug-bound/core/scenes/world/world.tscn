@@ -1,7 +1,55 @@
 [gd_scene format=3 uid="uid://d0l6k3tro1dfl"]
 
 [ext_resource type="Script" uid="uid://ckit8ox2css37" path="res://core/scenes/world/world.gd" id="1_luigy"]
+[ext_resource type="Material" uid="uid://c4s6j65s8p23g" path="res://assets/materials/ground.material" id="2_t0edg"]
+[ext_resource type="Script" uid="uid://dcj62wm1wv7ag" path="res://core/scenes/world/instances_controller.gd" id="3_4smtg"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_luigy"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_luigy"]
+sky_material = SubResource("ProceduralSkyMaterial_luigy")
+
+[sub_resource type="Environment" id="Environment_t0edg"]
+background_mode = 2
+sky = SubResource("Sky_luigy")
 
 [node name="World" type="Node3D" unique_id=802993614]
 process_mode = 1
 script = ExtResource("1_luigy")
+
+[node name="Environment" type="Node3D" parent="." unique_id=1409698143]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=23604052]
+environment = SubResource("Environment_t0edg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=413945225]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Terrain" type="Node3D" parent="." unique_id=1995648418]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Terrain" unique_id=1032345949]
+use_collision = true
+collision_mask = 0
+size = Vector3(50, 1, 50)
+material = ExtResource("2_t0edg")
+
+[node name="Props" type="Node3D" parent="." unique_id=60388070]
+
+[node name="Spawns" type="Node" parent="." unique_id=853805293]
+
+[node name="PlayerSpawn" type="Marker3D" parent="Spawns" unique_id=1009731683]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.109252, 0)
+
+[node name="InstancesController" type="Node" parent="." unique_id=1771369117]
+unique_name_in_owner = true
+script = ExtResource("3_4smtg")
+
+[node name="Players" type="Node" parent="InstancesController" unique_id=366852136]
+unique_name_in_owner = true
+
+[node name="Bugs" type="Node" parent="InstancesController" unique_id=786492401]
+unique_name_in_owner = true

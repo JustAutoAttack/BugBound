@@ -7,6 +7,7 @@ static var _bootsplash: PackedScene = null
 static var _game: PackedScene = null
 static var _title: PackedScene = null
 static var _world: PackedScene = null
+static var _player: PackedScene = null
 
 # Data
 static var _new_game_save_data: GameSaveData = null
@@ -22,6 +23,7 @@ static func setup_cache() -> void:
 	_cache_game_scene()
 	_cache_title_scene()
 	_cache_world_scene()
+	_cache_player_scene()
 	
 	# Data
 	_cache_default_settings_save_data()
@@ -88,6 +90,17 @@ static func _cache_world_scene() -> void:
 static func get_world_scene() -> World:
 	if _world:
 		return _world.instantiate() as World
+	return null
+
+# --- Player ---
+static func _cache_player_scene() -> void:
+	_player = AssetLoader.load_packed_scene(
+		AssetConstants.ScenePaths.PLAYER, 
+	)
+
+static func get_player_scene() -> Player:
+	if _player:
+		return _player.instantiate() as Player
 	return null
 
 # ===

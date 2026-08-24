@@ -12,6 +12,7 @@ class ScenePaths:
 	const GAME: String = CORE_DIR + "game/game.tscn"
 	const TITLE: String = CORE_DIR + "title/title.tscn"
 	const WORLD: String = CORE_DIR + "world/world.tscn"
+	const PLAYER: String = CORE_DIR + "player/player.tscn"
 	
 	# --- Features ---
 

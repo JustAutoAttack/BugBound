@@ -45,6 +45,17 @@ class LoadWorld extends Command:
 	func _init() -> void:
 		super("LoadWorld")
 
+# --- World ---
+class LoadBackyard extends Command:
+	func _init() -> void:
+		super("LoadBackyard")
+class LoadHouse extends Command:
+	func _init() -> void:
+		super("LoadHouse")
+class LoadTown extends Command:
+	func _init() -> void:
+		super("LoadTown")
+
 # ===
 # Audio
 # ===
@@ -113,6 +124,7 @@ class KillAllSFX extends Command:
 # ===
 # UI
 # ===
+
 class HideAllUI extends Command:
 	func _init() -> void:
 		super("HideAllUI")
@@ -140,3 +152,34 @@ class ToggleHUD extends Command:
 	):
 		super("ToggleHUD")
 		is_visible = p_is_visible
+
+# ===
+# World
+# ===
+
+class SpawnPlayer extends Command:
+	var location: Vector3
+	var rotation: Vector3
+	
+	func _init(
+		p_location: Vector3, 
+		p_rotation: Vector3
+	) -> void:
+		super("SpawnPlayer")
+		location = p_location
+		rotation = p_rotation
+class SpawnBug extends Command:
+	
+	#var id: Enums.BugID
+	var location: Vector3
+	var rotation: Vector3
+	
+	func _init(
+		#p_id: Enums.BugID,
+		p_location: Vector3, 
+		p_rotation: Vector3
+	) -> void:
+		super("SpawnBug")
+		#id = p_id
+		location = p_location
+		rotation = p_rotation

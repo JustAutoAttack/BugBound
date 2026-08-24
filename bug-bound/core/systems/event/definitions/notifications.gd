@@ -129,3 +129,26 @@ class PauseMenuActioned extends Notification:
 	) -> void:
 		super("PauseMenuActioned")
 		action = p_action
+
+# ===
+# World
+# ===
+
+class PlayerSpawned extends Notification:
+	
+	var player: Player
+	
+	func _init(
+		p_player: Player
+	) -> void:
+		super("PlayerSpawned")
+		player = p_player
+#class BugSpawned extends Notification:
+	#
+	#var bug: Bug
+	#
+	#func _init(
+		#p_bug: Bug
+	#) -> void:
+		#super("BugSpawned")
+		#bug = p_bug
