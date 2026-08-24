@@ -25,6 +25,19 @@ class SaveSettings extends Command:
 	func _init() -> void:
 		super("SaveSettings")
 
+# --- Network ---
+class HostGame extends Command:
+	func _init() -> void:
+		super("HostGame")
+class JoinGame extends Command:
+	var code: String
+	
+	func _init(
+		p_code: String
+	) -> void:
+		super("JoinGame")
+		code = p_code
+
 # ===
 # Scene
 # ===

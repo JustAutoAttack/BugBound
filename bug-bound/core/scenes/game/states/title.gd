@@ -1,8 +1,6 @@
 # Title
 extends GameState
 
-const HARDCODED_TEST_IP: String = "" # Replace with your friend's Tailscale IP when testing
-
 # ===
 # Built-In
 # ===
@@ -48,6 +46,11 @@ func exit() -> void:
 	_unsubscribe_events()
 
 func _subscribe_events() -> void:
+	# Subscribe to the network commands dispatched from the UI
+	EventSystem.subscribe_to_command(Commands.HostGame, _handle_host_game)
+	EventSystem.subscribe_to_command(Commands.JoinGame, _handle_join_game)
+	
+	# Keep settings and menu notifications subscribed
 	EventSystem.subscribe_to_notification(Notifications.MainMenuActioned, _handle_ui_main_menu)
 	EventSystem.subscribe_to_notification(Notifications.SettingsMenuActioned, _handle_ui_settings_menu)
 
@@ -55,29 +58,30 @@ func _unsubscribe_events() -> void:
 	EventSystem.unsubscribe_all_for_owner(self)
 
 # ===
-# Events
+# Command & Event Handlers
 # ===
 
-# --- UI ---
+func _handle_host_game(command: Commands.HostGame) -> void:
+	var error: Error = NetworkSystem.host_game()
+	if error != OK:
+		return
+	_transition_to_world()
+
+func _handle_join_game(command: Commands.JoinGame) -> void:
+	if command.join_code.is_empty():
+		LogSystem.log_message("Join code / IP cannot be empty!", LogEnums.LogLevel.WARN)
+		return
+		
+	LogSystem.log_message("Attempting connection to host at: %s" % command.join_code, LogEnums.LogLevel.INFO)
+	var error: Error = NetworkSystem.join_game(command.join_code)
+	if error != OK:
+		return
+		
+	_transition_to_world()
+
+# --- UI Notifications ---
 func _handle_ui_main_menu(event: Notifications.MainMenuActioned) -> void:
 	match event.action:
-		Enums.MainMenuAction.HOST:
-			# 1. Start ENet Server via NetworkSystem
-			var error: Error = NetworkSystem.host_game()
-			if error != OK:
-				return
-				
-			_transition_to_world()
-
-		Enums.MainMenuAction.JOIN:
-			# 1. Connect as ENet Client using the hardcoded Tailscale IP
-			LogSystem.log_message("Attempting connection to host at: %s" % HARDCODED_TEST_IP, LogEnums.LogLevel.INFO)
-			var error: Error = NetworkSystem.join_game(HARDCODED_TEST_IP)
-			if error != OK:
-				return
-				
-			_transition_to_world()
-
 		Enums.MainMenuAction.SETTINGS:
 			# Close Main Menu
 			EventSystem.dispatch_command(

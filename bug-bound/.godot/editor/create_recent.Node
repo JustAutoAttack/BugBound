@@ -1,3 +1,7 @@
+Label
+VBoxContainer
+HBoxContainer
+LineEdit
 CollisionShape3D
 Area3D
 Node
@@ -8,5 +12,3 @@ Camera3D
 SpringArm3D
 MeshInstance3D
 CharacterBody3D
-Control
-MarginContainer
