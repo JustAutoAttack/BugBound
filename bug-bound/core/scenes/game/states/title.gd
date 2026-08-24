@@ -1,6 +1,8 @@
 # Title
 extends GameState
 
+const HARDCODED_TEST_IP: String = "" # Replace with your friend's Tailscale IP when testing
+
 # ===
 # Built-In
 # ===
@@ -59,22 +61,22 @@ func _unsubscribe_events() -> void:
 # --- UI ---
 func _handle_ui_main_menu(event: Notifications.MainMenuActioned) -> void:
 	match event.action:
-		Enums.MainMenuAction.PLAY:
-			# Close Main Menu
-			EventSystem.dispatch_command(
-				Commands.ToggleMenu.new(
-					Enums.MenuType.MAIN, 
-					false
-				)
-			)
-			_transition_to(
-				StateName.LOAD,
-				GameLoadStateData.new(
-					StateName.WORLD,
-					true,
-					""
-				)
-			)
+		Enums.MainMenuAction.HOST:
+			# 1. Start ENet Server via NetworkSystem
+			var error: Error = NetworkSystem.host_game()
+			if error != OK:
+				return
+				
+			_transition_to_world()
+
+		Enums.MainMenuAction.JOIN:
+			# 1. Connect as ENet Client using the hardcoded Tailscale IP
+			LogSystem.log_message("Attempting connection to host at: %s" % HARDCODED_TEST_IP, LogEnums.LogLevel.INFO)
+			var error: Error = NetworkSystem.join_game(HARDCODED_TEST_IP)
+			if error != OK:
+				return
+				
+			_transition_to_world()
 
 		Enums.MainMenuAction.SETTINGS:
 			# Close Main Menu
@@ -94,6 +96,23 @@ func _handle_ui_main_menu(event: Notifications.MainMenuActioned) -> void:
 		
 		Enums.MainMenuAction.QUIT:
 			get_tree().quit()
+
+func _transition_to_world() -> void:
+	# Close Main Menu
+	EventSystem.dispatch_command(
+		Commands.ToggleMenu.new(
+			Enums.MenuType.MAIN, 
+			false
+		)
+	)
+	_transition_to(
+		StateName.LOAD,
+		GameLoadStateData.new(
+			StateName.WORLD,
+			true,
+			""
+		)
+	)
 
 func _handle_ui_settings_menu(event: Notifications.SettingsMenuActioned) -> void:
 	match event.action:

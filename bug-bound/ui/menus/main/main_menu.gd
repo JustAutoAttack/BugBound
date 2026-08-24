@@ -16,9 +16,13 @@ func _emit_action(action: Enums.MainMenuAction) -> void:
 # Signals
 # ===
 
-func _on_play() -> void:
+func _on_host_pressed() -> void:
 	_emit_press_sfx()
-	_emit_action(Enums.MainMenuAction.PLAY)
+	_emit_action(Enums.MainMenuAction.HOST)
+
+func _on_join_pressed() -> void:
+	_emit_press_sfx()
+	_emit_action(Enums.MainMenuAction.JOIN)
 
 func _on_settings() -> void:
 	_emit_press_sfx()

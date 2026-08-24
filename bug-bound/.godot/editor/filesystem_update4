@@ -30,3 +30,6 @@ res://common/resource/bug_definition.gd
 res://common/resource/game_save.gd
 res://core/scenes/player/components/camera.gd
 res://core/scenes/player/bug_collection_zone.gd
+res://core/systems/network/autoloads/network_system.gd
+res://ui/menus/main/main_menu.gd
+res://core/scenes/game/states/title.gd

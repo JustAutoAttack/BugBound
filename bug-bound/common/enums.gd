@@ -32,8 +32,9 @@ enum MenuType {
 	GAME_OVER
 }
 
-enum MainMenuAction { 
-	PLAY, 
+enum MainMenuAction {
+	HOST,
+	JOIN,
 	SETTINGS,
 	QUIT
 }

@@ -10,7 +10,7 @@ signal bug_exited_range(bug: Bug)
 		collection_radius = value
 		_update_shape_radius()
 
-@onready var collision_shape: CollisionShape3D = %CollisionShape3D
+@onready var collision_shape: CollisionShape3D = $CollisionShape3D
 
 # ===
 # Built-In

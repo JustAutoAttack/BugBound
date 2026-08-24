@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 LogSystem="*uid://b5i86g2xyg3w0"
 EventSystem="*uid://dy5t6ustvd7do"
 ContextSystem="*uid://cwp05mb5x1ot8"
+NetworkSystem="*uid://p1pibte8lylb"
 
 [display]
 

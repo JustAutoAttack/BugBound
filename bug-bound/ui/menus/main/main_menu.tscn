@@ -39,9 +39,14 @@ layout_mode = 2
 mouse_filter = 2
 alignment = 1
 
-[node name="Play" type="Button" parent="SafeArea/Control/CenterContainer/VBoxContainer" unique_id=661463024]
+[node name="Host" type="Button" parent="SafeArea/Control/CenterContainer/VBoxContainer" unique_id=661463024]
 layout_mode = 2
-text = "Play"
+text = "Host
+"
+
+[node name="Join" type="Button" parent="SafeArea/Control/CenterContainer/VBoxContainer" unique_id=483772947]
+layout_mode = 2
+text = "Join"
 
 [node name="Settings" type="Button" parent="SafeArea/Control/CenterContainer/VBoxContainer" unique_id=1853288905]
 layout_mode = 2
@@ -51,6 +56,7 @@ text = "Settings"
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="SafeArea/Control/CenterContainer/VBoxContainer/Play" to="." method="_on_play"]
+[connection signal="pressed" from="SafeArea/Control/CenterContainer/VBoxContainer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="SafeArea/Control/CenterContainer/VBoxContainer/Join" to="." method="_on_join_pressed"]
 [connection signal="pressed" from="SafeArea/Control/CenterContainer/VBoxContainer/Settings" to="." method="_on_settings"]
 [connection signal="pressed" from="SafeArea/Control/CenterContainer/VBoxContainer/Quit" to="." method="_on_quit"]
