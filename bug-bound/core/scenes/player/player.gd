@@ -9,18 +9,15 @@ const ROTATION_SPEED: float = 12.0
 @onready var camera_controller: PlayerCameraController = %CameraController
 
 # ===
-# Built-In 
+# Built-In
 # ===
 
 func _ready() -> void:
-	# Enable the camera only if this player instance belongs to the local peer
 	if is_multiplayer_authority() and camera_controller and camera_controller.camera:
 		camera_controller.camera.current = true
 
-	# Process a frame to ensure everything is set up and nodes are fully initialized
 	await get_tree().process_frame
 	
-	# Broadcast that this player instance has successfully spawned
 	EventSystem.broadcast(
 		Notifications.PlayerSpawned.new(
 			self
@@ -28,23 +25,18 @@ func _ready() -> void:
 	)
 
 func _physics_process(delta: float) -> void:
-	# If this player node does not belong to the local peer, skip input and physics processing.
-	# The MultiplayerSynchronizer will automatically update its position from the network.
+	# Non-authority peers rely on the MultiplayerSynchronizer for movement updates.
 	if not is_multiplayer_authority():
 		return
 
-	# Apply gravity if airborne
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump input
 	if Input.is_action_just_pressed("player_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Determine current movement speed based on sprint input state
 	var current_speed: float = SPRINT_SPEED if Input.is_action_pressed("player_sprint") else WALK_SPEED
 
-	# Gather movement input vectors
 	var input_dir: Vector2 = Input.get_vector(
 		"player_move_left", 
 		"player_move_right", 
@@ -54,13 +46,11 @@ func _physics_process(delta: float) -> void:
 	
 	var direction: Vector3 = Vector3.ZERO
 	
-	# Calculate directional movement relative to the camera's orientation
 	if camera_controller and camera_controller.yaw:
 		var yaw_node: Node3D = camera_controller.yaw
 		var forward: Vector3 = -yaw_node.global_transform.basis.z
 		var right: Vector3 = yaw_node.global_transform.basis.x
 		
-		# Zero out Y components to keep movement strictly horizontal
 		forward.y = 0.0
 		right.y = 0.0
 		forward = forward.normalized()
@@ -70,7 +60,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		direction = (transform.basis * Vector3(input_dir.x, 0.0, input_dir.y)).normalized()
 
-	# Apply velocity and rotate the player smoothly to face any movement direction
 	if direction:
 		velocity.x = direction.x * current_speed
 		velocity.z = direction.z * current_speed

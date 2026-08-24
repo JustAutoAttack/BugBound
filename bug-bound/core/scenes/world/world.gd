@@ -3,6 +3,7 @@ extends Node3D
 
 @onready var player_spawn: Marker3D = %PlayerSpawn
 @onready var instances_controller: WorldInstancesController = %InstancesController
+@onready var player_spawner: MultiplayerSpawner = %PlayerSpawner
 
 # ===
 # Built-In
@@ -11,8 +12,12 @@ extends Node3D
 func _ready() -> void:
 	_subscribe_events()
 
-	# If we are the server, spawn our own player immediately.
-	# If we are a client, notify the server (ID 1) that we are loaded and ready to spawn.
+	if player_spawner:
+		player_spawner.spawn_function = _custom_spawn_player
+
+	await get_tree().process_frame
+	await get_tree().process_frame
+
 	if multiplayer.is_server():
 		_request_spawn_player(multiplayer.get_unique_id())
 	else:
@@ -40,6 +45,22 @@ func _request_spawn_player(peer_id: int) -> void:
 			player_spawn.global_rotation
 		)
 	)
+
+# ===
+# Multiplayer Spawner Callback
+# ===
+
+func _custom_spawn_player(data: Dictionary) -> Node:
+	var player: Player = AssetProvider.get_player_scene()
+	player.name = str(data.peer_id)
+	player.set_multiplayer_authority(data.peer_id)
+	
+	# Defer position assignment to ensure it applies after the node enters the scene tree,
+	# bypassing the physics engine's initial spawn-snap overwrite.
+	player.call_deferred("set_global_position", data.location)
+	player.call_deferred("set_global_rotation", data.rotation)
+	
+	return player
 
 # ===
 # Private

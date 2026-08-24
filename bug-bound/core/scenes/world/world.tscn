@@ -294,11 +294,16 @@ material = ExtResource("3_iev5t")
 
 [node name="NetworkSync" type="Node" parent="." unique_id=1188210281]
 
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="NetworkSync" unique_id=1440324916]
+unique_name_in_owner = true
+_spawnable_scenes = PackedStringArray("uid://ct6w3ftuufrxo")
+spawn_path = NodePath("../../InstancesController/Players")
+
 [node name="Spawns" type="Node" parent="." unique_id=853805293]
 
 [node name="PlayerSpawn" type="Marker3D" parent="Spawns" unique_id=1009731683]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.109252, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7639446, 0)
 
 [node name="InstancesController" type="Node" parent="." unique_id=1771369117]
 unique_name_in_owner = true
