@@ -1,8 +1,8 @@
-class_name BugCollectionZone
+class_name PlayerPlayerDetectionArea
 extends Area3D
 
-signal bug_entered_range(bug: Bug)
-signal bug_exited_range(bug: Bug)
+signal player_entered_range(player: Player)
+signal player_exited_range(player: Player)
 
 @export_category("Settings")
 @export var radius: float = 2.0:
@@ -30,7 +30,8 @@ func _ready() -> void:
 func _update_shape_radius() -> void:
 	if not collision_shape:
 		await ready
-		
+	
+	print_debug("okie dokie")
 	if (
 		collision_shape and 
 		collision_shape.shape is SphereShape3D
@@ -42,19 +43,19 @@ func _update_shape_radius() -> void:
 # ===
 
 func _on_area_entered(area: Area3D) -> void:
-	var bug: Bug = (
-		area.owner as Bug 
-		if area.owner is Bug 
-		else area.get_parent() as Bug
+	var player: Player = (
+		area.owner as Player 
+		if area.owner is Player 
+		else area.get_parent() as Player
 	)
-	if bug:
-		bug_entered_range.emit(bug)
+	if player:
+		player_entered_range.emit(player)
 
 func _on_area_exited(area: Area3D) -> void:
-	var bug: Bug = (
-		area.owner as Bug 
-		if area.owner is Bug 
-		else area.get_parent() as Bug
+	var player: Player = (
+		area.owner as Player 
+		if area.owner is Player 
+		else area.get_parent() as Player
 	)
-	if bug:
-		bug_exited_range.emit(bug)
+	if player:
+		player_exited_range.emit(player)

@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://cjvcfgx5s4dgr"]
+
+[ext_resource type="Script" uid="uid://cn186f6h4uej7" path="res://features/bugs/scenes/pablo/bug_pablo.gd" id="1_6ryl4"]
+[ext_resource type="Texture2D" uid="uid://cem41r7w2kjsj" path="res://assets/textures/bug_sprites/pablo_spritesheet.png" id="2_tea3o"]
+[ext_resource type="Script" uid="uid://ctamlq20c6sku" path="res://core/base_classes/state_machine.gd" id="3_ptbqw"]
+[ext_resource type="Script" uid="uid://dt36a7lt0x5va" path="res://features/bugs/scenes/pablo/states/patrol.gd" id="4_sffw0"]
+[ext_resource type="Script" uid="uid://ctjquwo70p8w0" path="res://features/bugs/scenes/pablo/states/alerted.gd" id="5_3d1ra"]
+[ext_resource type="Script" uid="uid://dudxylx4x7s1s" path="res://features/bugs/scenes/pablo/states/flee.gd" id="6_ejbtp"]
+[ext_resource type="Script" uid="uid://cvlrnuy54p5r5" path="res://features/bugs/scenes/pablo/states/engage.gd" id="7_esm64"]
+[ext_resource type="Script" uid="uid://blyq212q4uii6" path="res://features/bugs/scenes/pablo/states/caught.gd" id="8_ejbtp"]
+[ext_resource type="Script" uid="uid://cpkq3of0c3l5p" path="res://features/bugs/scenes/pablo/player_detection_area.gd" id="9_esm64"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ynxjh"]
+radius = 0.25
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejbtp"]
+atlas = ExtResource("2_tea3o")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esm64"]
+atlas = ExtResource("2_tea3o")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tea3o"]
+atlas = ExtResource("2_tea3o")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptbqw"]
+atlas = ExtResource("2_tea3o")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oul5c"]
+atlas = ExtResource("2_tea3o")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3d1ra"]
+atlas = ExtResource("2_tea3o")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sffw0"]
+atlas = ExtResource("2_tea3o")
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcn11"]
+atlas = ExtResource("2_tea3o")
+region = Rect2(300, 100, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4cc64"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejbtp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esm64")
+}],
+"loop": 1,
+"name": &"happy_mode",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tea3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptbqw")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oul5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3d1ra")
+}],
+"loop": 1,
+"name": &"kill_mode",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sffw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcn11")
+}],
+"loop": 1,
+"name": &"move",
+"speed": 3.0
+}]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4cc64"]
+
+[node name="BugPablo" type="CharacterBody3D" unique_id=454514679]
+collision_layer = 4
+script = ExtResource("1_6ryl4")
+
+[node name="PushBox" type="CollisionShape3D" parent="." unique_id=1504546784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("SphereShape3D_ynxjh")
+
+[node name="Model" type="Node3D" parent="." unique_id=2060523090]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+
+[node name="Sprite" type="AnimatedSprite3D" parent="Model" unique_id=2085029100]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+billboard = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_4cc64")
+animation = &"idle"
+frame_progress = 0.54234606
+
+[node name="StateMachine" type="Node" parent="." unique_id=978731293 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_ptbqw")
+initial_state = NodePath("Patrol")
+
+[node name="Patrol" type="Node" parent="StateMachine" unique_id=52018075]
+script = ExtResource("4_sffw0")
+
+[node name="SwitchTimer" type="Timer" parent="StateMachine/Patrol" unique_id=1021253407]
+
+[node name="Alerted" type="Node" parent="StateMachine" unique_id=2099334616]
+script = ExtResource("5_3d1ra")
+
+[node name="Flee" type="Node" parent="StateMachine" unique_id=1005299033]
+script = ExtResource("6_ejbtp")
+
+[node name="Engage" type="Node" parent="StateMachine" unique_id=2099041761]
+script = ExtResource("7_esm64")
+
+[node name="Caught" type="Node" parent="StateMachine" unique_id=588265896]
+script = ExtResource("8_ejbtp")
+
+[node name="PlayerDetectionArea" type="Area3D" parent="." unique_id=1854100370]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("9_esm64")
+radius = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionArea" unique_id=165934083]
+shape = SubResource("SphereShape3D_4cc64")

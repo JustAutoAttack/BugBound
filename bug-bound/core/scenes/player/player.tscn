@@ -50,7 +50,7 @@ mesh = SubResource("BoxMesh_4cc64")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5601377, 0)
 script = ExtResource("2_ebstt")
-target_boom_length = 10.0
+target_boom_length = 8.0
 pitch_degrees_x = -40.0
 
 [node name="Yaw" type="Node3D" parent="CameraController" unique_id=229042829]
@@ -71,7 +71,6 @@ cull_mask = 1048573
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("3_78uwc")
-collection_radius = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BugCollectionZone" unique_id=2075591971]
 shape = SubResource("SphereShape3D_4cc64")

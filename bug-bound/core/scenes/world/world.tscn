@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://c4s6j65s8p23g" path="res://assets/materials/ground.material" id="2_t0edg"]
 [ext_resource type="Script" uid="uid://dcj62wm1wv7ag" path="res://core/scenes/world/controllers/instances.gd" id="3_4smtg"]
 [ext_resource type="Material" uid="uid://blss14h6y1gox" path="res://assets/materials/tree_dead.material" id="3_iev5t"]
+[ext_resource type="PackedScene" uid="uid://cjvcfgx5s4dgr" path="res://features/bugs/scenes/pablo/bug_pablo.tscn" id="5_cnk8u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_luigy"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -314,3 +315,6 @@ unique_name_in_owner = true
 
 [node name="Bugs" type="Node" parent="InstancesController" unique_id=786492401]
 unique_name_in_owner = true
+
+[node name="BugPablo" parent="InstancesController/Bugs" unique_id=454514679 instance=ExtResource("5_cnk8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5527306, -3.4279132)
