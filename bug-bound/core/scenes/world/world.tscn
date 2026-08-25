@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dcj62wm1wv7ag" path="res://core/scenes/world/controllers/instances.gd" id="3_4smtg"]
 [ext_resource type="PackedScene" uid="uid://bf36sn73hwh7i" path="res://features/zones/forest/forest.tscn" id="4_fyloc"]
 [ext_resource type="PackedScene" uid="uid://cjvcfgx5s4dgr" path="res://features/bugs/scenes/pablo/bug_pablo.tscn" id="5_cnk8u"]
+[ext_resource type="PackedScene" uid="uid://yii4ratwtuu5" path="res://features/bugs/scenes/unknown/bug_unknown.tscn" id="7_xsqbj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_luigy"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -17,6 +18,7 @@ sky_material = SubResource("ProceduralSkyMaterial_luigy")
 [sub_resource type="Environment" id="Environment_t0edg"]
 background_mode = 2
 sky = SubResource("Sky_luigy")
+glow_enabled = true
 
 [node name="World" type="Node3D" unique_id=802993614]
 process_mode = 1
@@ -58,3 +60,6 @@ bug_scene = ExtResource("5_cnk8u")
 
 [node name="Players" type="Node" parent="InstancesController" unique_id=366852136]
 unique_name_in_owner = true
+
+[node name="BugUnknown" parent="." unique_id=2097623740 instance=ExtResource("7_xsqbj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, 0)
