@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dgen7qjdh0qm6"]
+
+[ext_resource type="Texture2D" uid="uid://7nyvn807thmi" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/GREEN_prototype_grid_main.png" id="1_y31ie"]
+
+[resource]
+albedo_texture = ExtResource("1_y31ie")

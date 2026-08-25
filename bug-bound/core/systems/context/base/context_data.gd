@@ -16,9 +16,9 @@ func reset() -> void:
 # ===
 
 func _authorize_write() -> bool:
-	# skip_count 1 accounts for StackUtils' own frame, landing on the
+	# skip_count 1 accounts for CallStackUtils' own frame, landing on the
 	# same target frame the previous direct get_stack()[2] pointed to.
-	var caller_frame: Dictionary = StackUtils.get_caller_frame(1)
+	var caller_frame: Dictionary = CallStackUtils.get_caller_frame(1)
 	if caller_frame.is_empty():
 		return false
 	

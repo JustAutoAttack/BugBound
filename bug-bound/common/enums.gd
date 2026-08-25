@@ -51,6 +51,13 @@ enum PauseMenuAction {
 	QUIT
 }
 
+# --- World ---
+
+enum ZoneType {
+	TOWN,
+	FOREST
+}
+
 # ===
 # Features
 # ===

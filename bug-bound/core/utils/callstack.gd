@@ -1,4 +1,4 @@
-class_name StackUtils
+class_name CallStackUtils
 extends RefCounted
 ## Centralized stack introspection utilities.
 ## [br][br]

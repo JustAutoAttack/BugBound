@@ -1,7 +1,7 @@
 class_name BugPabloState
 extends State
 
-enum StateName { IDLE, MOVE, HAPPY_MODE, KILL_MODE }
+enum StateName { PATROL, ALERTED, FLEE, ENGAGE, CAUGHT }
 
 var _owner: BugPablo
 

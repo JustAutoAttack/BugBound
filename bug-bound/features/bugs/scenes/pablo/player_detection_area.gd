@@ -1,4 +1,5 @@
-class_name PlayerPlayerDetectionArea
+@tool
+class_name BugPlayerDetectionArea
 extends Area3D
 
 signal player_entered_range(player: Player)
@@ -8,8 +9,7 @@ signal player_exited_range(player: Player)
 @export var radius: float = 2.0:
 	set(value):
 		radius = value
-		if is_node_ready():
-			_update_shape_radius()
+		_update_shape_radius()
 
 @onready var collision_shape: CollisionShape3D = $CollisionShape3D
 
@@ -20,22 +20,24 @@ signal player_exited_range(player: Player)
 func _ready() -> void:
 	_update_shape_radius()
 	
-	area_entered.connect(_on_area_entered)
-	area_exited.connect(_on_area_exited)
+	if not Engine.is_editor_hint():
+		area_entered.connect(_on_area_entered)
+		area_exited.connect(_on_area_exited)
 
 # ===
 # Private
 # ===
 
 func _update_shape_radius() -> void:
+	# Ensure collision_shape node is ready if called early
 	if not collision_shape:
-		await ready
+		return
 	
-	print_debug("okie dokie")
-	if (
-		collision_shape and 
-		collision_shape.shape is SphereShape3D
-	):
+	# If the shape doesn't exist yet, create a new SphereShape3D automatically
+	if not collision_shape.shape:
+		collision_shape.shape = SphereShape3D.new()
+	
+	if collision_shape.shape is SphereShape3D:
 		(collision_shape.shape as SphereShape3D).radius = radius
 
 # ===

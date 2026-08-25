@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cn186f6h4uej7" path="res://features/bugs/scenes/pablo/bug_pablo.gd" id="1_6ryl4"]
 [ext_resource type="Texture2D" uid="uid://cem41r7w2kjsj" path="res://assets/textures/bug_sprites/pablo_spritesheet.png" id="2_tea3o"]
+[ext_resource type="Script" uid="uid://dwfxe1fwu5ial" path="res://features/bugs/scenes/pablo/debug_visualizer.gd" id="2_ynxjh"]
 [ext_resource type="Script" uid="uid://ctamlq20c6sku" path="res://core/base_classes/state_machine.gd" id="3_ptbqw"]
 [ext_resource type="Script" uid="uid://dt36a7lt0x5va" path="res://features/bugs/scenes/pablo/states/patrol.gd" id="4_sffw0"]
 [ext_resource type="Script" uid="uid://ctjquwo70p8w0" path="res://features/bugs/scenes/pablo/states/alerted.gd" id="5_3d1ra"]
@@ -9,6 +10,8 @@
 [ext_resource type="Script" uid="uid://cvlrnuy54p5r5" path="res://features/bugs/scenes/pablo/states/engage.gd" id="7_esm64"]
 [ext_resource type="Script" uid="uid://blyq212q4uii6" path="res://features/bugs/scenes/pablo/states/caught.gd" id="8_ejbtp"]
 [ext_resource type="Script" uid="uid://cpkq3of0c3l5p" path="res://features/bugs/scenes/pablo/player_detection_area.gd" id="9_esm64"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_esm64"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ynxjh"]
 radius = 0.25
@@ -93,10 +96,21 @@ animations = [{
 }]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4cc64"]
+radius = 1.0
 
 [node name="BugPablo" type="CharacterBody3D" unique_id=454514679]
-collision_layer = 4
+collision_layer = 8
+collision_mask = 3
 script = ExtResource("1_6ryl4")
+
+[node name="DebugVisualizer" type="MeshInstance3D" parent="." unique_id=109392807]
+script = ExtResource("2_ynxjh")
+enabled = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=429550526]
+replication_config = SubResource("SceneReplicationConfig_esm64")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1116011522]
 
 [node name="PushBox" type="CollisionShape3D" parent="." unique_id=1504546784]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
@@ -140,7 +154,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_esm64")
-radius = 5.0
+radius = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionArea" unique_id=165934083]
 shape = SubResource("SphereShape3D_4cc64")

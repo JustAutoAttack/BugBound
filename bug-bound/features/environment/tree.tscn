@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://db0gth27tnqkf"]
+
+[ext_resource type="Material" uid="uid://blss14h6y1gox" path="res://assets/materials/tree_wood.material" id="1_qug63"]
+
+[node name="Tree" type="Node3D" unique_id=1966462968]
+
+[node name="Trunk" type="CSGBox3D" parent="." unique_id=240943332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54, 0)
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(0.69628906, 3.217041, 0.85253906)
+material = ExtResource("1_qug63")
+
+[node name="B1" type="CSGBox3D" parent="Trunk" unique_id=654997660]
+transform = Transform3D(1, 0, 0, 0, 0.65169114, 0.7584844, 0, -0.7584844, 0.65169114, 0, 2.2681806, -1.0085783)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.49194336, 2.4980469, 0.41308594)
+material = ExtResource("1_qug63")
+
+[node name="B1_1" type="CSGBox3D" parent="Trunk/B1" unique_id=530108798]
+transform = Transform3D(0.52718484, 0.07929322, -0.8460431, 0.17658949, 0.9636778, 0.20035428, 0.83119965, -0.25502622, 0.49403393, 0.0719254, 1.7496414, -0.11093283)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.31079102, 1.0850372, 0.25195313)
+material = ExtResource("1_qug63")
+
+[node name="B1_2" type="CSGBox3D" parent="Trunk/B1/B1_1" unique_id=1921671861]
+transform = Transform3D(0.9788718, 0.16939586, -0.11452028, -0.1385727, 0.96141696, 0.2376441, 0.1503577, -0.2167539, 0.9645779, 0.10875702, 0.9640155, -0.17961693)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.17553711, 0.91739655, 0.17578125)
+material = ExtResource("1_qug63")
+
+[node name="B2" type="CSGBox3D" parent="Trunk" unique_id=746509012]
+transform = Transform3D(0.14375061, 0.8990591, -0.41355574, -0.040669728, 0.4229101, 0.9052585, 0.988778, -0.11331233, 0.09735813, 0.7140417, 1.79055, -0.018555164)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.36328125, 1.6317139, 0.27368164)
+material = ExtResource("1_qug63")
+
+[node name="B2_1" type="CSGBox3D" parent="Trunk/B2" unique_id=567427526]
+transform = Transform3D(0.8775631, -0.3358628, 0.34216893, 0.452678, 0.8155768, -0.36044088, -0.15800644, 0.4712021, 0.86775756, -0.21667147, 1.1644106, 0.25723076)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.17553711, 1.0850372, 0.17578125)
+material = ExtResource("1_qug63")
+
+[node name="B3" type="CSGBox3D" parent="Trunk" unique_id=722635985]
+transform = Transform3D(-0.7363474, -0.51319337, 0.44093665, 0, 0.6516912, 0.75848454, -0.67660373, 0.55850804, -0.47987112, -0.44644213, 1.896055, 0.51893044)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.37304688, 1.8370361, 0.30297852)
+material = ExtResource("1_qug63")
+
+[node name="B3_1" type="CSGBox3D" parent="Trunk/B3" unique_id=414414372]
+transform = Transform3D(0.65404505, -0.62278426, -0.42937815, 0.58300596, 0.776683, -0.2384699, 0.48200577, -0.09436005, 0.87107223, -0.40997815, 1.4180775, -0.073387384)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.17553711, 1.3929749, 0.17578125)
+material = ExtResource("1_qug63")
+
+[node name="B3_2" type="CSGBox3D" parent="Trunk/B3" unique_id=2034036306]
+transform = Transform3D(0.32567006, 0.42392048, -0.84512186, 0.04481429, 0.8859259, 0.46165732, 0.94442105, -0.18822168, 0.26952183, 0.34814548, 1.4280376, -0.08194518)
+use_collision = true
+collision_mask = 0
+size = Vector3(0.17553711, 1.3929749, 0.17578125)
+material = ExtResource("1_qug63")

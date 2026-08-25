@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bfnm2wkkllw61"]
+
+[ext_resource type="Script" uid="uid://qexeu2862m8y" path="res://features/zones/town/town.gd" id="1_558pv"]
+[ext_resource type="MeshLibrary" uid="uid://bqhrycykyifyo" path="res://assets/prototyping_blue.meshlib" id="2_558pv"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_4cc64"]
+vertices = PackedVector3Array(9.75, 1.25, 0, 9.75, 1.25, -15, -4, 1.25, -15, -4, 1.25, 0, 11.75, 1.25, 0, 12, 1.25, 2.25, 27, 1.25, 2.25, 27, 1.25, -15, 12, 1.25, 16, 27, 1.25, 16)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(4, 0, 1), PackedInt32Array(6, 5, 4), PackedInt32Array(1, 7, 4), PackedInt32Array(4, 7, 6), PackedInt32Array(9, 8, 6), PackedInt32Array(6, 8, 5)]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4cc64"]
+
+[node name="Town" type="Node3D" unique_id=1382724903]
+script = ExtResource("1_558pv")
+
+[node name="Spawners" type="Node" parent="." unique_id=1469351803]
+
+[node name="Bug" type="MultiplayerSpawner" parent="Spawners" unique_id=929363031]
+_spawnable_scenes = PackedStringArray("uid://cjvcfgx5s4dgr")
+spawn_path = NodePath("../../NavigationRegion3D/Instances/Bug")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1071273832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0)
+navigation_mesh = SubResource("NavigationMesh_4cc64")
+
+[node name="Static" type="Node3D" parent="NavigationRegion3D" unique_id=92933785]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+
+[node name="Spawns" type="Node3D" parent="NavigationRegion3D/Static" unique_id=419464732]
+unique_name_in_owner = true
+
+[node name="Player" type="Node3D" parent="NavigationRegion3D/Static/Spawns" unique_id=210620144]
+
+[node name="Marker3D" type="Marker3D" parent="NavigationRegion3D/Static/Spawns/Player" unique_id=569083628]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
+
+[node name="Bug" type="Node3D" parent="NavigationRegion3D/Static/Spawns" unique_id=1929862985]
+
+[node name="Terrain" type="Node3D" parent="NavigationRegion3D/Static" unique_id=372384917]
+
+[node name="GridMap" type="GridMap" parent="NavigationRegion3D/Static/Terrain" unique_id=220965303]
+mesh_library = ExtResource("2_558pv")
+physics_material = SubResource("PhysicsMaterial_4cc64")
+cell_size = Vector3(1, 0.5, 1)
+collision_mask = 0
+data = {
+"cells": PackedInt32Array(65535, 0, 3, 65535, 8, 3, 65527, 0, 3, 65519, 0, 3, 65535, 65528, 3, 65527, 65528, 3, 65519, 65528, 3, 7, 65528, 3, 7, 0, 3, 7, 8, 3, 65535, 16, 3, 7, 16, 3)
+}
+
+[node name="Props" type="Node3D" parent="NavigationRegion3D/Static" unique_id=355955710]
+
+[node name="Instances" type="Node3D" parent="NavigationRegion3D" unique_id=67312460]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+
+[node name="Bug" type="Node3D" parent="NavigationRegion3D/Instances" unique_id=256402609]

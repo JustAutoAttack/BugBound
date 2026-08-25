@@ -170,36 +170,35 @@ class ToggleHUD extends Command:
 # World
 # ===
 
-# ===
-# World / Spawning Commands
-# ===
-
 class SpawnPlayer extends Command:
 	var peer_id: int
-	var location: Vector3
+	var world_location: Vector3
 	var rotation: Vector3
 	
 	func _init(
 		p_peer_id: int,
-		p_location: Vector3, 
+		p_world_location: Vector3, 
 		p_rotation: Vector3
 	) -> void:
 		super("SpawnPlayer")
 		peer_id = p_peer_id
-		location = p_location
+		world_location = p_world_location
 		rotation = p_rotation
 class SpawnBug extends Command:
 	
-	#var id: Enums.BugID
-	var location: Vector3
+	var id: Enums.BugID
+	var zone: Enums.ZoneType
+	var world_location: Vector3
 	var rotation: Vector3
 	
 	func _init(
-		#p_id: Enums.BugID,
-		p_location: Vector3, 
+		p_id: Enums.BugID,
+		p_zone: Enums.ZoneType,
+		p_world_location: Vector3, 
 		p_rotation: Vector3
 	) -> void:
 		super("SpawnBug")
-		#id = p_id
-		location = p_location
+		id = p_id
+		zone = p_zone
+		world_location = p_world_location
 		rotation = p_rotation

@@ -143,12 +143,12 @@ class PlayerSpawned extends Notification:
 	) -> void:
 		super("PlayerSpawned")
 		player = p_player
-#class BugSpawned extends Notification:
-	#
-	#var bug: Bug
-	#
-	#func _init(
-		#p_bug: Bug
-	#) -> void:
-		#super("BugSpawned")
-		#bug = p_bug
+class BugSpawned extends Notification:
+	
+	var bug: Bug
+	
+	func _init(
+		p_bug: Bug
+	) -> void:
+		super("BugSpawned")
+		bug = p_bug

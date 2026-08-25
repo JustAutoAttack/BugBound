@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://ygi0rnwvx812"]
+
+[ext_resource type="PackedScene" uid="uid://ctiw355ry1q0v" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/FL_1X1.gltf" id="1_4p5em"]
+[ext_resource type="Material" uid="uid://b86bmu1hufp4e" path="res://assets/materials/prototype_floor_green.tres" id="2_fh7fw"]
+[ext_resource type="PackedScene" uid="uid://bry8xa2uj3fyj" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/FL_2X2.gltf" id="3_fdmqf"]
+[ext_resource type="PackedScene" uid="uid://nxwsqa631jxe" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/FL_4X4.gltf" id="4_u8ati"]
+[ext_resource type="PackedScene" uid="uid://chrtexleq1exe" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/FL_8X8.gltf" id="5_g6i82"]
+[ext_resource type="PackedScene" uid="uid://15cow1wf6p21" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/RP_1X2.gltf" id="6_cheot"]
+[ext_resource type="PackedScene" uid="uid://dg2o1lnp33q14" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/RP_1X4.gltf" id="7_fo84d"]
+[ext_resource type="PackedScene" uid="uid://djbwqtaffjtrs" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/RP_1X6.gltf" id="8_1ko1b"]
+[ext_resource type="PackedScene" uid="uid://dursoavs2yswc" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/RP_2X2.gltf" id="9_0vh45"]
+[ext_resource type="PackedScene" uid="uid://buahvvuhhypyl" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/RP_2X4.gltf" id="10_8t7ep"]
+[ext_resource type="PackedScene" uid="uid://ch1ce0edqi2gn" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/RP_2X6.gltf" id="11_thrqi"]
+[ext_resource type="PackedScene" uid="uid://o0y2gog4siv4" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/RP_4X2.gltf" id="12_oarq7"]
+[ext_resource type="PackedScene" uid="uid://2rvqy2mgd637" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/RP_4X4.gltf" id="13_tn18m"]
+[ext_resource type="PackedScene" uid="uid://b67ao4xsm881v" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/RP_4X6.gltf" id="14_iv008"]
+[ext_resource type="PackedScene" uid="uid://q0ltpg1ni61r" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_1X1.gltf" id="15_kw1ob"]
+[ext_resource type="Material" uid="uid://dgen7qjdh0qm6" path="res://assets/materials/prototype_main_green.tres" id="16_8p626"]
+[ext_resource type="PackedScene" uid="uid://blfssq2bjthke" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_1X1_HALF.gltf" id="17_7m8x7"]
+[ext_resource type="PackedScene" uid="uid://dsj41b20jypk0" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_1X2.gltf" id="18_s4qhe"]
+[ext_resource type="PackedScene" uid="uid://cc7t3u6ikiot2" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_1X2_HALF.gltf" id="19_fvfip"]
+[ext_resource type="PackedScene" uid="uid://fjduso5qysuf" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_1X4.gltf" id="20_c4ioa"]
+[ext_resource type="PackedScene" uid="uid://bfet4ijky5lhm" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_1X4_HALF.gltf" id="21_b7xlp"]
+[ext_resource type="PackedScene" uid="uid://cfli8j2q7x04c" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_CORNER.gltf" id="22_nxid3"]
+[ext_resource type="PackedScene" uid="uid://jdf4etwmwm0d" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_CROSS.gltf" id="23_lg4rd"]
+[ext_resource type="PackedScene" uid="uid://dfc8sk3xmms7x" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_DOOR.gltf" id="24_8yrdi"]
+[ext_resource type="PackedScene" uid="uid://d3l2nx1x760ni" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_TJUNCTION.gltf" id="25_0ducl"]
+[ext_resource type="PackedScene" uid="uid://ds4xba42fhwh4" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_WINDOW.gltf" id="26_81xig"]
+
+[node name="GreenMeshLibrary" type="Node3D" unique_id=1960947560]
+
+[node name="FL_1X12" parent="." unique_id=2119009697 instance=ExtResource("1_4p5em")]
+
+[node name="FL_1X1" parent="FL_1X12" index="0" unique_id=2114910858]
+surface_material_override/0 = ExtResource("2_fh7fw")
+
+[node name="FL_2X22" parent="." unique_id=155553758 instance=ExtResource("3_fdmqf")]
+
+[node name="FL_2X2" parent="FL_2X22" index="0" unique_id=1545038950]
+surface_material_override/0 = ExtResource("2_fh7fw")
+
+[node name="FL_4X42" parent="." unique_id=1924185907 instance=ExtResource("4_u8ati")]
+
+[node name="FL_4X4" parent="FL_4X42" index="0" unique_id=781441268]
+surface_material_override/0 = ExtResource("2_fh7fw")
+
+[node name="FL_8X82" parent="." unique_id=748763547 instance=ExtResource("5_g6i82")]
+
+[node name="FL_8X8" parent="FL_8X82" index="0" unique_id=2044115768]
+surface_material_override/0 = ExtResource("2_fh7fw")
+
+[node name="RP_1X22" parent="." unique_id=392558520 instance=ExtResource("6_cheot")]
+
+[node name="RP_1X2" parent="RP_1X22" index="0" unique_id=1161163524]
+surface_material_override/0 = ExtResource("2_fh7fw")
+
+[node name="RP_1X42" parent="." unique_id=744752988 instance=ExtResource("7_fo84d")]
+
+[node name="RP_1X4" parent="RP_1X42" index="0" unique_id=1403919804]
+surface_material_override/0 = ExtResource("2_fh7fw")
+
+[node name="RP_1X62" parent="." unique_id=321503433 instance=ExtResource("8_1ko1b")]
+
+[node name="RP_1X6" parent="RP_1X62" index="0" unique_id=1091898316]
+surface_material_override/0 = ExtResource("2_fh7fw")
+
+[node name="RP_2X22" parent="." unique_id=1720509818 instance=ExtResource("9_0vh45")]
+
+[node name="RP_2X2" parent="RP_2X22" index="0" unique_id=1315480619]
+surface_material_override/0 = ExtResource("2_fh7fw")
+
+[node name="RP_2X42" parent="." unique_id=421292484 instance=ExtResource("10_8t7ep")]
+
+[node name="RP_2X4" parent="RP_2X42" index="0" unique_id=402086092]
+surface_material_override/0 = ExtResource("2_fh7fw")
+
+[node name="RP_2X62" parent="." unique_id=657096709 instance=ExtResource("11_thrqi")]
+
+[node name="RP_2X6" parent="RP_2X62" index="0" unique_id=1244458059]
+surface_material_override/0 = ExtResource("2_fh7fw")
+
+[node name="RP_4X22" parent="." unique_id=1917276531 instance=ExtResource("12_oarq7")]
+
+[node name="RP_4X2" parent="RP_4X22" index="0" unique_id=1601897066]
+surface_material_override/0 = ExtResource("2_fh7fw")
+
+[node name="RP_4X42" parent="." unique_id=1164226061 instance=ExtResource("13_tn18m")]
+
+[node name="RP_4X4" parent="RP_4X42" index="0" unique_id=1330748596]
+surface_material_override/0 = ExtResource("2_fh7fw")
+
+[node name="RP_4X62" parent="." unique_id=1696416886 instance=ExtResource("14_iv008")]
+
+[node name="RP_4X6" parent="RP_4X62" index="0" unique_id=1934317371]
+surface_material_override/0 = ExtResource("2_fh7fw")
+
+[node name="WL_1X12" parent="." unique_id=40517506 instance=ExtResource("15_kw1ob")]
+
+[node name="WL_1X1" parent="WL_1X12" index="0" unique_id=1291716362]
+surface_material_override/0 = ExtResource("16_8p626")
+
+[node name="WL_1X1_HALF2" parent="." unique_id=442423463 instance=ExtResource("17_7m8x7")]
+
+[node name="WL_1X1_HALF" parent="WL_1X1_HALF2" index="0" unique_id=1301788201]
+surface_material_override/0 = ExtResource("16_8p626")
+
+[node name="WL_1X22" parent="." unique_id=943485972 instance=ExtResource("18_s4qhe")]
+
+[node name="WL_1X2" parent="WL_1X22" index="0" unique_id=1071655501]
+surface_material_override/0 = ExtResource("16_8p626")
+
+[node name="WL_1X2_HALF2" parent="." unique_id=1458743474 instance=ExtResource("19_fvfip")]
+
+[node name="WL_1X2_HALF" parent="WL_1X2_HALF2" index="0" unique_id=1675750877]
+surface_material_override/0 = ExtResource("16_8p626")
+
+[node name="WL_1X42" parent="." unique_id=1889945911 instance=ExtResource("20_c4ioa")]
+
+[node name="WL_1X4" parent="WL_1X42" index="0" unique_id=789691748]
+surface_material_override/0 = ExtResource("16_8p626")
+
+[node name="WL_1X4_HALF2" parent="." unique_id=548688711 instance=ExtResource("21_b7xlp")]
+
+[node name="WL_1X4_HALF" parent="WL_1X4_HALF2" index="0" unique_id=1469985944]
+surface_material_override/0 = ExtResource("16_8p626")
+
+[node name="WL_CORNER2" parent="." unique_id=741108835 instance=ExtResource("22_nxid3")]
+
+[node name="WL_CORNER" parent="WL_CORNER2" index="0" unique_id=1751517475]
+surface_material_override/0 = ExtResource("16_8p626")
+
+[node name="WL_CROSS2" parent="." unique_id=1840227655 instance=ExtResource("23_lg4rd")]
+
+[node name="WL_CROSS" parent="WL_CROSS2" index="0" unique_id=2146621897]
+surface_material_override/0 = ExtResource("16_8p626")
+
+[node name="WL_DOOR2" parent="." unique_id=1869846594 instance=ExtResource("24_8yrdi")]
+
+[node name="WL_DOOR" parent="WL_DOOR2" index="0" unique_id=2124461518]
+surface_material_override/0 = ExtResource("16_8p626")
+
+[node name="WL_TJUNCTION2" parent="." unique_id=1729461097 instance=ExtResource("25_0ducl")]
+
+[node name="WL_TJUNCTION" parent="WL_TJUNCTION2" index="0" unique_id=1548937363]
+surface_material_override/0 = ExtResource("16_8p626")
+
+[node name="WL_WINDOW2" parent="." unique_id=271922359 instance=ExtResource("26_81xig")]
+
+[node name="WL_WINDOW" parent="WL_WINDOW2" index="0" unique_id=483216020]
+surface_material_override/0 = ExtResource("16_8p626")
+
+[editable path="FL_1X12"]
+[editable path="FL_2X22"]
+[editable path="FL_4X42"]
+[editable path="FL_8X82"]
+[editable path="RP_1X22"]
+[editable path="RP_1X42"]
+[editable path="RP_1X62"]
+[editable path="RP_2X22"]
+[editable path="RP_2X42"]
+[editable path="RP_2X62"]
+[editable path="RP_4X22"]
+[editable path="RP_4X42"]
+[editable path="RP_4X62"]
+[editable path="WL_1X12"]
+[editable path="WL_1X1_HALF2"]
+[editable path="WL_1X22"]
+[editable path="WL_1X2_HALF2"]
+[editable path="WL_1X42"]
+[editable path="WL_1X4_HALF2"]
+[editable path="WL_CORNER2"]
+[editable path="WL_CROSS2"]
+[editable path="WL_DOOR2"]
+[editable path="WL_TJUNCTION2"]
+[editable path="WL_WINDOW2"]

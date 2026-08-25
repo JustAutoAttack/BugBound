@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://c2icdmgo66svh"]
+
+[ext_resource type="PackedScene" uid="uid://ctiw355ry1q0v" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/FL_1X1.gltf" id="1_fs5m4"]
+[ext_resource type="PackedScene" uid="uid://bry8xa2uj3fyj" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/FL_2X2.gltf" id="2_a02eg"]
+[ext_resource type="PackedScene" uid="uid://nxwsqa631jxe" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/FL_4X4.gltf" id="3_qxtaf"]
+[ext_resource type="PackedScene" uid="uid://chrtexleq1exe" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/FL_8X8.gltf" id="4_03t58"]
+[ext_resource type="PackedScene" uid="uid://15cow1wf6p21" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/RP_1X2.gltf" id="5_5nmhe"]
+[ext_resource type="PackedScene" uid="uid://dg2o1lnp33q14" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/RP_1X4.gltf" id="6_bmlr1"]
+[ext_resource type="PackedScene" uid="uid://djbwqtaffjtrs" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/RP_1X6.gltf" id="7_jfm1p"]
+[ext_resource type="PackedScene" uid="uid://dursoavs2yswc" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/RP_2X2.gltf" id="8_ktsj1"]
+[ext_resource type="PackedScene" uid="uid://buahvvuhhypyl" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/RP_2X4.gltf" id="9_nadat"]
+[ext_resource type="PackedScene" uid="uid://ch1ce0edqi2gn" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/RP_2X6.gltf" id="10_3pxyn"]
+[ext_resource type="PackedScene" uid="uid://o0y2gog4siv4" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/RP_4X2.gltf" id="11_u7t8a"]
+[ext_resource type="PackedScene" uid="uid://2rvqy2mgd637" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/RP_4X4.gltf" id="12_veffa"]
+[ext_resource type="PackedScene" uid="uid://b67ao4xsm881v" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/RP_4X6.gltf" id="13_fn50w"]
+[ext_resource type="PackedScene" uid="uid://q0ltpg1ni61r" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_1X1.gltf" id="14_yqbna"]
+[ext_resource type="PackedScene" uid="uid://blfssq2bjthke" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_1X1_HALF.gltf" id="15_hwll5"]
+[ext_resource type="PackedScene" uid="uid://dsj41b20jypk0" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_1X2.gltf" id="16_eolhb"]
+[ext_resource type="PackedScene" uid="uid://cc7t3u6ikiot2" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_1X2_HALF.gltf" id="17_j5ysv"]
+[ext_resource type="PackedScene" uid="uid://fjduso5qysuf" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_1X4.gltf" id="18_85s26"]
+[ext_resource type="PackedScene" uid="uid://bfet4ijky5lhm" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_1X4_HALF.gltf" id="19_xghxt"]
+[ext_resource type="PackedScene" uid="uid://cfli8j2q7x04c" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_CORNER.gltf" id="20_pkxht"]
+[ext_resource type="PackedScene" uid="uid://jdf4etwmwm0d" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_CROSS.gltf" id="21_pffe0"]
+[ext_resource type="PackedScene" uid="uid://dfc8sk3xmms7x" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_DOOR.gltf" id="22_f2g3n"]
+[ext_resource type="PackedScene" uid="uid://d3l2nx1x760ni" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_TJUNCTION.gltf" id="23_tfeud"]
+[ext_resource type="PackedScene" uid="uid://ds4xba42fhwh4" path="res://_dev/prototyping/Modular Blueprint Kit/Modular Blueprint Kit/glTF/WL_WINDOW.gltf" id="24_5mnok"]
+
+[node name="BlueMeshLibrary" type="Node3D" unique_id=1960947560]
+
+[node name="FL_1X12" parent="." unique_id=2119009697 instance=ExtResource("1_fs5m4")]
+
+[node name="FL_2X22" parent="." unique_id=155553758 instance=ExtResource("2_a02eg")]
+
+[node name="FL_4X42" parent="." unique_id=1924185907 instance=ExtResource("3_qxtaf")]
+
+[node name="FL_8X82" parent="." unique_id=748763547 instance=ExtResource("4_03t58")]
+
+[node name="RP_1X22" parent="." unique_id=392558520 instance=ExtResource("5_5nmhe")]
+
+[node name="RP_1X42" parent="." unique_id=744752988 instance=ExtResource("6_bmlr1")]
+
+[node name="RP_1X62" parent="." unique_id=321503433 instance=ExtResource("7_jfm1p")]
+
+[node name="RP_2X22" parent="." unique_id=1720509818 instance=ExtResource("8_ktsj1")]
+
+[node name="RP_2X42" parent="." unique_id=421292484 instance=ExtResource("9_nadat")]
+
+[node name="RP_2X62" parent="." unique_id=657096709 instance=ExtResource("10_3pxyn")]
+
+[node name="RP_4X22" parent="." unique_id=1917276531 instance=ExtResource("11_u7t8a")]
+
+[node name="RP_4X42" parent="." unique_id=1164226061 instance=ExtResource("12_veffa")]
+
+[node name="RP_4X62" parent="." unique_id=1696416886 instance=ExtResource("13_fn50w")]
+
+[node name="WL_1X12" parent="." unique_id=40517506 instance=ExtResource("14_yqbna")]
+
+[node name="WL_1X1_HALF2" parent="." unique_id=442423463 instance=ExtResource("15_hwll5")]
+
+[node name="WL_1X22" parent="." unique_id=943485972 instance=ExtResource("16_eolhb")]
+
+[node name="WL_1X2_HALF2" parent="." unique_id=1458743474 instance=ExtResource("17_j5ysv")]
+
+[node name="WL_1X42" parent="." unique_id=1889945911 instance=ExtResource("18_85s26")]
+
+[node name="WL_1X4_HALF2" parent="." unique_id=548688711 instance=ExtResource("19_xghxt")]
+
+[node name="WL_CORNER2" parent="." unique_id=741108835 instance=ExtResource("20_pkxht")]
+
+[node name="WL_CROSS2" parent="." unique_id=1840227655 instance=ExtResource("21_pffe0")]
+
+[node name="WL_DOOR2" parent="." unique_id=1869846594 instance=ExtResource("22_f2g3n")]
+
+[node name="WL_TJUNCTION2" parent="." unique_id=1729461097 instance=ExtResource("23_tfeud")]
+
+[node name="WL_WINDOW2" parent="." unique_id=271922359 instance=ExtResource("24_5mnok")]

@@ -45,11 +45,11 @@ func log_message(
 # ===
 # Private
 # ===
-## Resolves the tag for the log message via [StackUtils].
+## Resolves the tag for the log message via [CallStackUtils].
 func _resolve_tag() -> String:
 	# Skip 2: _resolve_tag's own frame and log_message's frame,
 	# landing on whatever code actually called log_message.
-	var frames: Array[Dictionary] = StackUtils.get_stack_trace(2)
+	var frames: Array[Dictionary] = CallStackUtils.get_stack_trace(2)
 	
 	for frame: Dictionary in frames:
 		var obj: Object = frame.get("object") as Object
