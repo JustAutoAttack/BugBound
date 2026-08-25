@@ -1,5 +1,7 @@
 # Bug Bound: Design Doc
 
+---
+
 ## Table of Contents
 
 - **[Game Overview](#game-overview)**
