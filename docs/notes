@@ -1,0 +1,26 @@
+--- normal gameplay ---
+bug walks around (visible for now)
+audio cues when close
+sneak mechanic to get close to bug
+
+--- interaction mechanic ---
+if bug does question mark, they are spooked and hear you but wont run yet
+if you are too loud and close, the bug will run away
+when bug has exclamation mark, they attack, entering capture game
+
+--- capture game ---
+bug walk around on screen but should attack cursour later
+player circles the bug
+player's capture resource reduces as they attempt to circle
+getting hit reduces player capture resource
+successfully circling the bug increases the bug's capture meter
+win con: fill the bug's capture meter
+lose con: your bug capture meter is empty
+lose con 2: time limit and you didnt catch
+
+--- post-capture ---
+new capture?
+- true: insectopedia menu -> but captured label appears on hud
+- false: bug captured label appears on hud
+
+
