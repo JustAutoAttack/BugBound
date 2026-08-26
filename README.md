@@ -95,9 +95,6 @@ Every developer has access to a local dev/ folder at the root of the repository.
   signals to programmers and artists working within the bug-bound/ folder that
   the asset is polished, validated, and ready to use in game.
 
-- **Git Status:** Note that the root dev/ folder is excluded from version
-  control via .gitignore, keeping your personal workspace entirely local.
-
 ---
 
 # Git & Version Control Workflow
