@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ZoneDefinitionData" format=3 uid="uid://b5sdoj4skh0t"]
+
+[ext_resource type="Script" uid="uid://dy7enb1jp1lfl" path="res://common/resource/rarity_weight.gd" id="1_hh2i2"]
+[ext_resource type="Script" uid="uid://bceigxaoetmbp" path="res://common/resource/zone_definition.gd" id="2_y3q7b"]
+
+[resource]
+script = ExtResource("2_y3q7b")
+id = 1
+type = 1
+display_name = "Weevil Wood"
+metadata/_custom_type_script = "uid://bceigxaoetmbp"

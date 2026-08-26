@@ -11,6 +11,15 @@ var time: float:
 			_time = value
 			time_updated.emit(value)
 
+signal total_time_updated(value: float)
+var _total_time: float
+var total_time: float:
+	get: return _total_time
+	set(value):
+		if _authorize_write():
+			_total_time = value
+			total_time_updated.emit(value)
+
 signal cpu_time_updated(value: float)
 var _cpu_time: float
 var cpu_time: float:
@@ -29,4 +38,5 @@ func _init() -> void:
 
 func reset() -> void:
 	_time = 0.0
+	_total_time = 0.0
 	_cpu_time = 0.0

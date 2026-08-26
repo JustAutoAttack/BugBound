@@ -23,5 +23,8 @@ func reset() -> void:
 func set_time(value: float) -> void:
 	context.time = value
 
+func set_total_time(value: float) -> void:
+	context.total_time = value
+
 func set_cpu_time(value: float) -> void:
 	context.cpu_time = value

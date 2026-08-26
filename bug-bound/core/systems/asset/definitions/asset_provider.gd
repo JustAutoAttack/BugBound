@@ -8,10 +8,15 @@ static var _game: PackedScene = null
 static var _title: PackedScene = null
 static var _world: PackedScene = null
 static var _player: PackedScene = null
+static var _bug_unknown: PackedScene = null
+static var _bug_scenes: Dictionary[Enums.BugID, PackedScene] = {}
+static var _zone_scenes: Dictionary[Enums.ZoneID, PackedScene] = {}
 
 # Data
 static var _new_game_save_data: GameSaveData = null
 static var _default_settings_save_data: SettingsSaveData = null
+static var _bug_definition_data: Dictionary[Enums.BugID, BugDefinitionData]  = {}
+static var _zone_definition_data: Dictionary[Enums.ZoneID, ZoneDefinitionData]  = {}
 
 # Materials
 
@@ -24,10 +29,15 @@ static func setup_cache() -> void:
 	_cache_title_scene()
 	_cache_world_scene()
 	_cache_player_scene()
+	_cache_bug_unknown_scene()
+	_cache_bug_scenes()
+	_cache_zone_scenes()
 	
 	# Data
 	_cache_default_settings_save_data()
 	_cache_new_game_save_data()
+	_cache_bug_definition_data()
+	_cache_zone_definition_data()
 	
 	# Material
 
@@ -37,10 +47,16 @@ static func clear_cache() -> void:
 	_game = null
 	_title = null
 	_world = null
+	_player = null
+	_bug_unknown = null
+	_bug_scenes = {}
+	_zone_scenes = {}
 	
 	# Data
 	_new_game_save_data = null
 	_default_settings_save_data = null
+	_bug_definition_data = {}
+	_zone_definition_data = {}
 	
 	# Materials
 
@@ -103,6 +119,51 @@ static func get_player_scene() -> Player:
 		return _player.instantiate() as Player
 	return null
 
+# --- Bug Unknown ---
+static func _cache_bug_unknown_scene() -> void:
+	_bug_unknown = AssetLoader.load_packed_scene(
+		AssetConstants.ScenePaths.BUG_UNKNOWN, 
+	)
+
+static func get_bug_unknown_scene() -> BugUnknown:
+	if _bug_unknown:
+		return _bug_unknown.instantiate() as BugUnknown
+	return null
+
+# --- Bug ---
+static func _cache_bug_scenes() -> void:
+	for i in Enums.BugID.values():
+		var scene_path: String = AssetConstants.ScenePaths.BUGS_TABLE.get(i)
+		if not scene_path:
+			LogSystem.log_message(
+				"",
+				LogEnums.LogLevel.ERROR
+			)
+			continue
+		_bug_scenes[i] = AssetLoader.load_packed_scene(
+			scene_path
+		) as PackedScene
+
+static func get_bug_scene(id: Enums.BugID) -> PackedScene:
+	return _bug_scenes.get(id)
+
+# --- Zone ---
+static func _cache_zone_scenes() -> void:
+	for i in Enums.ZoneID.values():
+		var scene_path: String = AssetConstants.ScenePaths.ZONES_TABLE.get(i)
+		if not scene_path:
+			LogSystem.log_message(
+				"",
+				LogEnums.LogLevel.ERROR
+			)
+			continue
+		_bug_scenes[i] = AssetLoader.load_packed_scene(
+			scene_path
+		) as PackedScene
+
+static func get_zone_scene(id: Enums.ZoneID) -> PackedScene:
+	return _zone_scenes.get(id)
+
 # ===
 # Data 
 # ===
@@ -133,6 +194,32 @@ static func _cache_new_game_save_data() -> void:
 
 static func get_new_game_save_data() -> GameSaveData:
 	return _new_game_save_data
+
+# --- Bugs ---
+static func _cache_bug_definition_data() -> void:
+	for i in Enums.BugID.values():
+		_bug_definition_data[i] = AssetLoader.load_resource_from_table(
+			i, 
+			AssetConstants.DataPaths.BUG_DEFINITIONS_TABLE, 
+			Enums.BugID.keys(), 
+			BugDefinitionData
+		) as BugDefinitionData
+
+static func get_bug_definition_data(id: Enums.BugID) -> BugDefinitionData:
+	return _bug_definition_data.get(id)
+
+# --- Zones ---
+static func _cache_zone_definition_data() -> void:
+	for i in Enums.ZoneID.values():
+		_zone_definition_data[i] = AssetLoader.load_resource_from_table(
+			i, 
+			AssetConstants.DataPaths.ZONE_DEFINITIONS_TABLE, 
+			Enums.ZoneID.keys(), 
+			ZoneDefinitionData
+		) as ZoneDefinitionData
+
+static func get_zone_definition_data(id: Enums.ZoneID) -> ZoneDefinitionData:
+	return _zone_definition_data.get(id)
 
 # ===
 # Materials

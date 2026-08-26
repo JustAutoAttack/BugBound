@@ -14,7 +14,19 @@ class ScenePaths:
 	const WORLD: String = CORE_DIR + "world/world.tscn"
 	const PLAYER: String = CORE_DIR + "player/player.tscn"
 	
-	# --- Features ---
+	# --- Bugs ---
+	const BUGS_DIR: String = FEATURES_DIR + "bugs/scenes/"
+	const BUG_UNKNOWN: String = BUGS_DIR + "unknown/unknown.tscn"
+	const BUGS_TABLE: Dictionary[Enums.BugID, String] = {
+		Enums.BugID.PABLO: BUGS_DIR + "pablo/pablo.tscn"
+	}
+	
+	# --- Zones ---
+	const ZONES_DIR: String = FEATURES_DIR + "zones/scenes/"
+	const ZONES_TABLE: Dictionary[Enums.ZoneID, String] = {
+		Enums.ZoneID.FUNGAL_FOREST: ZONES_DIR + "fungal_forest/fungal_forest.tscn",
+		Enums.ZoneID.WEEVIL_WOOD: ZONES_DIR + "weevil_wood/weevil_wood.tscn"
+	}
 
 class DataPaths:
 	
@@ -23,7 +35,6 @@ class DataPaths:
 	
 	# --- Saves ---
 	const SAVES_DIR: String = BASE_DIR + "saves/"
-	
 	const NEW_GAME_SAVE: String = SAVES_DIR + "new_game.tres"
 	const DEFAULT_SETTINGS_SAVE: String = SAVES_DIR + "default_settings.tres"
 	
@@ -32,6 +43,19 @@ class DataPaths:
 	const USER_GAME_SAVES_DIR: String = USER_SAVES_DIR + "games/"
 	const USER_GAME_AUTOSAVES_DIR: String = USER_SAVES_DIR + "games/autosave/"
 	const USER_SETTINGS_SAVE: String = USER_SAVES_DIR + "settings.tres"
+	
+	# --- Bug Definitions ---
+	const BUG_DEFINITIONS_DIR: String = BASE_DIR + "bug_definitions/"
+	const BUG_DEFINITIONS_TABLE: Dictionary[Enums.BugID, String] = {
+		Enums.BugID.PABLO: BUG_DEFINITIONS_DIR + "pablo.tres"
+	}
+
+	# --- Zone Definitions ---
+	const ZONE_DEFINITIONS_DIR: String = BASE_DIR + "zone_definitions/"
+	const ZONE_DEFINITIONS_TABLE: Dictionary[Enums.ZoneID, String] = {
+		Enums.ZoneID.FUNGAL_FOREST: ZONE_DEFINITIONS_DIR + "fungal_forest.tres",
+		Enums.ZoneID.WEEVIL_WOOD: ZONE_DEFINITIONS_DIR + "weevil_wood.tres"
+	}
 
 class MaterialPaths:
 	

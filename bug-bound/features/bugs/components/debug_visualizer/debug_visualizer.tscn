@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d5pivnb1qtru"]
+
+[ext_resource type="Script" uid="uid://dwfxe1fwu5ial" path="res://features/bugs/components/debug_visualizer/debug_visualizer.gd" id="1_rykrj"]
+
+[node name="DebugVisualizer" type="MeshInstance3D" unique_id=551246780]
+script = ExtResource("1_rykrj")
+enabled = true

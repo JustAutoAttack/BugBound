@@ -5,6 +5,16 @@ extends RefCounted
 # Core
 # ===
 
+# --- Misc ---
+
+enum RarityType {
+	COMMON,
+	UNCOMMON,
+	RARE,
+	EPIC,
+	MYTHICAL
+}
+
 # --- Audio ---
 
 enum AudioBusType {
@@ -53,21 +63,41 @@ enum PauseMenuAction {
 
 # --- World ---
 
-enum ZoneType {
-	TOWN,
-	FOREST
-}
-
 # ===
 # Features
 # ===
 
+# --- Zone ---
+
+enum ZoneID {
+	FUNGAL_FOREST,
+	WEEVIL_WOOD
+}
+
+enum ZoneType {
+	WILDERNESS,
+	TOWN
+}
+
+# --- Bug ---
+
 enum BugID {
-	TEST
+	PABLO
 }
 
 enum BugType {
-	
+	VENOMOUS,
+	POISONOUS,
+	SEISMIC,
+	ROTTEN,
+	HIVE,
+	CAMOUFLAGE,
+}
+
+enum BugMovementType {
+	GROUND,
+	AIR,
+	BOTH
 }
 
 enum BugCombatStat {

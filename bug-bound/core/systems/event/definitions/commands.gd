@@ -187,13 +187,13 @@ class SpawnPlayer extends Command:
 class SpawnBug extends Command:
 	
 	var id: Enums.BugID
-	var zone: Enums.ZoneType
+	var zone: Enums.ZoneID
 	var world_location: Vector3
 	var rotation: Vector3
 	
 	func _init(
 		p_id: Enums.BugID,
-		p_zone: Enums.ZoneType,
+		p_zone: Enums.ZoneID,
 		p_world_location: Vector3, 
 		p_rotation: Vector3
 	) -> void:

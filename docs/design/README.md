@@ -514,43 +514,90 @@ The physical gear progression and cosmetic wardrobe system fueled by the
 
 ## Insectopedia (Bug Catalog & Archetypes)
 
-The comprehensive breakdown of bug species, sizes, behavioral archetypes, and
-environmental spawn conditions that populate the living wilderness.
+The comprehensive architectural and design breakdown for bug species taxonomy,
+biological classifications, scaling parameters, and environmental generation
+rules that populate the living wilderness.
 
 ### Mechanics
 
-- **Bug Archetypes & Minigame Hazards:** Bugs are categorized into distinct
-  behavioral archetypes that dictate both their 3D wilderness movement and their
-  active hazards inside the **Capture Minigame**:
-    - **Crawlers (e.g., Beetles, Caterpillars):** Slow and methodical in the
-      world; predictable ground movement patterns in the arena with occasional
-      heavy defense pulses (e.g., shell slams that shatter drawn lines).
-    - **Jumpers (e.g., Fleas, Grasshoppers):** Twitchy and easily startled in
-      the brush; execute sudden, screen-spanning leaps in the arena that
-      instantly break player focus if caught in the jump path.
-    - **Fliers (e.g., Moths, Dragonflies):** Highly erratic aerial movement;
-      float smoothly across the capture canvas while occasionally dropping
-      blinding dust or erratic sonic pulses that disrupt cursor tracking.
-    - **Ambushers (e.g., Scorpions, Spiders):** Stationary or slow-roaming until
-      approached; boast aggressive, fast counter-attacks (e.g., quick stings or
-      web traps) that drain player focus on contact.
-- **Size & Variant Tiers:** Every species spawns with randomized scale factors
-  (Small, Normal, Large, Giant) and rare color variants tied to specific weather
-  conditions or milestones.
+- **Biological Classifications (`BugType`):** Every creature in the
+  _Insectopedia_ is defined by a primary survival archetype. This classification
+  dictates its overworld perception AI, audio threshold tolerances,
+  environmental spawn tables, and active gameplay hazards during the capture
+  minigame:
+    - **Venomous:** Highly aggressive, territorial predators.
+        - _Overworld:_ Actively patrols or pursues the player if detection
+          thresholds are breached.
+        - _Capture Hazards:_ Counter-attacks the player's circle-strafe path,
+          applying temporary stamina drain, movement speed penalties, or
+          control-reversal debuffs on contact.
+    - **Poisonous:** Defensively toxic organisms relying on aposematic (warning)
+      coloration.
+        - _Overworld:_ Slower-moving, unbothered by close proximity due to
+          innate chemical immunity.
+        - _Capture Hazards:_ Punishes reckless engagement. Failing capture
+          timing windows or brushing against active toxic auras degrades the
+          player's active resource pools.
+    - **Seismic:** Specialized organisms that perceive the environment purely
+      through ground acoustics.
+        - _Overworld:_ Completely deaf to airborne sounds and traditional
+          stealth noise meters, but hyper-sensitive to ground displacement.
+          Sprinting or heavy footstep cadence instantly triggers aggro
+          regardless of distance.
+        - _Capture Hazards:_ Emits ground-pulse shockwaves during the minigame
+          that disrupt player footing or temporarily collapse active capture
+          lines.
+    - **Rotten:** Decomposers and parasite-driven entities bound to damp,
+      organic biomes.
+        - _Overworld:_ Leaves localized biological hazards or decay miasma in
+          their wake.
+        - _Capture Hazards:_ Generates persistent area-denial sludge pools on
+          the capture canvas. Stepping into decay zones spikes the player's
+          noise meter and rots stamina recovery rates.
+    - **Hive:** Collective-intelligence swarms and colonial entities.
+        - _Overworld:_ Spawns in interconnected clusters; alerting one
+          individual broadcasts a distress signal to nearby entities within the
+          zone.
+        - _Capture Hazards:_ Features a shared collective-will gauge instead of
+          a standard single-target meter, requiring simultaneous crowd control
+          or multi-vector pathing during the circle-strafe.
+    - **Camouflage:** Highly evolved mimics utilizing optical deception.
+        - _Overworld:_ Completely visually blended into environmental props,
+          bark, or flora until triggered by close proximity or specialized
+          scanning tools.
+        - _Capture Hazards:_ Employs visual distortions, sudden invisibility
+          windows, or deceptive decoys during the capture phase to break player
+          lock-on and cursor tracking.
+
+- **Size Scaling & Morphological Tiers:**
+    - Every species instance scales dynamically upon spawn, rolling across
+      discrete scalar tiers (**Small**, **Normal**, **Large**, **Giant**).
+    - Size directly impacts physical collision hulls, movement velocity, stamina
+      pool consumption during capture, and reward yield upon successful logging.
+
+- **Rarity & Color Variant Integration:**
+    - Variant colorations are directly tied to the overworld `BugUnknown`
+      firefly swarm rarity tiers (**Common**, **Uncommon**, **Rare**, **Epic**,
+      **Legendary**).
+    - Encountering a higher-tier `BugUnknown` guarantees a corresponding rarity
+      tier and color mutation profile when the true bug identity is rolled and
+      instantiated.
 
 ### Core Alignment
 
-- **Wilderness, Capture Minigame, & Field Guide:** Provides the underlying data
-  for what players track in the world, battle in the minigame, and log in their
-  collection journal.
+- **Wilderness, Capture Minigame, & Field Guide:** Acts as the single source of
+  truth connecting overworld ambient spawns (`BugUnknown`), active arena
+  engagement mechanics, and database logging inside the player's collection
+  terminal.
 
 ### Pillar Alignment
 
-- **Tactile, Mastery-Driven Interaction:** Forces players to learn the unique
-  behavioral tells and attack patterns of each archetype rather than relying on
-  a one-size-fits-all catching strategy.
-- **An Organic, Reactive Ecosystem:** Ensures every critter feels distinct,
-  alive, and true to its real-world counterpart.
+- **Tactile, Mastery-Driven Interaction:** Eliminates generic, one-size-fits-all
+  catching strategies by forcing players to study and adapt their approach to
+  the specific biological hazards of each type.
+- **An Organic, Reactive Ecosystem:** Grounds every system in real-world insect
+  biology, ensuring the wilderness feels alive, unpredictable, and deeply
+  interconnected.
 
 ---
 

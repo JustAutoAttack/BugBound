@@ -1,3 +1,4 @@
+@tool
 class_name BugCollectionZone
 extends Area3D
 
@@ -19,6 +20,10 @@ signal bug_exited_range(bug: Bug)
 
 func _ready() -> void:
 	_update_shape_radius()
+	
+	# Optional: Prevent signals from firing or processing gameplay logic inside the editor window
+	if Engine.is_editor_hint():
+		return
 	
 	area_entered.connect(_on_area_entered)
 	area_exited.connect(_on_area_exited)

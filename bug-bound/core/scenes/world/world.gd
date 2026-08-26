@@ -83,15 +83,15 @@ func _request_spawn_player(peer_id: int) -> void:
 func _get_random_town_player_spawn() -> Node3D:
 	if not (
 		zones_controller or 
-		zones_controller.zone_map.has(Enums.ZoneType.TOWN)
+		zones_controller.zone_map.has(Enums.ZoneID.WEEVIL_WOOD)
 	):
 		LogSystem.log_message(
 			"ZonesController or Town Zone missing! Defaulting world origin for player spawn.", 
 			LogEnums.LogLevel.ERROR
 		)
 		return self
-
-	var town_zone: WorldZone = zones_controller.zone_map[Enums.ZoneType.TOWN]
+	
+	var town_zone: TownZone = zones_controller.zone_map[Enums.ZoneID.WEEVIL_WOOD]
 	if not (
 		town_zone or 
 		town_zone.player_spawns
@@ -101,8 +101,9 @@ func _get_random_town_player_spawn() -> Node3D:
 			LogEnums.LogLevel.ERROR
 		)
 		return self
-
-	var spawn_markers = town_zone.player_spawns.get_children()
+	
+	print_debug(town_zone.name)
+	var spawn_markers: Array[Node] = town_zone.player_spawns.get_children()
 	if spawn_markers.is_empty():
 		LogSystem.log_message(
 			"No player spawn markers found inside Town zone container! Defaulting to town zone position.", 
@@ -132,14 +133,14 @@ func _handle_bug_spawned(_notification: Notifications.BugSpawned) -> void:
 	)
 
 func _spawn_initial_bugs() -> void:
-	if not zones_controller or not zones_controller.zone_map.has(Enums.ZoneType.FOREST):
+	if not zones_controller or not zones_controller.zone_map.has(Enums.ZoneID.FUNGAL_FOREST):
 		LogSystem.log_message(
 			"ZonesController or Forest Zone missing for bug spawning!", 
 			LogEnums.LogLevel.ERROR
 		)
 		return
 
-	var forest_zone: WorldZone = zones_controller.zone_map[Enums.ZoneType.FOREST]
+	var forest_zone: WorldZone = zones_controller.zone_map[Enums.ZoneID.FUNGAL_FOREST]
 	if not forest_zone or not forest_zone.bug_spawns:
 		LogSystem.log_message(
 			"Forest zone or its bug_spawns container is missing!", 
@@ -157,15 +158,15 @@ func _spawn_initial_bugs() -> void:
 
 	for i: int in range(target_bugs_spawned):
 		# Pick a marker (looping or random if you prefer; using modulo/random safely)
-		var marker = spawn_markers[i % spawn_markers.size()] as Node3D
-		var spawn_pos = marker.global_position if marker else forest_zone.global_position
-		var spawn_rot = marker.global_rotation if marker else Vector3.ZERO
+		var marker: Marker3D = spawn_markers[i % spawn_markers.size()]
+		var spawn_position: Vector3 = marker.global_position if marker else forest_zone.global_position
+		var spawn_rotation: Vector3 = marker.global_rotation if marker else Vector3.ZERO
 
 		EventSystem.dispatch_command(
 			Commands.SpawnBug.new(
-				Enums.BugID.TEST,
-				Enums.ZoneType.FOREST,
-				spawn_pos,
-				spawn_rot
+				Enums.BugID.PABLO,
+				Enums.ZoneID.FUNGAL_FOREST,
+				spawn_position,
+				spawn_rotation
 			)
 		)

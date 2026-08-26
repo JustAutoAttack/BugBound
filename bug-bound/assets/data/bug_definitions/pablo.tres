@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BugDefinitionData" format=3 uid="uid://dxo56r5ldeati"]
+
+[ext_resource type="Script" uid="uid://clomsg6hvmij5" path="res://common/resource/bug_definition.gd" id="1_vu2yg"]
+
+[resource]
+script = ExtResource("1_vu2yg")
+display_name = "Pablo"
+types = Array[int]([2])
+movement_type = 2
+metadata/_custom_type_script = "uid://clomsg6hvmij5"

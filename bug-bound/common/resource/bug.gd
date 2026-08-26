@@ -2,6 +2,7 @@ class_name BugData
 extends Resource
 
 @export var id: Enums.BugID
+@export var weight: float = 0.0
 @export var combat_stats: Dictionary[Enums.BugCombatStat, int] = {}
 @export var level: int = 1
 @export var xp: int = 0

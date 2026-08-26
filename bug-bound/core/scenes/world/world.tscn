@@ -1,37 +1,17 @@
 [gd_scene format=3 uid="uid://d0l6k3tro1dfl"]
 
 [ext_resource type="Script" uid="uid://ckit8ox2css37" path="res://core/scenes/world/world.gd" id="1_luigy"]
-[ext_resource type="PackedScene" uid="uid://bfnm2wkkllw61" path="res://features/zones/town/town.tscn" id="2_cnk8u"]
-[ext_resource type="Script" uid="uid://tyri7yoxsd8k" path="res://core/scenes/world/zones.gd" id="2_fyloc"]
+[ext_resource type="PackedScene" uid="uid://bfnm2wkkllw61" path="res://features/zones/scenes/weevil_wood/weevil_wood.tscn" id="2_cnk8u"]
+[ext_resource type="Script" uid="uid://tyri7yoxsd8k" path="res://core/scenes/world/controllers/zones.gd" id="2_fyloc"]
+[ext_resource type="Script" uid="uid://cqsdbr21ndtk8" path="res://core/scenes/world/controllers/time.gd" id="2_w70fr"]
 [ext_resource type="Script" uid="uid://dcj62wm1wv7ag" path="res://core/scenes/world/controllers/instances.gd" id="3_4smtg"]
-[ext_resource type="PackedScene" uid="uid://bf36sn73hwh7i" path="res://features/zones/forest/forest.tscn" id="4_fyloc"]
-[ext_resource type="PackedScene" uid="uid://cjvcfgx5s4dgr" path="res://features/bugs/scenes/pablo/bug_pablo.tscn" id="5_cnk8u"]
-[ext_resource type="PackedScene" uid="uid://yii4ratwtuu5" path="res://features/bugs/scenes/unknown/bug_unknown.tscn" id="7_xsqbj"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_luigy"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_luigy"]
-sky_material = SubResource("ProceduralSkyMaterial_luigy")
-
-[sub_resource type="Environment" id="Environment_t0edg"]
-background_mode = 2
-sky = SubResource("Sky_luigy")
-glow_enabled = true
+[ext_resource type="PackedScene" uid="uid://bf36sn73hwh7i" path="res://features/zones/scenes/fungal_forest/fungal_forest.tscn" id="4_fyloc"]
+[ext_resource type="PackedScene" uid="uid://yii4ratwtuu5" path="res://features/bugs/scenes/unknown/unknown.tscn" id="7_xsqbj"]
+[ext_resource type="PackedScene" uid="uid://bfnqaadx6sjk6" path="res://features/environment/sky/sky.tscn" id="8_1vx1y"]
 
 [node name="World" type="Node3D" unique_id=802993614]
 process_mode = 1
 script = ExtResource("1_luigy")
-
-[node name="Environment" type="Node" parent="." unique_id=644987726]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=23604052]
-environment = SubResource("Environment_t0edg")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=413945225]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
 
 [node name="NetworkSync" type="Node" parent="." unique_id=1188210281]
 
@@ -40,26 +20,29 @@ unique_name_in_owner = true
 _spawnable_scenes = PackedStringArray("uid://ct6w3ftuufrxo")
 spawn_path = NodePath("../../InstancesController/Players")
 
+[node name="TimeController" type="Node" parent="." unique_id=947202986]
+script = ExtResource("2_w70fr")
+
 [node name="ZonesController" type="Node" parent="." unique_id=1302062810 node_paths=PackedStringArray("zone_map")]
 unique_name_in_owner = true
 script = ExtResource("2_fyloc")
 zone_map = {
-0: NodePath("Town"),
-1: NodePath("Forest")
+0: NodePath("FungalForest"),
+1: NodePath("WeevilWood")
 }
 
-[node name="Town" parent="ZonesController" unique_id=1382724903 instance=ExtResource("2_cnk8u")]
+[node name="WeevilWood" parent="ZonesController" unique_id=1382724903 instance=ExtResource("2_cnk8u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
 
-[node name="Forest" parent="ZonesController" unique_id=1291945602 instance=ExtResource("4_fyloc")]
+[node name="FungalForest" parent="ZonesController" unique_id=1291945602 instance=ExtResource("4_fyloc")]
 
 [node name="InstancesController" type="Node" parent="." unique_id=1771369117]
 unique_name_in_owner = true
 script = ExtResource("3_4smtg")
-bug_scene = ExtResource("5_cnk8u")
+bug_scene = ExtResource("7_xsqbj")
 
 [node name="Players" type="Node" parent="InstancesController" unique_id=366852136]
 unique_name_in_owner = true
 
-[node name="BugUnknown" parent="." unique_id=2097623740 instance=ExtResource("7_xsqbj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, 0)
+[node name="Sky" parent="." unique_id=1551342239 instance=ExtResource("8_1vx1y")]
+day_progress = 0.02596522592908378

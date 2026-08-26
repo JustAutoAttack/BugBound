@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bfnqaadx6sjk6"]
+
+[ext_resource type="Script" uid="uid://btlufjhga3ke7" path="res://features/environment/sky/sky.gd" id="1_huix3"]
+[ext_resource type="Texture2D" uid="uid://b6xvtyx72nw4d" path="res://features/environment/sky/gradients/top_color.tres" id="2_et5of"]
+[ext_resource type="Environment" uid="uid://ckxa5oolld8gs" path="res://features/environment/sky/world_environment.tres" id="2_h4wkt"]
+[ext_resource type="Texture2D" uid="uid://dqy635ysvapr1" path="res://features/environment/sky/gradients/bottom_color.tres" id="3_ty55l"]
+[ext_resource type="Texture2D" uid="uid://dsvpsqgabh7ux" path="res://features/environment/sky/gradients/cloud_light.tres" id="4_asr4t"]
+[ext_resource type="Texture2D" uid="uid://b8xf8j0h42gvg" path="res://features/environment/sky/gradients/sun_tint.tres" id="5_o03o0"]
+[ext_resource type="Texture2D" uid="uid://bwbirhnhiqtvb" path="res://features/environment/sky/gradients/sun_scatter.tres" id="6_0np8v"]
+[ext_resource type="Texture2D" uid="uid://ddeo4q5tmksol" path="res://features/environment/sky/gradients/sun_light.tres" id="7_f8p6c"]
+[ext_resource type="Texture2D" uid="uid://biifr0w2i6l02" path="res://features/environment/sky/gradients/moon_tint.tres" id="8_vtj7b"]
+[ext_resource type="Curve" uid="uid://dh7x165luut2l" path="res://features/environment/sky/curves/cloud_density.tres" id="9_cw4sy"]
+[ext_resource type="Curve" uid="uid://r2m1x5durq5" path="res://features/environment/sky/curves/clouds_scale.tres" id="10_cxo8w"]
+[ext_resource type="Curve" uid="uid://la25v1b4wtoq" path="res://features/environment/sky/curves/clouds_smoothness.tres" id="11_noc4m"]
+[ext_resource type="Curve" uid="uid://3xhjt4j33eef" path="res://features/environment/sky/curves/clouds_shadow_intensity.tres" id="12_lyxjf"]
+[ext_resource type="Curve" uid="uid://bi0rgk4od87cc" path="res://features/environment/sky/curves/high_clouds_density.tres" id="13_5xpqv"]
+[ext_resource type="Curve" uid="uid://cm7nywpj4kd8o" path="res://features/environment/sky/curves/stars_intensity.tres" id="14_rgm0b"]
+[ext_resource type="Curve" uid="uid://2gb72xpr7v5s" path="res://features/environment/sky/curves/shooting_stars_intensity.tres" id="15_7rohm"]
+[ext_resource type="Curve" uid="uid://cjjrvy4evk2bw" path="res://features/environment/sky/curves/sun_intensity.tres" id="16_mf84n"]
+[ext_resource type="Curve" uid="uid://03wdq7ao0tox" path="res://features/environment/sky/curves/sun_scale.tres" id="17_jgd0q"]
+[ext_resource type="Curve" uid="uid://d30dtiqraew35" path="res://features/environment/sky/curves/moon_intensity.tres" id="18_qbnhb"]
+[ext_resource type="Curve" uid="uid://dgssr6j87uyni" path="res://features/environment/sky/curves/moon_scale.tres" id="19_5ytok"]
+
+[node name="Sky" type="Node3D" unique_id=1551342239]
+script = ExtResource("1_huix3")
+top_color_grad = ExtResource("2_et5of")
+bottom_color_grad = ExtResource("3_ty55l")
+clouds_light_grad = ExtResource("4_asr4t")
+sun_tint_grad = ExtResource("5_o03o0")
+sun_scatter_grad = ExtResource("6_0np8v")
+sun_light_grad = ExtResource("7_f8p6c")
+moon_tint_grad = ExtResource("8_vtj7b")
+cloud_density_curve = ExtResource("9_cw4sy")
+cloud_scale_curve = ExtResource("10_cxo8w")
+cloud_smoothness_curve = ExtResource("11_noc4m")
+cloud_shadow_curve = ExtResource("12_lyxjf")
+high_clouds_curve = ExtResource("13_5xpqv")
+stars_intensity_curve = ExtResource("14_rgm0b")
+shooting_stars_curve = ExtResource("15_7rohm")
+sun_intensity_curve = ExtResource("16_mf84n")
+sun_scale_curve = ExtResource("17_jgd0q")
+moon_intensity_curve = ExtResource("18_qbnhb")
+moon_scale_curve = ExtResource("19_5ytok")
+simulate = true
+day_progress = 0.7952867037038105
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2026444111]
+unique_name_in_owner = true
+environment = ExtResource("2_h4wkt")
+
+[node name="SunPivot" type="Node3D" parent="." unique_id=58903734]
+unique_name_in_owner = true
+transform = Transform3D(-0.95978963, 0.28072035, 0, -0.28072035, -0.95978963, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SunLight" type="DirectionalLight3D" parent="SunPivot" unique_id=66458706]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+light_color = Color(0.04713297, 0.02587694, 0.015526146, 1)
+light_energy = 0.10129103
+shadow_enabled = true
+directional_shadow_split_1 = 0.04
+directional_shadow_split_2 = 0.11
+directional_shadow_split_3 = 0.33
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 200.0

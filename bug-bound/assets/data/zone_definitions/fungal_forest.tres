@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ZoneDefinitionData" format=3 uid="uid://c453tlrgtcysa"]
+
+[ext_resource type="Script" uid="uid://dy7enb1jp1lfl" path="res://common/resource/rarity_weight.gd" id="1_54tbl"]
+[ext_resource type="Script" uid="uid://bceigxaoetmbp" path="res://common/resource/zone_definition.gd" id="2_pktbm"]
+
+[resource]
+script = ExtResource("2_pktbm")
+display_name = "Fungal Forest"
+metadata/_custom_type_script = "uid://bceigxaoetmbp"

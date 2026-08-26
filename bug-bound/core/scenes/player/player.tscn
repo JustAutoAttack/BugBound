@@ -23,7 +23,7 @@ size = Vector3(0.390625, 0.28125, 0.67871094)
 radius = 0.2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4cc64"]
-radius = 6.0
+radius = 2.5
 
 [node name="Player" type="CharacterBody3D" unique_id=1443216549]
 collision_layer = 4
@@ -38,13 +38,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_8rfna")
 
 [node name="Model" type="Node3D" parent="." unique_id=128206660]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 1, 0)
 
 [node name="BodyMesh" type="MeshInstance3D" parent="Model" unique_id=1263535169]
+transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_4cc64")
 
 [node name="ForwardRefMesh" type="MeshInstance3D" parent="Model" unique_id=459462104]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51195097, -0.7556559)
+transform = Transform3D(1, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 0, 0.51195097, -0.7556559)
 mesh = SubResource("BoxMesh_4cc64")
 
 [node name="CameraController" type="Node3D" parent="." unique_id=1898099484]
@@ -69,9 +70,11 @@ unique_name_in_owner = true
 cull_mask = 1048573
 
 [node name="BugCollectionZone" type="Area3D" parent="." unique_id=141464124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 0
-collision_mask = 4
+collision_mask = 8
 script = ExtResource("3_78uwc")
+radius = 2.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BugCollectionZone" unique_id=2075591971]
 shape = SubResource("SphereShape3D_4cc64")
