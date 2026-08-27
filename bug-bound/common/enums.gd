@@ -50,6 +50,7 @@ enum MainMenuAction {
 }
 
 enum SettingsMenuAction {
+	CLOSE,
 	SAVE
 }
 

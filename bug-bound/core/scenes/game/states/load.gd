@@ -13,8 +13,10 @@ var _data: GameLoadStateData
 func _ready() -> void:
 	super()
 	if not object_controller:
-		push_error("Game: LOAD -> GameObjectController not assigned!")
-		return
+		LogSystem.log_message(
+			"No GameObjectController found!",
+			LogEnums.LogLevel.WARN
+		)
 
 func enter(_prev_state_path: String, data: Object) -> void:
 	LogSystem.log_message(
@@ -61,7 +63,7 @@ func exit() -> void:
 	_unsubscribe_events()
 
 func _subscribe_events() -> void:
-	# Custom
+	# Notifications
 	EventSystem.subscribe_to_notification(Notifications.TitleLoaded, _handle_scene_loaded)
 	EventSystem.subscribe_to_notification(Notifications.WorldLoaded, _handle_scene_loaded)
 	
@@ -69,7 +71,6 @@ func _subscribe_events() -> void:
 	object_controller.setup_complete.connect(_on_object_controller_setup_complete)
 
 func _unsubscribe_events() -> void:
-	# Custom
 	EventSystem.unsubscribe_all_for_owner(self)
 	
 	# Signals
@@ -113,7 +114,10 @@ func _load_world_sequence() -> void:
 		)
 	
 	if not game_save_data:
-		push_error("Game: LOAD - No save data. Loading Title")
+		LogSystem.log_message(
+			"Unable to load World: No save data. Loading Title",
+			LogEnums.LogLevel.WARN
+		)
 		EventSystem.dispatch_command(
 			Commands.LoadTitle.new()
 		)

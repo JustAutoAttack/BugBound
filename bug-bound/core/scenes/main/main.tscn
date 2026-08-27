@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bsti8ee0kwtvw" path="res://ui/menus/main/main_menu.tscn" id="10_355eq"]
 [ext_resource type="PackedScene" uid="uid://bfblwjacma8mq" path="res://ui/menus/pause/pause_menu.tscn" id="11_u236l"]
 [ext_resource type="PackedScene" uid="uid://bnpfymdlc58vc" path="res://ui/loading/screen/loading_screen.tscn" id="12_355eq"]
+[ext_resource type="PackedScene" uid="uid://ca14y5bxgpcf6" path="res://ui/menus/settings/settings_menu.tscn" id="12_u236l"]
 
 [node name="Main" type="Node" unique_id=2073899557]
 process_mode = 3
@@ -64,6 +65,8 @@ layer = 2
 
 [node name="PauseMenu" parent="UIController/MenusLayer" unique_id=593446309 instance=ExtResource("11_u236l")]
 type = 1
+
+[node name="SettingsMenu" parent="UIController/MenusLayer" unique_id=215337597 instance=ExtResource("12_u236l")]
 
 [node name="LoadingLayer" type="CanvasLayer" parent="UIController" unique_id=206085363]
 layer = 3

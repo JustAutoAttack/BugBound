@@ -48,3 +48,6 @@ func set_loading(value: bool) -> void:
 
 func set_saving(value: bool) -> void:
 	context.is_saving = value
+
+func set_join_code(value: String) -> void:
+	context.join_code = value

@@ -25,37 +25,54 @@ mouse_filter = 2
 layout_mode = 2
 mouse_filter = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="SafeArea/Control" unique_id=1277399179]
+[node name="VBoxContainer" type="VBoxContainer" parent="SafeArea/Control" unique_id=1982037258]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -132.0
+offset_right = 64.0
+offset_bottom = 132.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="SafeArea/Control/CenterContainer" unique_id=1982037258]
-layout_mode = 2
-mouse_filter = 2
+theme_override_constants/separation = 48
 alignment = 1
 
-[node name="Resume" type="Button" parent="SafeArea/Control/CenterContainer/VBoxContainer" unique_id=616808395]
+[node name="Label" type="Label" parent="SafeArea/Control/VBoxContainer" unique_id=665010520]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SafeArea/Control/VBoxContainer" unique_id=446857784]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ResumeButton" type="Button" parent="SafeArea/Control/VBoxContainer/VBoxContainer" unique_id=616808395]
+custom_minimum_size = Vector2(128, 48)
 layout_mode = 2
 text = "Resume"
 
-[node name="Settings" type="Button" parent="SafeArea/Control/CenterContainer/VBoxContainer" unique_id=268866648]
+[node name="SettingsButton" type="Button" parent="SafeArea/Control/VBoxContainer/VBoxContainer" unique_id=268866648]
+custom_minimum_size = Vector2(128, 48)
 layout_mode = 2
 text = "Settings"
 
-[node name="MainMenu" type="Button" parent="SafeArea/Control/CenterContainer/VBoxContainer" unique_id=1053147021]
+[node name="MainMenuButton" type="Button" parent="SafeArea/Control/VBoxContainer/VBoxContainer" unique_id=1053147021]
+custom_minimum_size = Vector2(128, 48)
 layout_mode = 2
 text = "MainMenu"
 
-[node name="Quit" type="Button" parent="SafeArea/Control/CenterContainer/VBoxContainer" unique_id=1817504061]
+[node name="QuitButton" type="Button" parent="SafeArea/Control/VBoxContainer/VBoxContainer" unique_id=1817504061]
+custom_minimum_size = Vector2(128, 48)
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="SafeArea/Control/CenterContainer/VBoxContainer/Resume" to="." method="_on_resume"]
-[connection signal="pressed" from="SafeArea/Control/CenterContainer/VBoxContainer/Settings" to="." method="_on_settings"]
-[connection signal="pressed" from="SafeArea/Control/CenterContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu"]
-[connection signal="pressed" from="SafeArea/Control/CenterContainer/VBoxContainer/Quit" to="." method="_on_quit"]
+[connection signal="pressed" from="SafeArea/Control/VBoxContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="SafeArea/Control/VBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="SafeArea/Control/VBoxContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="SafeArea/Control/VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

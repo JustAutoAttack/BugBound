@@ -36,10 +36,10 @@ func setup_pools() -> void:
 
 func deactivate_all_pools() -> void:
 	# NOTE: Example to handle nested
-	#for pool: ObjectPool in ContextSystem.game_context.enemy_pools.values():
-		#for enemy: Enemy in pool.get_active_instances():
-			#enemy.deactivate()
-			#pool.return_instance(enemy)
+	#for pool: ObjectPool in ContextSystem.game_context.pool_name.values():
+		#for entity: EntityClass in pool.get_active_instances():
+			#entity.deactivate()
+			#pool.return_instance(entity)
 	
 	var pools: Array[ObjectPool] = []
 	
@@ -52,5 +52,5 @@ func deactivate_all_pools() -> void:
 # ===
 
 # ===
-# Events
+# Handlers
 # ===

@@ -23,13 +23,8 @@ func enter(_prev_state_path: String, _data: Object) -> void:
 	await get_tree().process_frame
 	
 	# Show Main Menu
-	EventSystem.dispatch_command(
-		Commands.ToggleMenu.new(
-			Enums.MenuType.MAIN,
-			true
-		)
-	)
-		
+	GlobalUtils.toggle_menu(Enums.MenuType.MAIN, true)
+	
 	# Start Music
 	EventSystem.dispatch_command(
 		Commands.StartTitleMusic.new()
@@ -46,11 +41,11 @@ func exit() -> void:
 	_unsubscribe_events()
 
 func _subscribe_events() -> void:
-	# Subscribe to the network commands dispatched from the UI
+	# Commands
 	EventSystem.subscribe_to_command(Commands.HostGame, _handle_host_game)
 	EventSystem.subscribe_to_command(Commands.JoinGame, _handle_join_game)
 	
-	# Keep settings and menu notifications subscribed
+	# Notifications
 	EventSystem.subscribe_to_notification(Notifications.MainMenuActioned, _handle_ui_main_menu)
 	EventSystem.subscribe_to_notification(Notifications.SettingsMenuActioned, _handle_ui_settings_menu)
 
@@ -58,57 +53,37 @@ func _unsubscribe_events() -> void:
 	EventSystem.unsubscribe_all_for_owner(self)
 
 # ===
-# Handlers
+# Private
 # ===
 
-func _handle_host_game(_command: Commands.HostGame) -> void:
-	var error: Error = NetworkSystem.host_game()
-	if error != OK:
-		return
-	_transition_to_world()
-
-func _handle_join_game(command: Commands.JoinGame) -> void:
-	if command.code.is_empty():
-		LogSystem.log_message("Join code / IP cannot be empty!", LogEnums.LogLevel.WARN)
-		return
-		
-	LogSystem.log_message("Attempting connection to host at: %s" % command.code, LogEnums.LogLevel.INFO)
-	var error: Error = NetworkSystem.join_game(command.code)
-	if error != OK:
-		return
-		
-	_transition_to_world()
-
-# --- UI Notifications ---
-func _handle_ui_main_menu(event: Notifications.MainMenuActioned) -> void:
-	match event.action:
-		Enums.MainMenuAction.SETTINGS:
-			# Close Main Menu
-			EventSystem.dispatch_command(
-				Commands.ToggleMenu.new(
-					Enums.MenuType.MAIN, 
-					false
-				)
-			)
-			# Open Settings Menu
-			EventSystem.dispatch_command(
-				Commands.ToggleMenu.new(
-					Enums.MenuType.SETTINGS, 
-					true
-				)
-			)
-		
-		Enums.MainMenuAction.QUIT:
-			get_tree().quit()
-
-func _transition_to_world() -> void:
-	# Close Main Menu
+func _attempt_host_game() -> void:
+	# TODO: Check if we are already attempting to host
+	
 	EventSystem.dispatch_command(
-		Commands.ToggleMenu.new(
-			Enums.MenuType.MAIN, 
-			false
+		Commands.HostGame.new()
+	)
+
+func _attempt_join_game() -> void:
+	# TODO: Check if we are already attempting to join
+	
+	# Get code
+	var code: String = ContextSystem.ui_context.join_code
+	if code.is_empty():
+		LogSystem.log_message(
+			"Attempting to join via MainMenuAction, but join code is empty!", 
+			LogEnums.LogLevel.WARN
+		)
+		return
+	
+	EventSystem.dispatch_command(
+		Commands.JoinGame.new(
+			ContextSystem.ui_context.join_code
 		)
 	)
+
+func _go_to_world() -> void:
+	GlobalUtils.toggle_menu(Enums.MenuType.MAIN, false)
+	
 	_transition_to(
 		StateName.LOAD,
 		GameLoadStateData.new(
@@ -118,30 +93,87 @@ func _transition_to_world() -> void:
 		)
 	)
 
+# ===
+# Handlers
+# ===
+
+# --- Main Menu ---
+func _handle_host_game(_command: Commands.HostGame) -> void:
+	# TODO: Check if we are already hosting or attempting to host
+	
+	LogSystem.log_message(
+		"Attempting to host game", 
+		LogEnums.LogLevel.INFO
+	)
+	
+	var error: Error = NetworkSystem.host_game()
+	if error != OK:
+		LogSystem.log_message(
+			"Unable to host game. Error: {1}".format([
+				error
+			]), 
+			LogEnums.LogLevel.ERROR
+		)
+		return
+	
+	_go_to_world()
+
+func _handle_join_game(command: Commands.JoinGame) -> void:
+	# TODO: Check if we are already joining or attempting to join
+	
+	var code: String = command.code
+	
+	if code.is_empty():
+		LogSystem.log_message(
+			"Join code cannot be empty!", 
+			LogEnums.LogLevel.WARN
+		)
+		return
+
+	LogSystem.log_message(
+		"Attempting to join game with code: {0}".format([
+			code
+		]), 
+		LogEnums.LogLevel.INFO
+	)
+	
+	var error: Error = NetworkSystem.join_game(code)
+	if error != OK:
+		LogSystem.log_message(
+			"Unable to join game with code: {0}. Error: {1}".format([
+				code, error
+			]), 
+			LogEnums.LogLevel.ERROR
+		)
+		return
+		
+	_go_to_world()
+
+# --- Settings Menu ---
+func _handle_ui_main_menu(event: Notifications.MainMenuActioned) -> void:
+	match event.action:
+		Enums.MainMenuAction.HOST:
+			_attempt_host_game()
+		
+		Enums.MainMenuAction.JOIN:
+			_attempt_join_game()
+		
+		Enums.MainMenuAction.SETTINGS:
+			GlobalUtils.toggle_menu(Enums.MenuType.MAIN, false)
+			GlobalUtils.toggle_menu(Enums.MenuType.SETTINGS, true)
+		
+		Enums.MainMenuAction.QUIT:
+			get_tree().quit()
+
 func _handle_ui_settings_menu(event: Notifications.SettingsMenuActioned) -> void:
 	match event.action:
-		Enums.SettingsMenuAction.SAVE:
-			# Close Settings
-			EventSystem.dispatch_command(
-				Commands.ToggleMenu.new(
-					Enums.MenuType.SETTINGS, 
-					false
-				)
-			)
-
-			# Open Main
-			EventSystem.dispatch_command(
-				Commands.ToggleMenu.new(
-					Enums.MenuType.MAIN, 
-					true
-				)
-			)
+		Enums.SettingsMenuAction.CLOSE:
+			GlobalUtils.toggle_menu(Enums.MenuType.SETTINGS, false)
+			GlobalUtils.toggle_menu(Enums.MenuType.MAIN, true)
 			
 			await get_tree().process_frame
 			
-			# Hide HUD
-			EventSystem.dispatch_command(
-				Commands.ToggleHUD.new(
-					false
-				)
-			)
+			GlobalUtils.toggle_hud(false)
+		
+		Enums.SettingsMenuAction.SAVE:
+			pass

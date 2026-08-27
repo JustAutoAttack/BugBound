@@ -22,12 +22,7 @@ func enter(_prev_state_path: String, _data: Object) -> void:
 	
 	await get_tree().process_frame
 	
-	# Show HUD
-	EventSystem.dispatch_command(
-		Commands.ToggleHUD.new(
-			true
-		)
-	)
+	GlobalUtils.toggle_hud(true)
 	
 	# Start Music
 	EventSystem.dispatch_command(
@@ -103,14 +98,6 @@ func _unsubscribe_events() -> void:
 # Private
 # ===
 
-func _emit_toggle_pause_menu(is_paused: bool) -> void:
-	EventSystem.dispatch_command(
-		Commands.ToggleMenu.new(
-			Enums.MenuType.PAUSE, 
-			is_paused
-		)
-	)
-
 func _emit_pause_updated(is_paused: bool) -> void:
 	if is_paused:
 		EventSystem.broadcast(
@@ -123,7 +110,10 @@ func _emit_pause_updated(is_paused: bool) -> void:
 	)
 
 func _toggle_pause(is_paused: bool) -> void:
-	_emit_toggle_pause_menu(is_paused)
+	GlobalUtils.toggle_menu(
+		Enums.MenuType.PAUSE, 
+		is_paused
+	)
 	_emit_pause_updated(is_paused)
 
 func _go_to_title() -> void:
@@ -163,17 +153,14 @@ func _handle_peer_disconnected(id: int) -> void:
 func _handle_ui_pause_menu(event: Notifications.PauseMenuActioned) -> void:
 	match event.action:
 		Enums.PauseMenuAction.RESUME:
-			pass
+			GlobalUtils.toggle_menu(Enums.MenuType.PAUSE, false)
+		
 		Enums.PauseMenuAction.SETTINGS:
-			EventSystem.dispatch_command(
-				Commands.ToggleMenu.new(
-					Enums.MenuType.SETTINGS, 
-					true
-				)
-			)
+			GlobalUtils.toggle_menu(Enums.MenuType.PAUSE, false)
+			GlobalUtils.toggle_menu(Enums.MenuType.SETTINGS, true)
 		
 		Enums.PauseMenuAction.EXIT:
-			_emit_toggle_pause_menu(false)
+			GlobalUtils.toggle_menu(Enums.MenuType.PAUSE, false)
 			NetworkSystem.close_connection()
 			_go_to_title()
 			return
@@ -183,24 +170,17 @@ func _handle_ui_pause_menu(event: Notifications.PauseMenuActioned) -> void:
 			get_tree().quit()
 			return
 	
-	_emit_toggle_pause_menu(false)
 
 func _handle_ui_settings_menu(event: Notifications.SettingsMenuActioned) -> void:
 	match event.action:
-		Enums.SettingsMenuAction.SAVE:
-			EventSystem.dispatch_command(
-				Commands.ToggleMenu.new(
-					Enums.MenuType.SETTINGS,
-					false
-				)
-			)
-			
-			_emit_toggle_pause_menu(true)
+		Enums.SettingsMenuAction.CLOSE:
+			GlobalUtils.toggle_menu(Enums.MenuType.SETTINGS, false)
+			GlobalUtils.toggle_menu(Enums.MenuType.PAUSE, true)
 			
 			await get_tree().process_frame
 			
-			EventSystem.dispatch_command(
-				Commands.ToggleHUD.new(
-					false
-				)
-			)
+			GlobalUtils.toggle_hud(true)
+		
+		Enums.SettingsMenuAction.SAVE:
+			# TODO: Save user settings with ContextSystem
+			pass
