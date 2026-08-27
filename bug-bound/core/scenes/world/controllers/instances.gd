@@ -1,14 +1,15 @@
 class_name WorldInstancesController
 extends Node
 
-@onready var players_container: Node = %Players
-@onready var player_spawner: MultiplayerSpawner = %PlayerSpawner
-@onready var zones_controller: WorldZonesController = %ZonesController
-
 @export var bug_scene: PackedScene
+@export var zones_controller: WorldZonesController
+
+@onready var players_container: Node = $Players
+@onready var player_spawner: MultiplayerSpawner = $PlayerSpawner
 
 var bug_spawners: Dictionary[Enums.ZoneID, MultiplayerSpawner] = {}
 var bug_containers: Dictionary[Enums.ZoneID, Node3D] = {}
+var peer_to_player_map: Dictionary[int, Player] = {}
 
 # ===
 # Built-In
@@ -65,6 +66,7 @@ func _fetch_zone_references() -> void:
 
 func _subscribe_events() -> void:
 	EventSystem.subscribe_to_command(Commands.SpawnPlayer, _handle_spawn_player)
+	EventSystem.subscribe_to_command(Commands.DespawnPlayer, _handle_despawn_player)
 	EventSystem.subscribe_to_command(Commands.SpawnBug, _handle_spawn_bug)
 
 func _unsubscribe_events() -> void:
@@ -96,16 +98,23 @@ func _setup_spawners() -> void:
 # ===
 
 func _custom_spawn_player(data: Dictionary) -> Node:
-	var player: Player = AssetProvider.get_player_scene()
-	player.name = str(data.peer_id)
-	player.set_multiplayer_authority(data.peer_id)
+	# TODO: Sanitize with a data object (mimic zod)
 	
+	var player: Player = AssetProvider.get_player_scene()
+	var peer_id: int = data.peer_id
+	
+	peer_to_player_map[peer_id] = player
+	
+	player.name = str(peer_id)
+	player.set_multiplayer_authority(peer_id)
 	player.call_deferred("set_global_position", data.location)
 	player.call_deferred("set_global_rotation", data.rotation)
 	
 	return player
 
 func _custom_spawn_bug(data: Dictionary) -> Node:
+	# TODO: Sanitize with a data object (mimic zod)
+	
 	var target_zone: Enums.ZoneID = data.get("zone")
 	var target_bug: Enums.BugID = data.get("bug_id")
 	
@@ -133,7 +142,6 @@ func _custom_spawn_bug(data: Dictionary) -> Node:
 		)
 		return null
 		
-	
 	var global_pos: Vector3 = data.get("location", target_container.global_position)
 	var rotation: Vector3 = data.get("rotation", Vector3.ZERO)
 
@@ -153,7 +161,8 @@ func _handle_spawn_player(command: Commands.SpawnPlayer) -> void:
 
 	if not player_spawner:
 		return
-
+	
+	# TODO: Sanitize with a data object (mimic zod)
 	var spawn_data: Dictionary = {
 		"peer_id": command.peer_id,
 		"location": command.world_location,
@@ -162,6 +171,48 @@ func _handle_spawn_player(command: Commands.SpawnPlayer) -> void:
 
 	player_spawner.spawn(spawn_data)
 
+func _handle_despawn_player(command: Commands.DespawnPlayer) -> void:
+	if not multiplayer.is_server():
+		return
+	
+	var peer_id: int = command.peer_id
+	
+	if not peer_to_player_map.has(peer_id):
+		LogSystem.log_message(
+			"Failed to despawn player: Peer ID {0} not found in peer_to_player_map.".format([
+				peer_id
+			]),
+			LogEnums.LogLevel.ERROR
+		)
+		return
+		
+	var player: Player = peer_to_player_map[peer_id]
+	peer_to_player_map.erase(peer_id)
+	
+	if not is_instance_valid(player):
+		LogSystem.log_message(
+			"Failed to despawn player: Player instance for peer ID {0} is invalid or already freed.".format([
+				peer_id
+			]),
+			LogEnums.LogLevel.ERROR
+		)
+		return
+	
+	LogSystem.log_message(
+		"Successfully despawning player for peer ID: {0}".format([
+			peer_id
+		]),
+		LogEnums.LogLevel.INFO
+	)
+	
+	player.despawn()
+	
+	EventSystem.broadcast(
+		Notifications.PlayerDespawned.new(
+			peer_id
+		)
+	)
+
 func _handle_spawn_bug(command: Commands.SpawnBug) -> void:
 	if not multiplayer.is_server():
 		return
@@ -169,11 +220,14 @@ func _handle_spawn_bug(command: Commands.SpawnBug) -> void:
 	var spawner: MultiplayerSpawner = bug_spawners.get(command.zone)
 	if not spawner:
 		LogSystem.log_message(
-			"MultiplayerSpawner not found for zone: {0}".format([command.zone]), 
+			"MultiplayerSpawner not found for zone: {0}".format([
+				command.zone
+			]), 
 			LogEnums.LogLevel.ERROR
 		)
 		return
-
+	
+	# TODO: Sanitize with a data object (mimic zod)
 	var spawn_data: Dictionary = {
 		"bug_id": command.id,
 		"zone": command.zone,

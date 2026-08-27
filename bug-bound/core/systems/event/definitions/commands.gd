@@ -9,18 +9,23 @@ extends RefCounted
 class StartLoading extends Command:
 	func _init() -> void:
 		super("StartLoading")
+
 class StopLoading extends Command:
 	func _init() -> void:
 		super("StopLoading")
+
 class StartSaving extends Command:
 	func _init() -> void:
 		super("StartSaving")
+
 class StopSaving extends Command:
 	func _init() -> void:
 		super("StopSaving")
+
 class SaveGame extends Command:
 	func _init() -> void:
 		super("SaveGame")
+
 class SaveSettings extends Command:
 	func _init() -> void:
 		super("SaveSettings")
@@ -29,6 +34,7 @@ class SaveSettings extends Command:
 class HostGame extends Command:
 	func _init() -> void:
 		super("HostGame")
+
 class JoinGame extends Command:
 	var code: String
 	
@@ -46,6 +52,7 @@ class JoinGame extends Command:
 class LoadBootsplash extends Command:
 	func _init() -> void:
 		super("LoadBootsplash")
+
 class LoadGame extends Command:
 	func _init() -> void:
 		super("LoadGame")
@@ -54,6 +61,7 @@ class LoadGame extends Command:
 class LoadTitle extends Command:
 	func _init() -> void:
 		super("LoadTitle")
+
 class LoadWorld extends Command:
 	func _init() -> void:
 		super("LoadWorld")
@@ -62,9 +70,11 @@ class LoadWorld extends Command:
 class LoadBackyard extends Command:
 	func _init() -> void:
 		super("LoadBackyard")
+
 class LoadHouse extends Command:
 	func _init() -> void:
 		super("LoadHouse")
+
 class LoadTown extends Command:
 	func _init() -> void:
 		super("LoadTown")
@@ -77,21 +87,27 @@ class LoadTown extends Command:
 class StartTitleMusic extends Command:
 	func _init() -> void:
 		super("StartTitleMusic")
+
 class StartWorldMusic extends Command:
 	func _init() -> void:
 		super("StartWorldMusic")
+
 class PlayGameOverMusic extends Command:
 	func _init() -> void:
 		super("PlayGameOverMusic")
+
 class ReplayLastMusic extends Command:
 	func _init() -> void:
 		super("ReplayLastMusic")
+
 class ReplayCurrentMusic extends Command:
 	func _init() -> void:
 		super("ReplayCurrentMusic")
+
 class SkipCurrentMusic extends Command:
 	func _init() -> void:
 		super("SkipCurrentMusic")
+
 class ToggleMusicPaused extends Command: 
 	
 	var is_paused: bool
@@ -101,6 +117,7 @@ class ToggleMusicPaused extends Command:
 	) -> void:
 		super("ToggleMusicPaused")
 		is_paused = p_is_paused
+
 class ToggleMusicLoop extends Command:
 	
 	var enabled: bool
@@ -110,6 +127,7 @@ class ToggleMusicLoop extends Command:
 	) -> void:
 		super("ToggleMusicLoop")
 		enabled = p_enabled
+
 class ToggleMusicShuffle extends Command:
 	
 	var enabled: bool
@@ -130,6 +148,7 @@ class PlaySFX extends Command:
 	) -> void:
 		super("PlaySFX")
 		sfx_type = p_sfx_type
+
 class KillAllSFX extends Command:
 	func _init() -> void:
 		super("KillAllSFX")
@@ -141,9 +160,11 @@ class KillAllSFX extends Command:
 class HideAllUI extends Command:
 	func _init() -> void:
 		super("HideAllUI")
+
 class HideAllMenus extends Command:
 	func _init() -> void:
 		super("HideAllMenus")
+
 class ToggleMenu extends Command:
 	
 	var type: Enums.MenuType
@@ -156,6 +177,7 @@ class ToggleMenu extends Command:
 		super("ToggleMenu")
 		type = p_type
 		is_visible = p_is_visible
+
 class ToggleHUD extends Command:
 	
 	var is_visible: bool
@@ -170,7 +192,9 @@ class ToggleHUD extends Command:
 # World
 # ===
 
+# --- Player ---
 class SpawnPlayer extends Command:
+	
 	var peer_id: int
 	var world_location: Vector3
 	var rotation: Vector3
@@ -184,6 +208,18 @@ class SpawnPlayer extends Command:
 		peer_id = p_peer_id
 		world_location = p_world_location
 		rotation = p_rotation
+
+class DespawnPlayer extends Command:
+	
+	var peer_id: int
+	
+	func _init(
+		p_peer_id: int
+	) -> void:
+		super("DespawnPlayer")
+		peer_id = p_peer_id
+
+# --- Bug ---
 class SpawnBug extends Command:
 	
 	var id: Enums.BugID
@@ -202,3 +238,13 @@ class SpawnBug extends Command:
 		zone = p_zone
 		world_location = p_world_location
 		rotation = p_rotation
+
+class DespawnBug extends Command:
+	
+	var bug: Bug
+	
+	func _init(
+		p_bug: Bug
+	) -> void:
+		super("DespawnBug")
+		bug = p_bug

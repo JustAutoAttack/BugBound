@@ -23,14 +23,7 @@ script = ExtResource("9_w70fr")
 [node name="Environment" type="Node" parent="." unique_id=1169163999]
 
 [node name="Sky" parent="Environment" unique_id=1551342239 instance=ExtResource("8_1vx1y")]
-day_progress = 0.20192289259642313
-
-[node name="NetworkSync" type="Node" parent="." unique_id=1188210281]
-
-[node name="PlayerSpawner" type="MultiplayerSpawner" parent="NetworkSync" unique_id=1440324916]
-unique_name_in_owner = true
-_spawnable_scenes = PackedStringArray("uid://ct6w3ftuufrxo")
-spawn_path = NodePath("../../InstancesController/Players")
+day_progress = 0.9358013407460025
 
 [node name="TimeController" type="Node" parent="." unique_id=947202986]
 script = ExtResource("2_w70fr")
@@ -48,10 +41,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
 
 [node name="FungalForest" parent="ZonesController" unique_id=1291945602 instance=ExtResource("4_fyloc")]
 
-[node name="InstancesController" type="Node" parent="." unique_id=1771369117]
+[node name="InstancesController" type="Node" parent="." unique_id=1771369117 node_paths=PackedStringArray("zones_controller")]
 unique_name_in_owner = true
 script = ExtResource("3_4smtg")
 bug_scene = ExtResource("7_xsqbj")
+zones_controller = NodePath("../ZonesController")
+
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="InstancesController" unique_id=1440324916]
+_spawnable_scenes = PackedStringArray("uid://ct6w3ftuufrxo")
+spawn_path = NodePath("../Players")
 
 [node name="Players" type="Node" parent="InstancesController" unique_id=366852136]
-unique_name_in_owner = true

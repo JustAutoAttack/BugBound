@@ -78,16 +78,26 @@ func handle_input(event: InputEvent) -> void:
 		
 		_toggle_pause(not get_tree().paused)
 
-# ===
-# Private
-# ===
-
 func _subscribe_events() -> void:
 	EventSystem.subscribe_to_notification(Notifications.PauseMenuActioned, _handle_ui_pause_menu)
 	EventSystem.subscribe_to_notification(Notifications.SettingsMenuActioned, _handle_ui_settings_menu)
+	
+	if not multiplayer.server_disconnected.is_connected(_handle_server_disconnected):
+		multiplayer.server_disconnected.connect(_handle_server_disconnected)
+	if not multiplayer.peer_disconnected.is_connected(_handle_peer_disconnected):
+		multiplayer.peer_disconnected.connect(_handle_peer_disconnected)
 
 func _unsubscribe_events() -> void:
 	EventSystem.unsubscribe_all_for_owner(self)
+	
+	if multiplayer.server_disconnected.is_connected(_handle_server_disconnected):
+		multiplayer.server_disconnected.disconnect(_handle_server_disconnected)
+	if multiplayer.peer_disconnected.is_connected(_handle_peer_disconnected):
+		multiplayer.peer_disconnected.disconnect(_handle_peer_disconnected)
+
+# ===
+# Private
+# ===
 
 func _emit_toggle_pause_menu(is_paused: bool) -> void:
 	EventSystem.dispatch_command(
@@ -113,9 +123,38 @@ func _toggle_pause(is_paused: bool) -> void:
 	_emit_toggle_pause_menu(is_paused)
 	_emit_pause_updated(is_paused)
 
+func _go_to_title() -> void:
+	_transition_to(
+		StateName.LOAD, 
+		GameLoadStateData.new(
+			StateName.TITLE, 
+			false,
+            ""
+		)
+	)
+
 # ===
-# Events
+# Handlers
 # ===
+
+# --- Network ---
+func _handle_server_disconnected() -> void:
+	LogSystem.log_message(
+		"Server disconnected, returning to title.", 
+		LogEnums.LogLevel.WARN
+	)
+	NetworkSystem.close_connection()
+	_go_to_title()
+
+func _handle_peer_disconnected(id: int) -> void:
+	LogSystem.log_message(
+		"Peer %d disconnected." % id, 
+		LogEnums.LogLevel.INFO
+	)
+	if multiplayer.is_server():
+		EventSystem.dispatch_command(
+			Commands.DespawnPlayer.new(id)
+		)
 
 # --- UI ---
 func _handle_ui_pause_menu(event: Notifications.PauseMenuActioned) -> void:
@@ -145,18 +184,14 @@ func _handle_ui_pause_menu(event: Notifications.PauseMenuActioned) -> void:
 		
 		Enums.PauseMenuAction.EXIT:
 			close_menu = true
-
-			_transition_to(
-				StateName.LOAD, 
-				GameLoadStateData.new(
-					StateName.TITLE, 
-					false,
-					""
-				)
-			)
+			NetworkSystem.close_connection()
+			_go_to_title()
+			return
 		
 		Enums.PauseMenuAction.QUIT:
+			NetworkSystem.close_connection()
 			get_tree().quit()
+			return
 	
 	if close_menu:
 		EventSystem.dispatch_command(

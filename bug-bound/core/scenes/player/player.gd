@@ -25,8 +25,7 @@ var current_move_state: MoveState = MoveState.WALK
 # ===
 
 func _ready() -> void:
-	if is_multiplayer_authority() and camera_controller and camera_controller.camera:
-		camera_controller.camera.current = true
+
 
 	await get_tree().process_frame
 	
@@ -34,11 +33,13 @@ func _ready() -> void:
 	if owner_peer_id == 0:
 		owner_peer_id = multiplayer.get_unique_id() # Fallback for local testing/host
 	
-	print_debug('============')
-	print_debug('============')
-	print_debug("owner_peer_id: {0}, mulitplayer_unique_id: {1}, name: {2}".format([owner_peer_id, multiplayer.get_unique_id(), name]))
-	print_debug('============')
-	print_debug('============')
+	LogSystem.log_message(
+		"Prenotify: PlayerSpawned - owner_peer_id: {0}, multiplayer_unique_id: {1}, name: {2}".format(
+			[owner_peer_id, multiplayer.get_unique_id(), name]
+		),
+		LogEnums.LogLevel.DEBUG
+	)
+	
 	EventSystem.broadcast(
 		Notifications.PlayerSpawned.new(
 			self,
@@ -48,7 +49,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Non-authority peers rely on the MultiplayerSynchronizer for movement updates.
-	if not is_multiplayer_authority():
+	if multiplayer.has_multiplayer_peer() and not is_multiplayer_authority():
 		return
 
 	if not is_on_floor():
@@ -98,6 +99,14 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0.0, WALK_SPEED)
 
 	move_and_slide()
+
+# ===
+# Public
+# ===
+
+func despawn() -> void:
+	# TODO: clean up some stuff here if needed
+	queue_free()
 
 # ===
 # Private

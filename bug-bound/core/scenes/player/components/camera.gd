@@ -32,6 +32,8 @@ var _base_boom_position: Vector3 = Vector3.ZERO
 # ===
 
 func _ready() -> void:
+	if is_multiplayer_authority() and camera:
+		camera.current = true
 	top_level = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
@@ -44,9 +46,10 @@ func _ready() -> void:
 		_base_boom_position = boom.position
 
 func _unhandled_input(event: InputEvent) -> void:
-	var player_node: Node = get_parent()
-	if player_node and player_node.has_method("is_multiplayer_authority") and not player_node.is_multiplayer_authority():
-		return
+	var parent_node: Node = get_parent()
+	if parent_node and parent_node is Player:
+		if multiplayer.has_multiplayer_peer() and not parent_node.is_multiplayer_authority():
+			return
 
 	# Remove '_is_panning' check here if you want free-look mouse movement at all times, 
 	# or keep it if you only want rotation when holding the pan button.
@@ -54,14 +57,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		yaw.rotation.y -= event.relative.x * mouse_sensitivity
 		pitch.rotation.x -= event.relative.y * mouse_sensitivity
 		
-		# Enforce proper clamping using radians
 		var min_rad: float = deg_to_rad(min_pitch)
 		var max_rad: float = deg_to_rad(max_pitch)
 		pitch.rotation.x = clamp(pitch.rotation.x, min_rad, max_rad)
 
 func _process(delta: float) -> void:
 	var player_node: Node = get_parent()
-	if player_node and player_node.has_method("is_multiplayer_authority") and not player_node.is_multiplayer_authority():
+	if multiplayer.has_multiplayer_peer() and player_node and player_node.has_method("is_multiplayer_authority") and not player_node.is_multiplayer_authority():
 		if player_node is Node3D:
 			global_position = global_position.lerp(player_node.global_position, follow_lag_speed * delta)
 		return
