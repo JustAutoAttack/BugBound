@@ -24,6 +24,7 @@ func exit() -> void:
 	_unsubscribe_events()
 
 func _subscribe_events() -> void:
+	# Notifications
 	EventSystem.subscribe_to_notification(Notifications.GameLoaded, _handle_game_loaded)
 	EventSystem.subscribe_to_notification(Notifications.SettingsMenuActioned, _handle_ui_settings_menu)
 

@@ -182,5 +182,5 @@ func _handle_ui_settings_menu(event: Notifications.SettingsMenuActioned) -> void
 			GlobalUtils.toggle_hud(true)
 		
 		Enums.SettingsMenuAction.SAVE:
-			# TODO: Save user settings with ContextSystem
+			# NOTE: Main handles saving user settings
 			pass
