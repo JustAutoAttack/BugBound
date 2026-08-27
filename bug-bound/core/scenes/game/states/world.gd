@@ -61,6 +61,8 @@ func handle_input(event: InputEvent) -> void:
 	if event.is_action_pressed("game_pause_resume"):
 		if is_game_over: return
 		
+		var is_pause_open: bool = ContextSystem.ui_provider.is_menu_open(Enums.MenuType.PAUSE)
+		
 		if ContextSystem.ui_context.open_menus.size() > 0:
 			EventSystem.dispatch_command(
 				Commands.PlaySFX.new(
@@ -70,13 +72,15 @@ func handle_input(event: InputEvent) -> void:
 			EventSystem.dispatch_command(
 				Commands.HideAllMenus.new()
 			)
-
-			if get_tree().paused:
-				_toggle_pause(false)
+			
+			# If the pause menu was open, close it without affecting game tree pause state
+			if is_pause_open:
+				_emit_pause_updated(false)
 			
 			return
 		
-		_toggle_pause(not get_tree().paused)
+		# Open the pause menu without pausing the game tree
+		_toggle_pause(true)
 
 func _subscribe_events() -> void:
 	EventSystem.subscribe_to_notification(Notifications.PauseMenuActioned, _handle_ui_pause_menu)
@@ -119,7 +123,6 @@ func _emit_pause_updated(is_paused: bool) -> void:
 	)
 
 func _toggle_pause(is_paused: bool) -> void:
-	get_tree().paused = is_paused
 	_emit_toggle_pause_menu(is_paused)
 	_emit_pause_updated(is_paused)
 
@@ -158,23 +161,10 @@ func _handle_peer_disconnected(id: int) -> void:
 
 # --- UI ---
 func _handle_ui_pause_menu(event: Notifications.PauseMenuActioned) -> void:
-	var close_menu: bool = false
-	
 	match event.action:
 		Enums.PauseMenuAction.RESUME:
-			close_menu = true
-			_toggle_pause(false)
-		
+			pass
 		Enums.PauseMenuAction.SETTINGS:
-			close_menu = true
-			
-			EventSystem.dispatch_command(
-				Commands.ToggleMenu.new(
-					Enums.MenuType.PAUSE, 
-					false
-				)
-			)
-			
 			EventSystem.dispatch_command(
 				Commands.ToggleMenu.new(
 					Enums.MenuType.SETTINGS, 
@@ -183,7 +173,7 @@ func _handle_ui_pause_menu(event: Notifications.PauseMenuActioned) -> void:
 			)
 		
 		Enums.PauseMenuAction.EXIT:
-			close_menu = true
+			_emit_toggle_pause_menu(false)
 			NetworkSystem.close_connection()
 			_go_to_title()
 			return
@@ -193,13 +183,7 @@ func _handle_ui_pause_menu(event: Notifications.PauseMenuActioned) -> void:
 			get_tree().quit()
 			return
 	
-	if close_menu:
-		EventSystem.dispatch_command(
-			Commands.ToggleMenu.new(
-				Enums.MenuType.PAUSE, 
-				false
-			)
-		)
+	_emit_toggle_pause_menu(false)
 
 func _handle_ui_settings_menu(event: Notifications.SettingsMenuActioned) -> void:
 	match event.action:
@@ -211,12 +195,7 @@ func _handle_ui_settings_menu(event: Notifications.SettingsMenuActioned) -> void
 				)
 			)
 			
-			EventSystem.dispatch_command(
-				Commands.ToggleMenu.new(
-					Enums.MenuType.PAUSE,
-					true
-				)
-			)
+			_emit_toggle_pause_menu(true)
 			
 			await get_tree().process_frame
 			
