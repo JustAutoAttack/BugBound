@@ -137,12 +137,15 @@ class PauseMenuActioned extends Notification:
 class PlayerSpawned extends Notification:
 	
 	var player: Player
+	var peer_id: int
 	
 	func _init(
-		p_player: Player
+		p_player: Player,
+		p_peer_id: int
 	) -> void:
 		super("PlayerSpawned")
 		player = p_player
+		peer_id = p_peer_id
 class BugSpawned extends Notification:
 	
 	var bug: Bug

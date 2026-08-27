@@ -4,14 +4,14 @@ extends Node3D
 @onready var zones_controller: WorldZonesController = %ZonesController
 @onready var instances_controller: WorldInstancesController = %InstancesController
 
-var player_spawned: bool = false
 var bugs_spawned: bool = false
 var target_bugs_spawned: int = 5
 var total_bugs_spawned: int = 0:
 	set(value):
 		total_bugs_spawned = value
-		if total_bugs_spawned == target_bugs_spawned:
+		if total_bugs_spawned >= target_bugs_spawned and not bugs_spawned:
 			bugs_spawned = true
+			_on_world_environment_ready()
 
 # ===
 # Built-In
@@ -23,9 +23,9 @@ func _ready() -> void:
 	await get_tree().process_frame
 	await get_tree().process_frame
 
-	# Check if we are already fully connected, otherwise wait for the signal
+	# Only the server orchestrates the initial environment setup
 	if multiplayer.is_server():
-		_request_spawn_player(multiplayer.get_unique_id())
+		_spawn_initial_bugs()
 	else:
 		var peer: MultiplayerPeer = multiplayer.multiplayer_peer
 		if (
@@ -44,12 +44,9 @@ func _exit_tree() -> void:
 # Private
 # ===
 
-func _is_ready() -> bool:
-	return player_spawned and bugs_spawned
-
 func _subscribe_events() -> void:
-	EventSystem.subscribe_to_notification(Notifications.PlayerSpawned, _handle_player_spawned)
 	EventSystem.subscribe_to_notification(Notifications.BugSpawned, _handle_bug_spawned)
+	EventSystem.subscribe_to_notification(Notifications.PlayerSpawned, _handle_player_spawned)
 
 func _unsubscribe_events() -> void:
 	EventSystem.unsubscribe_all_for_owner(self)
@@ -64,7 +61,7 @@ func _register_client_ready(peer_id: int) -> void:
 	if not multiplayer.is_server():
 		return
 	LogSystem.log_message(
-		"Client %d is ready, spawning player..." % peer_id, 
+		"Client %d is ready, requesting player setup..." % peer_id, 
 		LogEnums.LogLevel.INFO
 	)
 	_request_spawn_player(peer_id)
@@ -102,7 +99,6 @@ func _get_random_town_player_spawn() -> Node3D:
 		)
 		return self
 	
-	print_debug(town_zone.name)
 	var spawn_markers: Array[Node] = town_zone.player_spawns.get_children()
 	if spawn_markers.is_empty():
 		LogSystem.log_message(
@@ -114,25 +110,36 @@ func _get_random_town_player_spawn() -> Node3D:
 	return spawn_markers[randi() % spawn_markers.size()] as Node3D
 
 # ===
-# Handlers
+# Handlers & Flow Control
 # ===
-
-func _handle_player_spawned(_notification: Notifications.PlayerSpawned) -> void:
-	player_spawned = true
-	
-	if multiplayer.is_server():
-		_spawn_initial_bugs()
 
 func _handle_bug_spawned(_notification: Notifications.BugSpawned) -> void:
 	total_bugs_spawned += 1
+
+func _on_world_environment_ready() -> void:
+	if not multiplayer.is_server():
+		return
 	
-	if not _is_ready(): return
-	
-	EventSystem.broadcast(
-		Notifications.WorldLoaded.new()
-	)
+	LogSystem.log_message("Initial world bugs spawned. Spawning server host player.", LogEnums.LogLevel.INFO)
+	# Now that bugs are ready, spawn the server's own player
+	_request_spawn_player(multiplayer.get_unique_id())
+
+func _handle_player_spawned(notification: Notifications.PlayerSpawned) -> void:
+	# Only trigger WorldLoaded if the player that spawned belongs to this local client/server instance
+	if notification.player and notification.player.is_multiplayer_authority():
+		LogSystem.log_message(
+			"Local player authority confirmed spawned. Broadcasting WorldLoaded.", 
+			LogEnums.LogLevel.INFO
+		)
+		
+		EventSystem.broadcast(
+			Notifications.WorldLoaded.new()
+		)
 
 func _spawn_initial_bugs() -> void:
+	if not multiplayer.is_server():
+		return
+
 	if not zones_controller or not zones_controller.zone_map.has(Enums.ZoneID.FUNGAL_FOREST):
 		LogSystem.log_message(
 			"ZonesController or Forest Zone missing for bug spawning!", 
@@ -157,7 +164,6 @@ func _spawn_initial_bugs() -> void:
 		return
 
 	for i: int in range(target_bugs_spawned):
-		# Pick a marker (looping or random if you prefer; using modulo/random safely)
 		var marker: Marker3D = spawn_markers[i % spawn_markers.size()]
 		var spawn_position: Vector3 = marker.global_position if marker else forest_zone.global_position
 		var spawn_rotation: Vector3 = marker.global_rotation if marker else Vector3.ZERO

@@ -23,13 +23,19 @@ var current_rarity: Enums.RarityType
 func _ready() -> void:
 	super._ready()
 	interaction_label.hide()
+	
 	player_interaction_area.player_entered_range.connect(
-		func(_player: Player):
-			interaction_label.show() 
+		func(player: Player):
+			# Only show the label if this player is OUR local client's player
+			if player.is_multiplayer_authority():
+				interaction_label.show()  
 	)
+	
 	player_interaction_area.player_exited_range.connect(
-		func(_player: Player):
-			interaction_label.hide() 
+		func(player: Player):
+			# Only hide the label if it was our local player leaving range
+			if player.is_multiplayer_authority():
+				interaction_label.hide()  
 	)
 
 # ===

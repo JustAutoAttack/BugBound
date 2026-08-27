@@ -30,9 +30,19 @@ func _ready() -> void:
 
 	await get_tree().process_frame
 	
+	var owner_peer_id: int = name.to_int()
+	if owner_peer_id == 0:
+		owner_peer_id = multiplayer.get_unique_id() # Fallback for local testing/host
+	
+	print_debug('============')
+	print_debug('============')
+	print_debug("owner_peer_id: {0}, mulitplayer_unique_id: {1}, name: {2}".format([owner_peer_id, multiplayer.get_unique_id(), name]))
+	print_debug('============')
+	print_debug('============')
 	EventSystem.broadcast(
 		Notifications.PlayerSpawned.new(
-			self
+			self,
+			owner_peer_id
 		)
 	)
 

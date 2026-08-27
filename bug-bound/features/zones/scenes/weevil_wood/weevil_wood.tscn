@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://qexeu2862m8y" path="res://features/zones/base_classes/town.gd" id="1_7wfmp"]
 [ext_resource type="MeshLibrary" uid="uid://bqhrycykyifyo" path="res://assets/prototyping_blue.meshlib" id="2_lq0vr"]
+[ext_resource type="MeshLibrary" uid="uid://1te6tx43m6be" path="res://assets/mesh_libraries/fantastic_village_pack.meshlib" id="3_lq0vr"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_4cc64"]
 vertices = PackedVector3Array(9.75, 1.25, 0, 9.75, 1.25, -15, -4, 1.25, -15, -4, 1.25, 0, 11.75, 1.25, 0, 12, 1.25, 2.25, 27, 1.25, 2.25, 27, 1.25, -15, 12, 1.25, 16, 27, 1.25, 16)
@@ -37,7 +38,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
 
 [node name="Terrain" type="Node3D" parent="NavigationRegion3D/Static" unique_id=372384917]
 
-[node name="GridMap" type="GridMap" parent="NavigationRegion3D/Static/Terrain" unique_id=220965303]
+[node name="Prototype" type="GridMap" parent="NavigationRegion3D/Static/Terrain" unique_id=220965303]
 mesh_library = ExtResource("2_lq0vr")
 physics_material = SubResource("PhysicsMaterial_4cc64")
 cell_size = Vector3(1, 0.5, 1)
@@ -46,7 +47,12 @@ data = {
 "cells": PackedInt32Array(65535, 0, 3, 65535, 8, 3, 65527, 0, 3, 65519, 0, 3, 65535, 65528, 3, 65527, 65528, 3, 65519, 65528, 3, 7, 65528, 3, 7, 0, 3, 7, 8, 3, 65535, 16, 3, 7, 16, 3)
 }
 
+[node name="FantasticVillage" type="GridMap" parent="NavigationRegion3D/Static/Terrain" unique_id=204817421]
+mesh_library = ExtResource("3_lq0vr")
+
 [node name="Props" type="Node3D" parent="NavigationRegion3D/Static" unique_id=355955710]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Static/Props" unique_id=1409364203]
 
 [node name="Instances" type="Node3D" parent="NavigationRegion3D" unique_id=67312460]
 unique_name_in_owner = true

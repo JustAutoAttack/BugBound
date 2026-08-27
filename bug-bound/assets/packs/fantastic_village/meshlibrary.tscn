@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cuoyw0vwyysqw"]
+
+[ext_resource type="PackedScene" uid="uid://dl13nwmnj38hj" path="res://assets/packs/fantastic_village/fantastic_village_pack_blend.glb" id="1_8oef8"]
+
+[node name="Meshlibrary" type="Node3D" unique_id=1420807435]
+
+[node name="fantastic_village_pack_blend" parent="." unique_id=231704519 instance=ExtResource("1_8oef8")]
+
+[editable path="fantastic_village_pack_blend"]

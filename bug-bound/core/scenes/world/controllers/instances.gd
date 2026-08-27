@@ -174,16 +174,6 @@ func _handle_spawn_bug(command: Commands.SpawnBug) -> void:
 		)
 		return
 
-	var target_container: Node3D = bug_containers.get(command.zone)
-	if not target_container:
-		LogSystem.log_message(
-			"Bug container not found for zone: {0}".format([command.zone]), 
-			LogEnums.LogLevel.ERROR
-		)
-		return
-	
-	spawner.spawn_path = spawner.get_path_to(target_container)
-
 	var spawn_data: Dictionary = {
 		"bug_id": command.id,
 		"zone": command.zone,

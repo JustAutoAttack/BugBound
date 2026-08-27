@@ -8,10 +8,22 @@
 [ext_resource type="PackedScene" uid="uid://bf36sn73hwh7i" path="res://features/zones/scenes/fungal_forest/fungal_forest.tscn" id="4_fyloc"]
 [ext_resource type="PackedScene" uid="uid://yii4ratwtuu5" path="res://features/bugs/scenes/unknown/unknown.tscn" id="7_xsqbj"]
 [ext_resource type="PackedScene" uid="uid://bfnqaadx6sjk6" path="res://features/environment/sky/sky.tscn" id="8_1vx1y"]
+[ext_resource type="Script" uid="uid://cax6vtuy2rogk" path="res://core/scenes/world/context_synchronizer.gd" id="9_w70fr"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_wrngl"]
 
 [node name="World" type="Node3D" unique_id=802993614]
 process_mode = 1
 script = ExtResource("1_luigy")
+
+[node name="ContextSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1222945415]
+replication_config = SubResource("SceneReplicationConfig_wrngl")
+script = ExtResource("9_w70fr")
+
+[node name="Environment" type="Node" parent="." unique_id=1169163999]
+
+[node name="Sky" parent="Environment" unique_id=1551342239 instance=ExtResource("8_1vx1y")]
+day_progress = 0.20192289259642313
 
 [node name="NetworkSync" type="Node" parent="." unique_id=1188210281]
 
@@ -43,6 +55,3 @@ bug_scene = ExtResource("7_xsqbj")
 
 [node name="Players" type="Node" parent="InstancesController" unique_id=366852136]
 unique_name_in_owner = true
-
-[node name="Sky" parent="." unique_id=1551342239 instance=ExtResource("8_1vx1y")]
-day_progress = 0.02596522592908378
