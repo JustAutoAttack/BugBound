@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bcqbofpr4c8ov" path="res://features/bugs/scenes/unknown/unknown.gd" id="1_w5htj"]
 [ext_resource type="PackedScene" uid="uid://d5pivnb1qtru" path="res://features/bugs/components/debug_visualizer/debug_visualizer.tscn" id="2_xfte5"]
 [ext_resource type="Script" uid="uid://ctamlq20c6sku" path="res://core/base_classes/state_machine.gd" id="3_2j8gh"]
+[ext_resource type="Shader" uid="uid://tscug166qmk6" path="res://features/bugs/scenes/unknown/bubble.gdshader" id="3_s6e6j"]
 [ext_resource type="Script" uid="uid://dtmdwy16rbb53" path="res://features/bugs/scenes/unknown/states/patrol.gd" id="4_kfiiq"]
 [ext_resource type="Script" uid="uid://cpkq3of0c3l5p" path="res://features/bugs/scenes/unknown/player_detection_area.gd" id="5_g5oni"]
 
@@ -35,7 +36,7 @@ point_count = 4
 [sub_resource type="CurveTexture" id="CurveTexture_n4jx6"]
 curve = SubResource("Curve_tuc5a")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w5htj"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s6e6j"]
 emission_shape = 1
 emission_sphere_radius = 0.5
 initial_velocity_min = 0.099999994
@@ -44,7 +45,7 @@ angular_velocity_min = -1.6093254e-05
 angular_velocity_max = -1.6093254e-05
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_n4jx6")
-color = Color(1, 0, 0, 1)
+color = Color(0.973, 0, 0, 1)
 color_ramp = SubResource("GradientTexture1D_4j7lh")
 emission_curve = SubResource("CurveTexture_kfiiq")
 turbulence_enabled = true
@@ -53,18 +54,29 @@ collision_mode = 1
 collision_friction = 1.0
 collision_bounce = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xfte5"]
-albedo_color = Color(1, 0, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6axpj"]
+albedo_color = Color(0.973, 0, 0, 1)
 emission_enabled = true
-emission = Color(1, 0, 0, 1)
-emission_energy_multiplier = 4.0
+emission = Color(0.972549, 0, 0, 1)
+emission_energy_multiplier = 2.0
 
-[sub_resource type="SphereMesh" id="SphereMesh_b7j47"]
-material = SubResource("StandardMaterial3D_xfte5")
-radius = 0.05
-height = 0.1
+[sub_resource type="SphereMesh" id="SphereMesh_ferqe"]
+material = SubResource("StandardMaterial3D_6axpj")
+radius = 0.025
+height = 0.05
 radial_segments = 32
 rings = 16
+
+[sub_resource type="SphereMesh" id="SphereMesh_4cc64"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d3p4q"]
+render_priority = 0
+shader = ExtResource("3_s6e6j")
+shader_parameter/bubble_color = Color(0.97269243, 0, 0, 1)
+shader_parameter/overall_opacity = 0.150000007125
+shader_parameter/rim_power = 2.00000009174012
+shader_parameter/core_opacity = 0.10000000475
+shader_parameter/rim_intensity = 1.0000000475
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qqj0m"]
 radius = 2.0
@@ -73,6 +85,7 @@ radius = 2.0
 collision_layer = 8
 collision_mask = 3
 script = ExtResource("1_w5htj")
+current_rarity = 4
 
 [node name="PushBox" type="CollisionShape3D" parent="." unique_id=1519352754]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -89,13 +102,19 @@ enabled = false
 [node name="Model" type="Node3D" parent="." unique_id=1475239264]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Model" unique_id=1710415721]
-amount = 4
+[node name="FireflyParticles" type="GPUParticles3D" parent="Model" unique_id=1710415721]
+unique_name_in_owner = true
+amount = 6
 lifetime = 0.5
 preprocess = 4.0
 randomness = 1.0
-process_material = SubResource("ParticleProcessMaterial_w5htj")
-draw_pass_1 = SubResource("SphereMesh_b7j47")
+process_material = SubResource("ParticleProcessMaterial_s6e6j")
+draw_pass_1 = SubResource("SphereMesh_ferqe")
+
+[node name="BubbleMesh" type="MeshInstance3D" parent="Model" unique_id=2135869945]
+unique_name_in_owner = true
+mesh = SubResource("SphereMesh_4cc64")
+surface_material_override/0 = SubResource("ShaderMaterial_d3p4q")
 
 [node name="StateMachine" type="Node" parent="." unique_id=409960015 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_2j8gh")
@@ -115,9 +134,11 @@ script = ExtResource("4_kfiiq")
 [node name="Caught" type="Node" parent="StateMachine" unique_id=1547770656]
 
 [node name="InteractionLabel" type="Label3D" parent="." unique_id=1009857281]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-billboard = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+visible = false
+billboard = 1
 text = "[E] Catch"
+font_size = 48
 
 [node name="PlayerInteractionArea" type="Area3D" parent="." unique_id=143190376]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

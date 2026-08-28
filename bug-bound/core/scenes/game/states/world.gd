@@ -163,13 +163,10 @@ func _handle_ui_pause_menu(event: Notifications.PauseMenuActioned) -> void:
 			GlobalUtils.toggle_menu(Enums.MenuType.PAUSE, false)
 			NetworkSystem.close_connection()
 			_go_to_title()
-			return
 		
 		Enums.PauseMenuAction.QUIT:
 			NetworkSystem.close_connection()
 			get_tree().quit()
-			return
-	
 
 func _handle_ui_settings_menu(event: Notifications.SettingsMenuActioned) -> void:
 	match event.action:

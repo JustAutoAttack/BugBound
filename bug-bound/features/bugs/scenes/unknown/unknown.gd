@@ -1,3 +1,4 @@
+@tool
 class_name BugUnknown
 extends Bug
 
@@ -9,19 +10,27 @@ extends Bug
 	Enums.RarityType.MYTHICAL: Color(0.973, 0.0, 0.0, 1.0)
 }
 
-@onready var particles: GPUParticles3D = $Model/GPUParticles3D
+@export var bug_definition: BugDefinitionData:
+	set(value):
+		bug_definition = value
+
+@export var current_rarity: Enums.RarityType:
+	set(value):
+		current_rarity = value
+		if is_node_ready():
+			_apply_rarity_visuals(current_rarity)
+
+@onready var firefly_particles: GPUParticles3D = %FireflyParticles
+@onready var bubble_mesh: MeshInstance3D = %BubbleMesh
 @onready var interaction_label: Label3D = $InteractionLabel
 @onready var player_interaction_area: PlayerDetectionArea = $PlayerInteractionArea
-
-var bug_definition: BugDefinitionData
-var current_rarity: Enums.RarityType
 
 # ===
 # Built-In
 # ===
 
 func _ready() -> void:
-	super._ready()
+	super()
 	interaction_label.hide()
 	
 	player_interaction_area.player_entered_range.connect(
@@ -37,6 +46,8 @@ func _ready() -> void:
 			if player.is_multiplayer_authority():
 				interaction_label.hide()  
 	)
+	
+	_apply_rarity_visuals(current_rarity)
 
 # ===
 # Public
@@ -48,8 +59,6 @@ func setup(
 ) -> void:
 	bug_definition = bug_definition_data
 	current_rarity = rarity
-	
-	_apply_rarity_visuals(current_rarity)
 
 # ===
 # Private
@@ -64,33 +73,37 @@ func _apply_rarity_visuals(rarity: Enums.RarityType) -> void:
 		)
 		return
 	
-	if not particles:
+	_apply_firefly_rarity_visuals(color)
+	_apply_bubble_rarity_visuals(color)
+
+func _apply_firefly_rarity_visuals(color: Color) -> void:
+	if not firefly_particles:
 		LogSystem.log_message(
-			"GPUParticles3D node is missing or not assigned on BugUnknown.",
+			"FireflyParticles node is missing or not assigned on BugUnknown.",
 			LogEnums.LogLevel.ERROR
 		)
 		return
 		
-	if not particles.process_material is ParticleProcessMaterial:
+	if not firefly_particles.process_material is ParticleProcessMaterial:
 		LogSystem.log_message(
-			"GPUParticles3D process_material is missing or not a ParticleProcessMaterial.",
+			"FireflyParticles process_material is missing or not a ParticleProcessMaterial.",
 			LogEnums.LogLevel.ERROR
 		)
 		return
 
-	var process_material: ParticleProcessMaterial = particles.process_material.duplicate() as ParticleProcessMaterial
+	var process_material: ParticleProcessMaterial = firefly_particles.process_material.duplicate() as ParticleProcessMaterial
 	process_material.color = color
-	particles.process_material = process_material
+	firefly_particles.process_material = process_material
 
-	if not particles.draw_pass_1:
+	if not firefly_particles.draw_pass_1:
 		LogSystem.log_message(
-			"draw_pass_1 is missing on GPUParticles3D.",
+			"draw_pass_1 is missing on FireflyParticles.",
 			LogEnums.LogLevel.ERROR
 		)
 		return
 
-	var mesh_resource: Mesh = particles.draw_pass_1.duplicate(true) as Mesh
-	particles.draw_pass_1 = mesh_resource
+	var mesh_resource: Mesh = firefly_particles.draw_pass_1.duplicate(true) as Mesh
+	firefly_particles.draw_pass_1 = mesh_resource
 	
 	var surface_material: Material = mesh_resource.material
 	if not surface_material and mesh_resource.get_surface_count() > 0:
@@ -110,3 +123,26 @@ func _apply_rarity_visuals(rarity: Enums.RarityType) -> void:
 	unique_material.emission_energy_multiplier = 5.0
 	
 	mesh_resource.material = unique_material
+
+func _apply_bubble_rarity_visuals(color: Color) -> void:
+	if not bubble_mesh:
+		LogSystem.log_message(
+			"BubbleMesh node is missing or not assigned on BugUnknown.",
+			LogEnums.LogLevel.ERROR
+		)
+		return
+
+	var bubble_material: Material = bubble_mesh.get_surface_override_material(0)
+	if not bubble_material:
+		bubble_material = bubble_mesh.mesh.surface_get_material(0)
+
+	if not bubble_material is ShaderMaterial:
+		LogSystem.log_message(
+			"Material on BubbleMesh is missing or not a ShaderMaterial.",
+			LogEnums.LogLevel.ERROR
+		)
+		return
+
+	var unique_bubble_material: ShaderMaterial = bubble_material.duplicate() as ShaderMaterial
+	unique_bubble_material.set_shader_parameter("bubble_color", color)
+	bubble_mesh.set_surface_override_material(0, unique_bubble_material)
