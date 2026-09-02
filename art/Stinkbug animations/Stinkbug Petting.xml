@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Stinkbug Petting.png">
+	<!-- Created with Adobe Animate version 24.0.10.14 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Stinkbug Petting0000" x="2" y="2" width="429" height="240" frameX="0" frameY="-24" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0001" x="2" y="2" width="429" height="240" frameX="0" frameY="-24" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0002" x="431" y="2" width="420" height="248" frameX="0" frameY="-16" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0003" x="851" y="2" width="420" height="248" frameX="0" frameY="-16" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0004" x="1271" y="2" width="418" height="251" frameX="0" frameY="-13" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0005" x="1271" y="2" width="418" height="251" frameX="0" frameY="-13" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0006" x="2" y="253" width="418" height="251" frameX="0" frameY="-13" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0007" x="420" y="253" width="416" height="264" frameX="0" frameY="0" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0008" x="420" y="253" width="416" height="264" frameX="0" frameY="0" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0009" x="836" y="253" width="419" height="259" frameX="0" frameY="-5" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0010" x="836" y="253" width="419" height="259" frameX="0" frameY="-5" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0011" x="836" y="253" width="419" height="259" frameX="0" frameY="-5" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0012" x="1255" y="253" width="423" height="253" frameX="0" frameY="-11" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0013" x="1255" y="253" width="423" height="253" frameX="0" frameY="-11" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0014" x="2" y="517" width="425" height="246" frameX="0" frameY="-18" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0015" x="427" y="517" width="425" height="246" frameX="0" frameY="-18" frameWidth="429" frameHeight="264"/>
+</TextureAtlas>

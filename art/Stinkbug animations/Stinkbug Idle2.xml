@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Stinkbug Idle2.png">
+	<!-- Created with Adobe Animate version 24.0.10.14 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Stinkbug Idle drool0000" x="2" y="2" width="433" height="231" frameX="-2" frameY="-22" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0001" x="435" y="2" width="433" height="231" frameX="-2" frameY="-22" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0002" x="435" y="2" width="433" height="231" frameX="-2" frameY="-22" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0003" x="868" y="2" width="432" height="231" frameX="0" frameY="-23" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0004" x="1300" y="2" width="432" height="231" frameX="0" frameY="-23" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0005" x="2" y="233" width="432" height="230" frameX="0" frameY="-24" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0006" x="434" y="233" width="430" height="245" frameX="0" frameY="-9" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0007" x="864" y="233" width="430" height="245" frameX="0" frameY="-9" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0008" x="1294" y="233" width="430" height="245" frameX="0" frameY="-9" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0009" x="2" y="478" width="430" height="245" frameX="0" frameY="-9" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0010" x="432" y="478" width="428" height="249" frameX="-1" frameY="-4" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0011" x="860" y="478" width="428" height="249" frameX="-1" frameY="-4" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0012" x="1288" y="478" width="428" height="249" frameX="-1" frameY="-4" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0013" x="2" y="727" width="427" height="253" frameX="-2" frameY="0" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0014" x="429" y="727" width="427" height="253" frameX="-2" frameY="0" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0015" x="429" y="727" width="427" height="253" frameX="-2" frameY="0" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0016" x="856" y="727" width="429" height="248" frameX="-2" frameY="-5" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0017" x="1285" y="727" width="429" height="248" frameX="-2" frameY="-5" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0018" x="2" y="980" width="429" height="248" frameX="-2" frameY="-5" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0019" x="2" y="980" width="429" height="248" frameX="-2" frameY="-5" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0020" x="431" y="980" width="434" height="231" frameX="-2" frameY="-22" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0021" x="865" y="980" width="434" height="231" frameX="-2" frameY="-22" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0022" x="1299" y="980" width="434" height="231" frameX="-2" frameY="-22" frameWidth="436" frameHeight="254"/>
+</TextureAtlas>

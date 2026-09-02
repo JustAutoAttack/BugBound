@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Stinkbug Eat.png">
+	<!-- Created with Adobe Animate version 24.0.10.14 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Stinkbug Eat0000" x="2" y="2" width="431" height="240" frameX="-15" frameY="0" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0001" x="2" y="2" width="431" height="240" frameX="-15" frameY="0" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0002" x="433" y="2" width="410" height="211" frameX="-13" frameY="-29" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0003" x="433" y="2" width="410" height="211" frameX="-13" frameY="-29" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0004" x="843" y="2" width="387" height="221" frameX="-11" frameY="-20" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0005" x="843" y="2" width="387" height="221" frameX="-11" frameY="-20" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0006" x="1230" y="2" width="431" height="188" frameX="-11" frameY="-53" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0007" x="1230" y="2" width="431" height="188" frameX="-11" frameY="-53" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0008" x="2" y="242" width="432" height="180" frameX="-11" frameY="-61" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0009" x="2" y="242" width="432" height="180" frameX="-11" frameY="-61" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0010" x="434" y="242" width="431" height="186" frameX="-11" frameY="-55" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0011" x="434" y="242" width="431" height="186" frameX="-11" frameY="-55" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0012" x="865" y="242" width="447" height="181" frameX="-3" frameY="-60" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0013" x="865" y="242" width="447" height="181" frameX="-3" frameY="-60" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0014" x="1312" y="242" width="429" height="204" frameX="0" frameY="-36" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0015" x="1312" y="242" width="429" height="204" frameX="0" frameY="-36" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0016" x="2" y="446" width="377" height="235" frameX="-23" frameY="-5" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0017" x="2" y="446" width="377" height="235" frameX="-23" frameY="-5" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0018" x="2" y="446" width="377" height="235" frameX="-23" frameY="-5" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0019" x="379" y="446" width="399" height="181" frameX="-15" frameY="-59" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0020" x="379" y="446" width="399" height="181" frameX="-15" frameY="-59" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0021" x="778" y="446" width="446" height="158" frameX="-18" frameY="-100" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0022" x="778" y="446" width="446" height="158" frameX="-18" frameY="-100" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0023" x="1224" y="446" width="444" height="161" frameX="-13" frameY="-94" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0024" x="1224" y="446" width="444" height="161" frameX="-13" frameY="-94" frameWidth="464" frameHeight="258"/>
+</TextureAtlas>

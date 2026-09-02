@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Stinkbug Pretend Dead End.png">
+	<!-- Created with Adobe Animate version 24.0.10.14 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="PretendDead End0000" x="2" y="2" width="446" height="155" frameX="0" frameY="-159" frameWidth="476" frameHeight="314"/>
+	<SubTexture name="PretendDead End0001" x="2" y="2" width="446" height="155" frameX="0" frameY="-159" frameWidth="476" frameHeight="314"/>
+	<SubTexture name="PretendDead End0002" x="448" y="2" width="409" height="176" frameX="-30" frameY="-120" frameWidth="476" frameHeight="314"/>
+	<SubTexture name="PretendDead End0003" x="448" y="2" width="409" height="176" frameX="-30" frameY="-120" frameWidth="476" frameHeight="314"/>
+	<SubTexture name="PretendDead End0004" x="2" y="178" width="409" height="281" frameX="-67" frameY="0" frameWidth="476" frameHeight="314"/>
+	<SubTexture name="PretendDead End0005" x="411" y="178" width="409" height="281" frameX="-67" frameY="0" frameWidth="476" frameHeight="314"/>
+</TextureAtlas>
