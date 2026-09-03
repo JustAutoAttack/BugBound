@@ -16,6 +16,7 @@
     - **[Capture Minigame](#capture-minigame)**
     - **[Shop](#shop)**
     - **[Terrarium](#terrarium)**
+    - **[Map](#map)**
     - **[Weather & Time System](#weather--time-system)**
 - **[Supporting Features](#supporting-features)**
     - **[HUD & Field Utilities](#hud--field-utilities)**
@@ -24,6 +25,10 @@
     - **[Consumable Quick-Bar & Bait Setup](#consumable-quick-bar--bait-setup)**
     - **[Proximity Voice & Social Emote Wheel](#proximity-voice--social-emote-wheel)**
     - **[Player Customization & Upgrades](#player-customization--upgrades)**
+- **[Worldbuilding](#worldbuilding)**
+    - **[Lore](#lore)**
+    - **[Points of Interest](#points-of-interest-poi)**
+    - **[Quest Lines](#quest-lines)**
 - **[Content & Aesthetics](#content--aesthetics)**
     - **[Insectopedia (Bug Catalog & Archetypes)](#insectopedia-bug-catalog--archetypes)**
     - **[Audio & Soundscape Design](#audio--soundscape-design)**
@@ -242,6 +247,7 @@ mode is engaged.
 
 ---
 
+
 ## Shop
 
 A physical, shared storefront building in town that acts as the primary economic
@@ -288,6 +294,10 @@ specimens in a massive shared enclosure.
   achievements.
 - **An Organic, Reactive Ecosystem:** Extends the living world concept into a
   simulated habitat where collected wildlife continues to behave naturally.
+
+---
+
+## Map
 
 ---
 
@@ -505,6 +515,35 @@ The physical gear progression and cosmetic wardrobe system fueled by the
 - **Low-Stress Social Harmony:** Gives players unique visual identities to
   express themselves and show off achievements while hanging out in the shared
   town, shop, and terrarium.
+
+---
+
+# Worldbuilding
+
+---
+
+## Lore
+
+
+---
+
+## Points of Interest (PoI)
+
+**Vegas**
+
+**Area51**
+
+**Nevada State Route 375:**
+
+- Connects Vegas to Area51
+
+---
+
+## Questlines
+
+### Main
+
+### Side
 
 ---
 
