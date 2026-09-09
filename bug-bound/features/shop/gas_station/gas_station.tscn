@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://gm1fy0mv2skk"]
+
+[ext_resource type="PackedScene" uid="uid://d4erandjtnujk" path="res://features/shop/gas_station/house.glb" id="1_db4ub"]
+
+[node name="GasStation" type="Node3D" unique_id=763266016]
+
+[node name="house" parent="." unique_id=572332224 instance=ExtResource("1_db4ub")]
+
+[node name="StaticBody3D" parent="house/Cube_001" parent_id_path=PackedInt32Array(572332224, 1410875748) index="0" unique_id=962244960]
+collision_layer = 2
+collision_mask = 0
+
+[node name="StaticBody3D" parent="house/Cube_003" parent_id_path=PackedInt32Array(572332224, 1040862463) index="0" unique_id=109303336]
+collision_layer = 2
+collision_mask = 0
+
+[editable path="house"]

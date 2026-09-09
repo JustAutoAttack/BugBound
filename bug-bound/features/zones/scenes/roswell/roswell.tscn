@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://crm0qdg650t5b" path="res://features/zones/base_classes/zone.gd" id="1_qs1wq"]
 [ext_resource type="MeshLibrary" uid="uid://daxg583x14n46" path="res://assets/prototyping_green.meshlib" id="2_5s3e4"]
 [ext_resource type="PackedScene" uid="uid://dx7hod1lpssjf" path="res://features/environment/desert/cactus.tscn" id="3_qs1wq"]
+[ext_resource type="PackedScene" uid="uid://gm1fy0mv2skk" path="res://features/shop/gas_station/gas_station.tscn" id="4_ogtgi"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_qs1wq"]
 agent_height = 0.2
@@ -61,36 +62,43 @@ metadata/_editor_floor_ = Vector3(0, 6, 0)
 
 [node name="Props" type="Node3D" parent="NavigationRegion3D/Static" unique_id=1117610897]
 
-[node name="Cactus" parent="NavigationRegion3D/Static/Props" unique_id=937412409 instance=ExtResource("3_qs1wq")]
+[node name="Cactus" type="Node3D" parent="NavigationRegion3D/Static/Props" unique_id=275462446]
+
+[node name="Cactus" parent="NavigationRegion3D/Static/Props/Cactus" unique_id=937412409 instance=ExtResource("3_qs1wq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5375977, 0.7556279, 10.195202)
 type = 0
 
-[node name="Cactus8" parent="NavigationRegion3D/Static/Props" unique_id=2024213794 instance=ExtResource("3_qs1wq")]
+[node name="Cactus8" parent="NavigationRegion3D/Static/Props/Cactus" unique_id=2024213794 instance=ExtResource("3_qs1wq")]
 transform = Transform3D(0.99351734, -0.11081691, -0.025355084, 0.11368055, 0.9684904, 0.22159214, 0, -0.22303802, 0.97480977, -4.5375977, 0.69178665, 9.8288145)
 type = 0
 
-[node name="Cactus9" parent="NavigationRegion3D/Static/Props" unique_id=1500351789 instance=ExtResource("3_qs1wq")]
+[node name="Cactus9" parent="NavigationRegion3D/Static/Props/Cactus" unique_id=1500351789 instance=ExtResource("3_qs1wq")]
 transform = Transform3D(-0.06279236, 0.4719925, -0.87936354, -0.12427257, 0.87054735, 0.47613427, 0.9902592, 0.13917837, 0.0039919987, -4.5255733, 0.72502124, 10.060355)
 type = 0
 
-[node name="Cactus7" parent="NavigationRegion3D/Static/Props" unique_id=1495318439 instance=ExtResource("3_qs1wq")]
+[node name="Cactus7" parent="NavigationRegion3D/Static/Props/Cactus" unique_id=1495318439 instance=ExtResource("3_qs1wq")]
 transform = Transform3D(-0.2542569, 0, -0.96713674, 0, 1, 0, 0.96713674, 0, -0.2542569, -9.26128, 0.7556279, 15.475309)
 
-[node name="Cactus2" parent="NavigationRegion3D/Static/Props" unique_id=491811522 instance=ExtResource("3_qs1wq")]
-transform = Transform3D(0.62103325, 0, 0.7837842, 0, 1, 0, -0.7837842, 0, 0.62103325, -9.291849, 0.7556279, 2.6332135)
+[node name="Cactus2" parent="NavigationRegion3D/Static/Props/Cactus" unique_id=491811522 instance=ExtResource("3_qs1wq")]
+transform = Transform3D(0.62103325, 0, 0.7837842, 0, 1, 0, -0.7837842, 0, 0.62103325, -1.2149506, 0.7556279, 6.154637)
 
-[node name="Cactus3" parent="NavigationRegion3D/Static/Props" unique_id=638621110 instance=ExtResource("3_qs1wq")]
+[node name="Cactus3" parent="NavigationRegion3D/Static/Props/Cactus" unique_id=638621110 instance=ExtResource("3_qs1wq")]
 transform = Transform3D(0.35389936, 0, -0.93528354, 0, 1, 0, 0.93528354, 0, 0.35389936, -14.037875, 3.75, 19.280306)
 type = 0
 
-[node name="Cactus4" parent="NavigationRegion3D/Static/Props" unique_id=833042918 instance=ExtResource("3_qs1wq")]
+[node name="Cactus4" parent="NavigationRegion3D/Static/Props/Cactus" unique_id=833042918 instance=ExtResource("3_qs1wq")]
 transform = Transform3D(-0.54783666, 0, 0.8365853, 0, 1, 0, -0.8365853, 0, -0.54783666, -19.826942, 3.75, 10.726136)
 
-[node name="Cactus5" parent="NavigationRegion3D/Static/Props" unique_id=909376747 instance=ExtResource("3_qs1wq")]
+[node name="Cactus5" parent="NavigationRegion3D/Static/Props/Cactus" unique_id=909376747 instance=ExtResource("3_qs1wq")]
 transform = Transform3D(0.9959156, 0, -0.09028864, 0, 1, 0, 0.09028864, 0, 0.9959156, -22.375412, 3.75, 18.12397)
 
-[node name="Cactus6" parent="NavigationRegion3D/Static/Props" unique_id=741100616 instance=ExtResource("3_qs1wq")]
+[node name="Cactus6" parent="NavigationRegion3D/Static/Props/Cactus" unique_id=741100616 instance=ExtResource("3_qs1wq")]
 transform = Transform3D(0.9635524, 0, 0.26751947, 0, 1, 0, -0.26751947, 0, 0.9635524, 1.0843611, 3.75, 21.083357)
+
+[node name="Buildings" type="Node3D" parent="NavigationRegion3D/Static/Props" unique_id=276906150]
+
+[node name="GasStation" parent="NavigationRegion3D/Static/Props/Buildings" unique_id=763266016 instance=ExtResource("4_ogtgi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8208485, 0, -13.513926)
 
 [node name="Instances" type="Node3D" parent="NavigationRegion3D" unique_id=807415782]
 unique_name_in_owner = true
