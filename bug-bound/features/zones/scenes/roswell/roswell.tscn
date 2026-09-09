@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://crm0qdg650t5b" path="res://features/zones/base_classes/zone.gd" id="1_qs1wq"]
 [ext_resource type="MeshLibrary" uid="uid://daxg583x14n46" path="res://assets/prototyping_green.meshlib" id="2_5s3e4"]
-[ext_resource type="PackedScene" uid="uid://dx7hod1lpssjf" path="res://features/environment/cactus.tscn" id="3_qs1wq"]
+[ext_resource type="PackedScene" uid="uid://dx7hod1lpssjf" path="res://features/environment/desert/cactus.tscn" id="3_qs1wq"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_qs1wq"]
 agent_height = 0.2

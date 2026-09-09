@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dx7hod1lpssjf"]
 
-[ext_resource type="Script" uid="uid://c1cgqm8f0weuo" path="res://features/environment/cactus.gd" id="1_hs4t0"]
+[ext_resource type="Script" uid="uid://c1cgqm8f0weuo" path="res://features/environment/desert/cactus.gd" id="1_hs4t0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2wcu"]
 albedo_color = Color(0.7585879, 0.78818816, 0.53412783, 1)

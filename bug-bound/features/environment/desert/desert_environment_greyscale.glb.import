@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c58otoha64aw5"
-path="res://.godot/imported/desert_environment_greyscale.glb-5fffd933fb355731bf03294c94d1704e.scn"
+path="res://.godot/imported/desert_environment_greyscale.glb-beabc3a4736596d320f2bd21f456c9bb.scn"
 
 [deps]
 
-source_file="res://features/environment/desert_environment_greyscale.glb"
-dest_files=["res://.godot/imported/desert_environment_greyscale.glb-5fffd933fb355731bf03294c94d1704e.scn"]
+source_file="res://features/environment/desert/desert_environment_greyscale.glb"
+dest_files=["res://.godot/imported/desert_environment_greyscale.glb-beabc3a4736596d320f2bd21f456c9bb.scn"]
 
 [params]
 
