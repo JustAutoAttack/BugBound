@@ -17,6 +17,7 @@ const TERMINAL_VELOCITY: float = -25.0
 const FALL_ACCELERATION_RATE: float = 3.0
 
 @onready var camera_controller: PlayerCameraController = %CameraController
+@onready var name_tag: Label3D = %NameTag
 
 var current_move_state: MoveState = MoveState.WALK
 
@@ -25,8 +26,6 @@ var current_move_state: MoveState = MoveState.WALK
 # ===
 
 func _ready() -> void:
-
-
 	await get_tree().process_frame
 	
 	var owner_peer_id: int = name.to_int()
@@ -39,6 +38,8 @@ func _ready() -> void:
 		),
 		LogEnums.LogLevel.DEBUG
 	)
+	
+	name_tag.text = name
 	
 	EventSystem.broadcast(
 		Notifications.PlayerSpawned.new(
