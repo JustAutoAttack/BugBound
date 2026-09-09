@@ -52,8 +52,6 @@ mesh_library = ExtResource("3_lq0vr")
 
 [node name="Props" type="Node3D" parent="NavigationRegion3D/Static" unique_id=355955710]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Static/Props" unique_id=1409364203]
-
 [node name="Instances" type="Node3D" parent="NavigationRegion3D" unique_id=67312460]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)

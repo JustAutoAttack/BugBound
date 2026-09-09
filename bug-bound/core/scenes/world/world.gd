@@ -67,7 +67,7 @@ func _register_client_ready(peer_id: int) -> void:
 	_request_spawn_player(peer_id)
 
 func _request_spawn_player(peer_id: int) -> void:
-	var spawn_transform: Node3D = _get_random_town_player_spawn()
+	var spawn_transform: Node3D = _get_random_player_spawn()
 	
 	EventSystem.dispatch_command(
 		Commands.SpawnPlayer.new(
@@ -77,35 +77,35 @@ func _request_spawn_player(peer_id: int) -> void:
 		)
 	)
 
-func _get_random_town_player_spawn() -> Node3D:
+func _get_random_player_spawn() -> Node3D:
 	if not (
 		zones_controller or 
-		zones_controller.zone_map.has(Enums.ZoneID.WEEVIL_WOOD)
+		zones_controller.zone_map.has(Enums.ZoneID.ROSWELL)
 	):
 		LogSystem.log_message(
-			"ZonesController or Town Zone missing! Defaulting world origin for player spawn.", 
+			"ZonesController or Spawn Zone missing! Defaulting world origin for player spawn.", 
 			LogEnums.LogLevel.ERROR
 		)
 		return self
 	
-	var town_zone: TownZone = zones_controller.zone_map[Enums.ZoneID.WEEVIL_WOOD]
+	var spawn_zone: WorldZone = zones_controller.zone_map[Enums.ZoneID.ROSWELL]
 	if not (
-		town_zone or 
-		town_zone.player_spawns
+		spawn_zone or 
+		spawn_zone.player_spawns
 	):
 		LogSystem.log_message(
-			"Town zone or its player_spawns container is missing!", 
+			"Spawn zone or its player_spawns container is missing!", 
 			LogEnums.LogLevel.ERROR
 		)
 		return self
 	
-	var spawn_markers: Array[Node] = town_zone.player_spawns.get_children()
+	var spawn_markers: Array[Node] = spawn_zone.player_spawns.get_children()
 	if spawn_markers.is_empty():
 		LogSystem.log_message(
-			"No player spawn markers found inside Town zone container! Defaulting to town zone position.", 
+			"No player spawn markers found inside spawn zone container! Defaulting to town zone position.", 
 			LogEnums.LogLevel.ERROR
 		)
-		return town_zone
+		return spawn_zone
 
 	return spawn_markers[randi() % spawn_markers.size()] as Node3D
 

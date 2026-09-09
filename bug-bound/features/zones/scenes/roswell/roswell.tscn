@@ -30,6 +30,9 @@ unique_name_in_owner = true
 
 [node name="Player" type="Node3D" parent="NavigationRegion3D/Static/Spawns" unique_id=976960560]
 
+[node name="Marker3D" type="Marker3D" parent="NavigationRegion3D/Static/Spawns/Player" unique_id=1551845770]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.564371, 0.82402277, 5)
+
 [node name="Bug" type="Node3D" parent="NavigationRegion3D/Static/Spawns" unique_id=1893590282]
 
 [node name="Marker3D" type="Marker3D" parent="NavigationRegion3D/Static/Spawns/Bug" unique_id=1205802811]
