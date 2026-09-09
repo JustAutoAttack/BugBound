@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://dx7hod1lpssjf"]
+
+[ext_resource type="Script" uid="uid://c1cgqm8f0weuo" path="res://features/environment/cactus.gd" id="1_hs4t0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2wcu"]
+albedo_color = Color(0.7585879, 0.78818816, 0.53412783, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hs4t0"]
+radius = 0.34814453
+height = 4.3865967
+
+[node name="Cactus" type="Node3D" unique_id=937412409]
+script = ExtResource("1_hs4t0")
+type = 1
+
+[node name="TallBoyWthArms" type="Node3D" parent="." unique_id=1907772405]
+
+[node name="Model" type="CSGCombiner3D" parent="TallBoyWthArms" unique_id=359249663]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="TallBoyWthArms/Model" unique_id=1932513815]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0275307, 0)
+radius = 0.35
+height = 4.04834
+sides = 16
+material = SubResource("StandardMaterial3D_q2wcu")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="TallBoyWthArms/Model" unique_id=1312927405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.051448, 0)
+radius = 0.35
+radial_segments = 16
+rings = 8
+material = SubResource("StandardMaterial3D_q2wcu")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="TallBoyWthArms/Model" unique_id=2047433237]
+transform = Transform3D(0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0, 1, 0.6320071, 2.77043, 0)
+radius = 0.35
+height = 1.798523
+sides = 16
+material = SubResource("StandardMaterial3D_q2wcu")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="TallBoyWthArms/Model/CSGCylinder3D2" unique_id=71418986]
+transform = Transform3D(0.9163527, -0.40037233, 0, 0.40037233, 0.9163527, 0, 0, 0, 1, -0.4067998, 1.8000269, 0)
+radius = 0.35
+height = 2.2400818
+sides = 16
+material = SubResource("StandardMaterial3D_q2wcu")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="TallBoyWthArms/Model/CSGCylinder3D2/CSGCylinder3D2" unique_id=346805255]
+transform = Transform3D(0.9999987, 0, 0, 0, 0.9999987, 0, 0, 0, 1, -0.00095772743, 1.1268702, 0.0014131665)
+radius = 0.35
+radial_segments = 16
+rings = 8
+material = SubResource("StandardMaterial3D_q2wcu")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="TallBoyWthArms/Model" unique_id=1531309543]
+transform = Transform3D(-0.47485787, -0.47485787, -0.74095875, -0.70710665, 0.70710665, 0, 0.5239368, 0.5239368, -0.6715506, -0.35250956, 2.6056478, 0.41531128)
+radius = 0.35
+height = 1.322113
+sides = 16
+material = SubResource("StandardMaterial3D_q2wcu")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="TallBoyWthArms/Model/CSGCylinder3D3" unique_id=2010390160]
+transform = Transform3D(0.9163586, -0.40039116, 8.940697e-08, 0.4003739, 0.91637176, 8.940697e-08, -2.9802322e-07, 0, 1.0000007, -0.26500058, 1.2206719, -0.0077789426)
+radius = 0.35
+height = 1.4606552
+sides = 16
+material = SubResource("StandardMaterial3D_q2wcu")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="TallBoyWthArms/Model/CSGCylinder3D3/CSGCylinder3D2" unique_id=972973461]
+transform = Transform3D(1.0000004, -2.9802322e-08, -2.9802322e-08, 2.8312206e-07, 0.99999875, -2.9802322e-08, 1.4901161e-07, 0, 1.0000001, 0.0015798211, 0.7272992, -3.9696693e-05)
+radius = 0.35
+radial_segments = 16
+rings = 8
+material = SubResource("StandardMaterial3D_q2wcu")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="TallBoyWthArms/Model" unique_id=1184303683]
+transform = Transform3D(-0.57889116, -0.57889116, 0.57425594, -0.7071067, 0.7071067, 0, -0.4060602, -0.4060602, -0.818676, -0.5583094, 2.178115, -0.38991576)
+radius = 0.35
+height = 2.0331268
+sides = 16
+material = SubResource("StandardMaterial3D_q2wcu")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="TallBoyWthArms/Model/CSGCylinder3D4" unique_id=1687295600]
+transform = Transform3D(0.91635853, -0.4003912, 8.940697e-08, 0.40037388, 0.9163717, 8.940697e-08, -2.9802322e-07, 1.4901161e-08, 1.0000007, -0.083287, 1.137676, -0.008147091)
+radius = 0.35
+height = 0.55259323
+sides = 16
+material = SubResource("StandardMaterial3D_q2wcu")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="TallBoyWthArms/Model/CSGCylinder3D4/CSGCylinder3D2" unique_id=275252790]
+transform = Transform3D(1.0000005, -5.2154064e-08, -3.5762787e-07, 2.2351742e-07, 0.99999875, 1.4901161e-08, 1.2218952e-06, 1.4901161e-08, 1.0000002, -0.0016161501, 0.27755523, -0.0007493496)
+radius = 0.35
+radial_segments = 16
+rings = 8
+material = SubResource("StandardMaterial3D_q2wcu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TallBoyWthArms" unique_id=296789336]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TallBoyWthArms/StaticBody3D" unique_id=1055372543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2041395, 0)
+shape = SubResource("CapsuleShape3D_hs4t0")
+
+[node name="TallBoy" type="Node3D" parent="." unique_id=1491683465]
+visible = false
+
+[node name="Model" type="CSGCombiner3D" parent="TallBoy" unique_id=1284560957]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="TallBoy/Model" unique_id=1002489389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0275307, 0)
+radius = 0.35
+height = 4.04834
+sides = 16
+material = SubResource("StandardMaterial3D_q2wcu")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="TallBoy/Model" unique_id=1943743530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.051448, 0)
+radius = 0.35
+radial_segments = 16
+rings = 8
+material = SubResource("StandardMaterial3D_q2wcu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TallBoy" unique_id=1452620172]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TallBoy/StaticBody3D" unique_id=1045832541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2041395, 0)
+shape = SubResource("CapsuleShape3D_hs4t0")

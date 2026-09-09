@@ -5,10 +5,12 @@
 [ext_resource type="Script" uid="uid://tyri7yoxsd8k" path="res://core/scenes/world/controllers/zones.gd" id="2_fyloc"]
 [ext_resource type="Script" uid="uid://cqsdbr21ndtk8" path="res://core/scenes/world/controllers/time.gd" id="2_w70fr"]
 [ext_resource type="Script" uid="uid://dcj62wm1wv7ag" path="res://core/scenes/world/controllers/instances.gd" id="3_4smtg"]
-[ext_resource type="PackedScene" uid="uid://bf36sn73hwh7i" path="res://features/zones/scenes/fungal_forest/fungal_forest.tscn" id="4_fyloc"]
+[ext_resource type="PackedScene" uid="uid://nvdw7b2838x3" path="res://features/zones/scenes/roswell/roswell.tscn" id="7_1vx1y"]
 [ext_resource type="PackedScene" uid="uid://yii4ratwtuu5" path="res://features/bugs/scenes/unknown/unknown.tscn" id="7_xsqbj"]
 [ext_resource type="PackedScene" uid="uid://bfnqaadx6sjk6" path="res://features/environment/sky/sky.tscn" id="8_1vx1y"]
+[ext_resource type="PackedScene" uid="uid://bf36sn73hwh7i" path="res://features/zones/scenes/fungal_forest/fungal_forest.tscn" id="8_y3u5y"]
 [ext_resource type="Script" uid="uid://cax6vtuy2rogk" path="res://core/scenes/world/context_synchronizer.gd" id="9_w70fr"]
+[ext_resource type="PackedScene" uid="uid://dw6lra3f146yt" path="res://features/characters/fresno/fresno.tscn" id="10_1vx1y"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_wrngl"]
 
@@ -23,7 +25,7 @@ script = ExtResource("9_w70fr")
 [node name="Environment" type="Node" parent="." unique_id=1169163999]
 
 [node name="Sky" parent="Environment" unique_id=1551342239 instance=ExtResource("8_1vx1y")]
-day_progress = 0.9358013407460025
+day_progress = 0.8721345740795596
 
 [node name="TimeController" type="Node" parent="." unique_id=947202986]
 script = ExtResource("2_w70fr")
@@ -33,13 +35,17 @@ unique_name_in_owner = true
 script = ExtResource("2_fyloc")
 zone_map = {
 0: NodePath("FungalForest"),
-1: NodePath("WeevilWood")
+1: NodePath("WeevilWood"),
+2: NodePath("Roswell")
 }
 
 [node name="WeevilWood" parent="ZonesController" unique_id=1382724903 instance=ExtResource("2_cnk8u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
 
-[node name="FungalForest" parent="ZonesController" unique_id=1291945602 instance=ExtResource("4_fyloc")]
+[node name="Roswell" parent="ZonesController" unique_id=1572874883 instance=ExtResource("7_1vx1y")]
+
+[node name="FungalForest" parent="ZonesController" unique_id=1291945602 instance=ExtResource("8_y3u5y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11117363, 0, -39.812416)
 
 [node name="InstancesController" type="Node" parent="." unique_id=1771369117 node_paths=PackedStringArray("zones_controller")]
 unique_name_in_owner = true
@@ -52,3 +58,6 @@ _spawnable_scenes = PackedStringArray("uid://ct6w3ftuufrxo")
 spawn_path = NodePath("../Players")
 
 [node name="Players" type="Node" parent="InstancesController" unique_id=366852136]
+
+[node name="Fresno" parent="." unique_id=1073770524 instance=ExtResource("10_1vx1y")]
+transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, 5, 0.8100035, -7)

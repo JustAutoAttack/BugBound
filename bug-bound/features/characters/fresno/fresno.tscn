@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dw6lra3f146yt"]
+
+[ext_resource type="Script" uid="uid://c10kcsap4s5y" path="res://features/characters/fresno/fresno.gd" id="1_iy3pu"]
+[ext_resource type="PackedScene" uid="uid://7yd8dw4usw5m" path="res://features/characters/fresno/fresnonightcrawler.glb" id="2_fl6r8"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_iy3pu"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fl6r8"]
+radius = 0.24414063
+height = 1.2333984
+
+[node name="Fresno" type="CharacterBody3D" unique_id=1073770524]
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("1_iy3pu")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=848180570]
+replication_config = SubResource("SceneReplicationConfig_iy3pu")
+
+[node name="PushBox" type="CollisionShape3D" parent="." unique_id=1671746366]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6166992, 0)
+shape = SubResource("CapsuleShape3D_fl6r8")
+
+[node name="Model" type="Node3D" parent="." unique_id=495706440]
+
+[node name="fresnonightcrawler" parent="Model" unique_id=2021971176 instance=ExtResource("2_fl6r8")]
+transform = Transform3D(-0.25, 0, 2.1855694e-08, 0, 0.25, 0, -2.1855694e-08, 0, -0.25, 0, 0, 0)
+
+[node name="GeneralSkeleton" parent="Model/fresnonightcrawler/Armature" parent_id_path=PackedInt32Array(2021971176, 988612305) index="0" unique_id=1075003204]
+bones/3/rotation = Quaternion(1.4210855e-14, 7.1054265e-15, 1, -8.2628665e-15)
+
+[node name="AnimationPlayer" parent="Model/fresnonightcrawler" index="1" unique_id=1762035139]
+root_motion_track = NodePath("%GeneralSkeleton:Root")
+
+[editable path="Model/fresnonightcrawler"]

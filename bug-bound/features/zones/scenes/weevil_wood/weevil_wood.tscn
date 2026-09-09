@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfnm2wkkllw61"]
 
-[ext_resource type="Script" uid="uid://qexeu2862m8y" path="res://features/zones/base_classes/town.gd" id="1_7wfmp"]
+[ext_resource type="Script" uid="uid://crm0qdg650t5b" path="res://features/zones/base_classes/zone.gd" id="1_lq0vr"]
 [ext_resource type="MeshLibrary" uid="uid://bqhrycykyifyo" path="res://assets/prototyping_blue.meshlib" id="2_lq0vr"]
 [ext_resource type="MeshLibrary" uid="uid://1te6tx43m6be" path="res://assets/mesh_libraries/fantastic_village_pack.meshlib" id="3_lq0vr"]
 
@@ -11,7 +11,7 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Arr
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4cc64"]
 
 [node name="WeevilWood" type="Node3D" unique_id=1382724903]
-script = ExtResource("1_7wfmp")
+script = ExtResource("1_lq0vr")
 zone = 1
 
 [node name="Spawners" type="Node" parent="." unique_id=1469351803]

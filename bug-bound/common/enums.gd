@@ -72,7 +72,8 @@ enum PauseMenuAction {
 
 enum ZoneID {
 	FUNGAL_FOREST,
-	WEEVIL_WOOD
+	WEEVIL_WOOD,
+	ROSWELL
 }
 
 enum ZoneType {
@@ -106,4 +107,11 @@ enum BugCombatStat {
 	ATTACK,
 	DEFENSE,
 	SPEED,
+}
+
+# --- Environment ---
+
+enum CactusType {
+	TALL_BOY,
+	TALL_BOY_WITH_ARMS
 }

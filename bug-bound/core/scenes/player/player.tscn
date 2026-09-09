@@ -20,14 +20,14 @@ properties/1/replication_mode = 1
 size = Vector3(0.390625, 0.28125, 0.67871094)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ebstt"]
-radius = 0.2
+radius = 0.02
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4cc64"]
 radius = 2.5
 
 [node name="Player" type="CharacterBody3D" unique_id=1443216549]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 19
 script = ExtResource("1_8rfna")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=2107019686]

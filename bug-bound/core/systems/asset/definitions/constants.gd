@@ -25,7 +25,8 @@ class ScenePaths:
 	const ZONES_DIR: String = FEATURES_DIR + "zones/scenes/"
 	const ZONES_TABLE: Dictionary[Enums.ZoneID, String] = {
 		Enums.ZoneID.FUNGAL_FOREST: ZONES_DIR + "fungal_forest/fungal_forest.tscn",
-		Enums.ZoneID.WEEVIL_WOOD: ZONES_DIR + "weevil_wood/weevil_wood.tscn"
+		Enums.ZoneID.WEEVIL_WOOD: ZONES_DIR + "weevil_wood/weevil_wood.tscn",
+		Enums.ZoneID.ROSWELL: ZONES_DIR + "roswell/roswell.tscn",
 	}
 
 class DataPaths:

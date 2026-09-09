@@ -10,12 +10,14 @@ class PhysicsLayer:
 	const PROP_INDEX: int = 2
 	const PLAYER_INDEX: int = 3
 	const BUG_INDEX: int = 4
+	const NPC_INDEX: int = 5
 
 	# Mask
 	const WORLD_MASK: int = 1 << 0
 	const PROP_MASK: int = 1 << 1
 	const PLAYER_MASK: int = 1 << 2
 	const BUG_MASK: int = 1 << 3
+	const NPC_MASK: int = 1 << 4
 
 class RenderLayer:
 	
