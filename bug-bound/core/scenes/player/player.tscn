@@ -27,7 +27,7 @@ radius = 2.5
 
 [node name="Player" type="CharacterBody3D" unique_id=1443216549]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("1_8rfna")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=2107019686]
@@ -47,6 +47,14 @@ mesh = SubResource("CapsuleMesh_4cc64")
 [node name="ForwardRefMesh" type="MeshInstance3D" parent="Model" unique_id=459462104]
 transform = Transform3D(1, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 0, 0.51195097, -0.7556559)
 mesh = SubResource("BoxMesh_4cc64")
+
+[node name="NameTag" type="Label3D" parent="Model" unique_id=1518366542]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.8276368, 0)
+billboard = 1
+text = "10001
+"
+font_size = 64
 
 [node name="CameraController" type="Node3D" parent="." unique_id=1898099484]
 unique_name_in_owner = true
