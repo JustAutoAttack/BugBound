@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bphmoft4w3yts"]
+
+[ext_resource type="Script" uid="uid://biec63qgnxicn" path="res://features/bugs/scenes/stinkbug/stinkbug.gd" id="1_u3rue"]
+[ext_resource type="SpriteFrames" uid="uid://hfo3jxbq0v3" path="res://assets/textures/bug_sprites/stinkbug/Stinkbug Idle.xml" id="2_wophc"]
+
+[node name="Stinkbug" type="CharacterBody3D" unique_id=1153513270]
+script = ExtResource("1_u3rue")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=620549126]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1483910573]
+billboard = 2
+sprite_frames = ExtResource("2_wophc")
+animation = &"Stinkbug Idle"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite3D" unique_id=659309691]

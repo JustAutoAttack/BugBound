@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Bugbound Bugs.png">
+	<!-- Created with Adobe Animate version 24.0.10.14 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Fartcloud0000" x="1" y="1" width="167" height="131" frameX="-519" frameY="-204" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0001" x="168" y="1" width="856" height="527" frameX="-208" frameY="0" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0002" x="168" y="1" width="856" height="527" frameX="-208" frameY="0" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0003" x="1024" y="1" width="967" height="580" frameX="-166" frameY="0" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0004" x="1991" y="1" width="967" height="471" frameX="-166" frameY="-109" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0005" x="2958" y="1" width="1121" height="540" frameX="-110" frameY="-73" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0006" x="4079" y="1" width="1294" height="553" frameX="-70" frameY="-66" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0007" x="5373" y="1" width="1424" height="561" frameX="0" frameY="-88" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0008" x="6797" y="1" width="868" height="280" frameX="-516" frameY="-73" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0009" x="7665" y="1" width="339" height="262" frameX="-502" frameY="-94" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0010" x="7665" y="1" width="339" height="262" frameX="-502" frameY="-94" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0011" x="1" y="581" width="338" height="262" frameX="-503" frameY="-94" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0012" x="1" y="581" width="338" height="262" frameX="-503" frameY="-94" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0013" x="1" y="581" width="338" height="262" frameX="-503" frameY="-94" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0014" x="339" y="581" width="336" height="264" frameX="-504" frameY="-93" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0015" x="339" y="581" width="336" height="264" frameX="-504" frameY="-93" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0016" x="675" y="581" width="335" height="262" frameX="-505" frameY="-95" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0017" x="675" y="581" width="335" height="262" frameX="-505" frameY="-95" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0018" x="675" y="581" width="335" height="262" frameX="-505" frameY="-95" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0019" x="1010" y="581" width="331" height="266" frameX="-502" frameY="-90" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0020" x="1010" y="581" width="331" height="266" frameX="-502" frameY="-90" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0021" x="1341" y="581" width="328" height="266" frameX="-504" frameY="-91" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0022" x="1341" y="581" width="328" height="266" frameX="-504" frameY="-91" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="Fartcloud0023" x="1341" y="581" width="328" height="266" frameX="-504" frameY="-91" frameWidth="1424" frameHeight="649"/>
+	<SubTexture name="PretendDead End0000" x="1669" y="581" width="446" height="155" frameX="0" frameY="-159" frameWidth="476" frameHeight="314"/>
+	<SubTexture name="PretendDead End0001" x="1669" y="581" width="446" height="155" frameX="0" frameY="-159" frameWidth="476" frameHeight="314"/>
+	<SubTexture name="PretendDead End0002" x="2115" y="581" width="409" height="176" frameX="-30" frameY="-120" frameWidth="476" frameHeight="314"/>
+	<SubTexture name="PretendDead End0003" x="2115" y="581" width="409" height="176" frameX="-30" frameY="-120" frameWidth="476" frameHeight="314"/>
+	<SubTexture name="PretendDead End0004" x="2524" y="581" width="409" height="281" frameX="-67" frameY="0" frameWidth="476" frameHeight="314"/>
+	<SubTexture name="PretendDead End0005" x="2933" y="581" width="409" height="281" frameX="-67" frameY="0" frameWidth="476" frameHeight="314"/>
+	<SubTexture name="PretendDead Start0000" x="3342" y="581" width="459" height="212" frameX="-82" frameY="-151" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0001" x="3342" y="581" width="459" height="212" frameX="-82" frameY="-151" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0002" x="3801" y="581" width="342" height="363" frameX="-82" frameY="0" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0003" x="3801" y="581" width="342" height="363" frameX="-82" frameY="0" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0004" x="4143" y="581" width="400" height="349" frameX="-82" frameY="-15" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0005" x="4543" y="581" width="400" height="349" frameX="-82" frameY="-15" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0006" x="4943" y="581" width="409" height="279" frameX="-82" frameY="-85" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0007" x="5352" y="581" width="409" height="279" frameX="-82" frameY="-85" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0008" x="5761" y="581" width="405" height="286" frameX="-82" frameY="-77" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0009" x="6166" y="581" width="352" height="280" frameX="-87" frameY="-84" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0010" x="6518" y="581" width="352" height="280" frameX="-87" frameY="-84" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0011" x="6870" y="581" width="512" height="179" frameX="0" frameY="-215" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0012" x="6870" y="581" width="512" height="179" frameX="0" frameY="-215" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0013" x="7382" y="581" width="411" height="199" frameX="-46" frameY="-198" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0014" x="7382" y="581" width="411" height="199" frameX="-46" frameY="-198" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0015" x="1" y="944" width="427" height="174" frameX="-41" frameY="-223" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0016" x="1" y="944" width="427" height="174" frameX="-41" frameY="-223" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0017" x="428" y="944" width="431" height="162" frameX="-41" frameY="-235" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0018" x="428" y="944" width="431" height="162" frameX="-41" frameY="-235" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0019" x="859" y="944" width="432" height="160" frameX="-41" frameY="-237" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0020" x="859" y="944" width="432" height="160" frameX="-41" frameY="-237" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0021" x="1291" y="944" width="432" height="160" frameX="-41" frameY="-237" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0022" x="1291" y="944" width="432" height="160" frameX="-41" frameY="-237" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0023" x="1723" y="944" width="432" height="160" frameX="-41" frameY="-237" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="PretendDead Start0024" x="1723" y="944" width="432" height="160" frameX="-41" frameY="-237" frameWidth="541" frameHeight="397"/>
+	<SubTexture name="Stinkbug Eat0000" x="2155" y="944" width="431" height="240" frameX="-15" frameY="0" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0001" x="2155" y="944" width="431" height="240" frameX="-15" frameY="0" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0002" x="2586" y="944" width="410" height="211" frameX="-13" frameY="-29" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0003" x="2586" y="944" width="410" height="211" frameX="-13" frameY="-29" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0004" x="2996" y="944" width="387" height="221" frameX="-11" frameY="-20" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0005" x="2996" y="944" width="387" height="221" frameX="-11" frameY="-20" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0006" x="3383" y="944" width="431" height="188" frameX="-11" frameY="-53" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0007" x="3383" y="944" width="431" height="188" frameX="-11" frameY="-53" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0008" x="3814" y="944" width="432" height="180" frameX="-11" frameY="-61" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0009" x="3814" y="944" width="432" height="180" frameX="-11" frameY="-61" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0010" x="4246" y="944" width="431" height="186" frameX="-11" frameY="-55" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0011" x="4246" y="944" width="431" height="186" frameX="-11" frameY="-55" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0012" x="4677" y="944" width="447" height="181" frameX="-3" frameY="-60" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0013" x="4677" y="944" width="447" height="181" frameX="-3" frameY="-60" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0014" x="5124" y="944" width="429" height="204" frameX="0" frameY="-36" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0015" x="5124" y="944" width="429" height="204" frameX="0" frameY="-36" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0016" x="5553" y="944" width="377" height="235" frameX="-23" frameY="-5" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0017" x="5553" y="944" width="377" height="235" frameX="-23" frameY="-5" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0018" x="5553" y="944" width="377" height="235" frameX="-23" frameY="-5" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0019" x="5930" y="944" width="399" height="181" frameX="-15" frameY="-59" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0020" x="5930" y="944" width="399" height="181" frameX="-15" frameY="-59" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0021" x="6329" y="944" width="446" height="158" frameX="-18" frameY="-100" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0022" x="6329" y="944" width="446" height="158" frameX="-18" frameY="-100" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0023" x="6775" y="944" width="444" height="161" frameX="-13" frameY="-94" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Eat0024" x="6775" y="944" width="444" height="161" frameX="-13" frameY="-94" frameWidth="464" frameHeight="258"/>
+	<SubTexture name="Stinkbug Faint0000" x="7219" y="944" width="433" height="231" frameX="-86" frameY="0" frameWidth="567" frameHeight="249"/>
+	<SubTexture name="Stinkbug Faint0001" x="7219" y="944" width="433" height="231" frameX="-86" frameY="0" frameWidth="567" frameHeight="249"/>
+	<SubTexture name="Stinkbug Faint0002" x="7652" y="944" width="452" height="212" frameX="-79" frameY="-19" frameWidth="567" frameHeight="249"/>
+	<SubTexture name="Stinkbug Faint0003" x="1" y="1184" width="567" height="202" frameX="0" frameY="-43" frameWidth="567" frameHeight="249"/>
+	<SubTexture name="Stinkbug Faint0004" x="1" y="1184" width="567" height="202" frameX="0" frameY="-43" frameWidth="567" frameHeight="249"/>
+	<SubTexture name="Stinkbug Faint0005" x="568" y="1184" width="503" height="226" frameX="-32" frameY="-23" frameWidth="567" frameHeight="249"/>
+	<SubTexture name="Stinkbug Faint0006" x="568" y="1184" width="503" height="226" frameX="-32" frameY="-23" frameWidth="567" frameHeight="249"/>
+	<SubTexture name="Stinkbug Faint0007" x="1071" y="1184" width="517" height="214" frameX="-25" frameY="-35" frameWidth="567" frameHeight="249"/>
+	<SubTexture name="Stinkbug Faint0008" x="1071" y="1184" width="517" height="214" frameX="-25" frameY="-35" frameWidth="567" frameHeight="249"/>
+	<SubTexture name="Stinkbug HurtFart0000" x="1588" y="1184" width="423" height="236" frameX="-47" frameY="-107" frameWidth="489" frameHeight="345"/>
+	<SubTexture name="Stinkbug HurtFart0001" x="2011" y="1184" width="478" height="344" frameX="-2" frameY="0" frameWidth="489" frameHeight="345"/>
+	<SubTexture name="Stinkbug HurtFart0002" x="2011" y="1184" width="478" height="344" frameX="-2" frameY="0" frameWidth="489" frameHeight="345"/>
+	<SubTexture name="Stinkbug HurtFart0003" x="2011" y="1184" width="478" height="344" frameX="-2" frameY="0" frameWidth="489" frameHeight="345"/>
+	<SubTexture name="Stinkbug HurtFart0004" x="2489" y="1184" width="489" height="281" frameX="0" frameY="-64" frameWidth="489" frameHeight="345"/>
+	<SubTexture name="Stinkbug HurtFart0005" x="2489" y="1184" width="489" height="281" frameX="0" frameY="-64" frameWidth="489" frameHeight="345"/>
+	<SubTexture name="Stinkbug HurtFart0006" x="2489" y="1184" width="489" height="281" frameX="0" frameY="-64" frameWidth="489" frameHeight="345"/>
+	<SubTexture name="Stinkbug HurtFart0007" x="2978" y="1184" width="447" height="202" frameX="-38" frameY="-141" frameWidth="489" frameHeight="345"/>
+	<SubTexture name="Stinkbug HurtFart0008" x="2978" y="1184" width="447" height="202" frameX="-38" frameY="-141" frameWidth="489" frameHeight="345"/>
+	<SubTexture name="Stinkbug Idle0000" x="3425" y="1184" width="433" height="231" frameX="-2" frameY="-22" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0001" x="3425" y="1184" width="433" height="231" frameX="-2" frameY="-22" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0002" x="3425" y="1184" width="433" height="231" frameX="-2" frameY="-22" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0003" x="3858" y="1184" width="432" height="231" frameX="0" frameY="-23" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0004" x="4290" y="1184" width="432" height="231" frameX="0" frameY="-23" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0005" x="4722" y="1184" width="432" height="230" frameX="0" frameY="-24" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0006" x="5154" y="1184" width="430" height="245" frameX="0" frameY="-9" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0007" x="5584" y="1184" width="430" height="245" frameX="0" frameY="-9" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0008" x="6014" y="1184" width="430" height="245" frameX="0" frameY="-9" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0009" x="6014" y="1184" width="430" height="245" frameX="0" frameY="-9" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0010" x="6444" y="1184" width="428" height="249" frameX="-1" frameY="-4" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0011" x="6872" y="1184" width="428" height="249" frameX="-1" frameY="-4" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0012" x="7300" y="1184" width="428" height="249" frameX="-1" frameY="-4" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0013" x="7728" y="1184" width="427" height="253" frameX="-2" frameY="0" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0014" x="1" y="1528" width="427" height="253" frameX="-2" frameY="0" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0015" x="1" y="1528" width="427" height="253" frameX="-2" frameY="0" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0016" x="428" y="1528" width="429" height="248" frameX="-2" frameY="-5" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0017" x="857" y="1528" width="429" height="248" frameX="-2" frameY="-5" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0018" x="857" y="1528" width="429" height="248" frameX="-2" frameY="-5" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0019" x="857" y="1528" width="429" height="248" frameX="-2" frameY="-5" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0020" x="1286" y="1528" width="434" height="231" frameX="-2" frameY="-22" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0021" x="1720" y="1528" width="434" height="231" frameX="-2" frameY="-22" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle0022" x="1720" y="1528" width="434" height="231" frameX="-2" frameY="-22" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0000" x="2154" y="1528" width="433" height="231" frameX="-2" frameY="-22" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0001" x="2587" y="1528" width="433" height="231" frameX="-2" frameY="-22" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0002" x="2587" y="1528" width="433" height="231" frameX="-2" frameY="-22" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0003" x="3020" y="1528" width="432" height="231" frameX="0" frameY="-23" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0004" x="3452" y="1528" width="432" height="231" frameX="0" frameY="-23" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0005" x="3884" y="1528" width="432" height="230" frameX="0" frameY="-24" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0006" x="4316" y="1528" width="430" height="245" frameX="0" frameY="-9" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0007" x="4746" y="1528" width="430" height="245" frameX="0" frameY="-9" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0008" x="5176" y="1528" width="430" height="245" frameX="0" frameY="-9" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0009" x="5606" y="1528" width="430" height="245" frameX="0" frameY="-9" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0010" x="6036" y="1528" width="428" height="249" frameX="-1" frameY="-4" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0011" x="6464" y="1528" width="428" height="249" frameX="-1" frameY="-4" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0012" x="6892" y="1528" width="428" height="249" frameX="-1" frameY="-4" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0013" x="7728" y="1184" width="427" height="253" frameX="-2" frameY="0" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0014" x="1" y="1528" width="427" height="253" frameX="-2" frameY="0" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0015" x="1" y="1528" width="427" height="253" frameX="-2" frameY="0" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0016" x="7320" y="1528" width="429" height="248" frameX="-2" frameY="-5" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0017" x="7749" y="1528" width="429" height="248" frameX="-2" frameY="-5" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0018" x="1" y="1781" width="429" height="248" frameX="-2" frameY="-5" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0019" x="1" y="1781" width="429" height="248" frameX="-2" frameY="-5" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0020" x="430" y="1781" width="434" height="231" frameX="-2" frameY="-22" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0021" x="864" y="1781" width="434" height="231" frameX="-2" frameY="-22" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Idle drool0022" x="1298" y="1781" width="434" height="231" frameX="-2" frameY="-22" frameWidth="436" frameHeight="254"/>
+	<SubTexture name="Stinkbug Petting0000" x="1732" y="1781" width="429" height="240" frameX="0" frameY="-24" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0001" x="1732" y="1781" width="429" height="240" frameX="0" frameY="-24" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0002" x="2161" y="1781" width="420" height="248" frameX="0" frameY="-16" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0003" x="2581" y="1781" width="420" height="248" frameX="0" frameY="-16" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0004" x="3001" y="1781" width="418" height="251" frameX="0" frameY="-13" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0005" x="3001" y="1781" width="418" height="251" frameX="0" frameY="-13" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0006" x="3419" y="1781" width="418" height="251" frameX="0" frameY="-13" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0007" x="3837" y="1781" width="416" height="264" frameX="0" frameY="0" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0008" x="3837" y="1781" width="416" height="264" frameX="0" frameY="0" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0009" x="4253" y="1781" width="419" height="259" frameX="0" frameY="-5" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0010" x="4253" y="1781" width="419" height="259" frameX="0" frameY="-5" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0011" x="4253" y="1781" width="419" height="259" frameX="0" frameY="-5" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0012" x="4672" y="1781" width="423" height="253" frameX="0" frameY="-11" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0013" x="4672" y="1781" width="423" height="253" frameX="0" frameY="-11" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0014" x="5095" y="1781" width="425" height="246" frameX="0" frameY="-18" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Petting0015" x="5520" y="1781" width="425" height="246" frameX="0" frameY="-18" frameWidth="429" frameHeight="264"/>
+	<SubTexture name="Stinkbug Walk0000" x="5945" y="1781" width="431" height="234" frameX="-55" frameY="-17" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0001" x="5945" y="1781" width="431" height="234" frameX="-55" frameY="-17" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0002" x="6376" y="1781" width="428" height="243" frameX="-55" frameY="-8" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0003" x="6804" y="1781" width="428" height="243" frameX="-55" frameY="-8" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0004" x="6804" y="1781" width="428" height="243" frameX="-55" frameY="-8" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0005" x="7232" y="1781" width="427" height="247" frameX="-55" frameY="-4" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0006" x="7659" y="1781" width="427" height="247" frameX="-55" frameY="-4" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0007" x="1" y="2045" width="432" height="248" frameX="-49" frameY="-4" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0008" x="433" y="2045" width="432" height="248" frameX="-49" frameY="-4" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0009" x="865" y="2045" width="451" height="247" frameX="-31" frameY="-6" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0010" x="865" y="2045" width="451" height="247" frameX="-31" frameY="-6" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0011" x="1316" y="2045" width="485" height="247" frameX="-3" frameY="-8" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0012" x="1801" y="2045" width="485" height="247" frameX="-3" frameY="-8" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0013" x="2286" y="2045" width="490" height="233" frameX="-5" frameY="-22" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0014" x="2776" y="2045" width="490" height="233" frameX="-5" frameY="-22" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0015" x="3266" y="2045" width="490" height="233" frameX="-5" frameY="-22" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0016" x="3756" y="2045" width="499" height="206" frameX="-3" frameY="-49" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0017" x="4255" y="2045" width="499" height="206" frameX="-3" frameY="-49" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0018" x="4754" y="2045" width="499" height="211" frameX="0" frameY="-44" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0019" x="4754" y="2045" width="499" height="211" frameX="0" frameY="-44" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0020" x="5253" y="2045" width="479" height="216" frameX="-15" frameY="-31" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0021" x="5732" y="2045" width="479" height="216" frameX="-15" frameY="-31" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0022" x="6211" y="2045" width="446" height="223" frameX="-45" frameY="-25" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0023" x="6657" y="2045" width="446" height="223" frameX="-45" frameY="-25" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0024" x="7103" y="2045" width="432" height="229" frameX="-55" frameY="-19" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0025" x="7103" y="2045" width="432" height="229" frameX="-55" frameY="-19" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0026" x="7535" y="2045" width="430" height="245" frameX="-55" frameY="-5" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0027" x="1" y="2293" width="429" height="245" frameX="-55" frameY="-5" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0028" x="1" y="2293" width="429" height="245" frameX="-55" frameY="-5" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0029" x="430" y="2293" width="428" height="250" frameX="-55" frameY="-2" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0030" x="858" y="2293" width="428" height="250" frameX="-55" frameY="-2" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0031" x="1286" y="2293" width="434" height="258" frameX="-49" frameY="0" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0032" x="1720" y="2293" width="434" height="258" frameX="-49" frameY="0" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0033" x="2154" y="2293" width="452" height="251" frameX="-32" frameY="-4" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0034" x="2154" y="2293" width="452" height="251" frameX="-32" frameY="-4" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0035" x="2606" y="2293" width="483" height="239" frameX="-5" frameY="-16" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0036" x="3089" y="2293" width="482" height="239" frameX="-5" frameY="-16" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0037" x="3571" y="2293" width="479" height="239" frameX="-8" frameY="-16" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0038" x="4050" y="2293" width="485" height="236" frameX="-8" frameY="-26" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0039" x="4535" y="2293" width="485" height="236" frameX="-8" frameY="-26" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0040" x="5020" y="2293" width="493" height="213" frameX="-6" frameY="-47" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0041" x="5513" y="2293" width="493" height="213" frameX="-6" frameY="-47" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0042" x="6006" y="2293" width="492" height="217" frameX="-5" frameY="-42" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0043" x="6006" y="2293" width="492" height="217" frameX="-5" frameY="-42" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0044" x="6498" y="2293" width="479" height="221" frameX="-15" frameY="-36" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0045" x="6977" y="2293" width="478" height="221" frameX="-15" frameY="-36" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0046" x="7455" y="2293" width="445" height="226" frameX="-45" frameY="-28" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0047" x="1" y="2551" width="445" height="226" frameX="-45" frameY="-28" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0048" x="446" y="2551" width="137" height="94" frameX="-353" frameY="-28" frameWidth="502" frameHeight="262"/>
+	<SubTexture name="Stinkbug Walk0049" x="446" y="2551" width="137" height="94" frameX="-353" frameY="-28" frameWidth="502" frameHeight="262"/>
+</TextureAtlas>
